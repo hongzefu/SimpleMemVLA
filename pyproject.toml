@@ -33,3 +33,22 @@ dependencies = [
 
 [tool.setuptools.packages.find]
 include = ["simplememvla*"]
+
+# ---- RoboMME 闭环评测栈（本仓库新增；对应 scripts/install/install_robomme_sim.sh）----
+# 上游用 `pip install -e third_party/ManiSkill` 装这一份 fork，这里改写成 uv 的
+# path + editable 声明，好处是 `uv sync --exact` 不会把它当作「不在 lock 里的包」卸掉。
+# fork 的 commit 由 `git -C third_party/ManiSkill checkout 07be6fbc` 固定。
+[project.optional-dependencies]
+robomme-sim = ["mani-skill"]
+
+[tool.uv.sources]
+mani-skill = { path = "third_party/ManiSkill", editable = true }
+
+[tool.uv]
+# 只约束本地解析，不改 [project].dependencies 里对上游忠实的版本区间，二者取交集。
+constraint-dependencies = [
+  # checkpoint 的 config.json 记录 transformers_version = 5.13.1；RoboMME 的 prompt
+  # 由 processor.apply_chat_template 渲染，版本相关。eval_robomme.sh 没有版本 preflight，
+  # 装错版本不报错、只静默掉分，所以必须在这里钉死。
+  "transformers==5.13.1",
+]

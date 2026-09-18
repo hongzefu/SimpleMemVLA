@@ -28,3 +28,9 @@ evaluation_benchmark/libero_fork/
 # cloned by their install scripts.
 third_party/*
 !third_party/MIKASA-Robo
+
+# uv 虚拟环境（一个 benchmark 一个，见 AGENTS.md）
+.venv*/
+
+# setuptools 构建产物（uv sync 装本项目时生成）
+*.egg-info/
