@@ -46,7 +46,8 @@ BinFill 示范任务及示范帧必须为零，正常初始帧仍进入模型；
 1. 本机 GPU1：BinFill/hard 第一条真实闭环，然后其他 13 组各一条。14 条正常终态且视频可解码才放行 GL。
 2. hold-01 `61495429`、hold-02 `61495430`：各 1 GPU/1 CPU/24 GB，使用已有分配，不另交 sbatch。
    每组按 episode 排序后偶数序号给 hold01、奇数序号给 hold02，各 350 条。
-3. 每路 25 批，每批 14 组各一条。每批新进程；首批正常完成且峰值 RSS 低于分配上限后继续。
+3. 每路 25 批，每批 14 组各一条。每批新进程；首批正常完成且内核无新增 OOM kill 后继续。
+   RSS 包含共享映射页，不能直接与 cgroup 限额比较；记录 cgroup 的真实上限、峰值与 OOM 事件。
 4. 进程启动前设置 `GLIBC_TUNABLES=glibc.rtld.optional_static_tls=65536`。
    reset 超时 3600 秒、单次推理/step 超时 300 秒，监督进程额外留 30 秒收尾；挂死时终止本轮批次进程组。
 5. `srun --overlap --exact --account=chaijy2 --partition=spgpu --gpu_cmode=shared`，
@@ -76,3 +77,30 @@ tmux new-session -d -s smvla-candidates-0918 \
 `success/fail/timeout` 都是正常终态，`error` 与 missing 单列且不缩小分母；完整性通过不等于策略成功。
 报告给出每组成功数/50、总成功数/700、宏平均、错误、重跑及耗时。本机冒烟不加入正式统计。
 运行中冻结源码与权重；结束后补写 result.md 并归档轻量原始证据，不归档代码、脚本或权重副本。
+
+## 首轮控制器修订与恢复
+
+启动提交为 `170125f`。首轮本机 14 条完整通过；GL 的 16 条正常结果保留，另有一次 Vulkan
+reset 错误和一次为修复而主动暂停的在途回合。两路暂停时只取消本轮 step，未取消 hold 分配。
+
+两处控制层修复：JSON 文件显式使用 UTF-8，避免原生库更改 locale 后中文异常写盘失败；
+用已核实的 GL cgroup v2 job 层计数取代不正确的 RSS 阈值。内核实测 hold01
+`memory.max=25769803776, memory.peak=22243323904, oom=0, oom_kill=0`。
+不再用额外重叠 GPU step 做运行中的诊断，避免计算模式干扰；Vulkan 错误根因尚未证明。
+
+恢复只允许控制器、候选持久化模块、编排 shell 和定向测试四个文件变化；模型、环境适配器、
+评估循环、权重、候选、配置任一变化都会拒绝沿用结果。完整旧 manifest 单独备份并内嵌到新版，
+旧计划和旧回合文件保持原字节，旧/新来源 SHA 均可追溯。并发运行器持锁时禁止修订。
+
+提交修复并确认所有本轮 step 退出后，在本机执行：
+
+```bash
+export UV_PROJECT_ENVIRONMENT="$PWD/.venv-robomme" UV_LINK_MODE=copy UV_CACHE_DIR="$HOME/.cache/uv"
+uv run --frozen --no-sync python -m robomme_sim.candidate_plan revise-controller \
+  logs/robomme_sim/smvla-injection700-nodemo-20260918
+tmux new-session -d -s smvla-candidates-0918-r1 \
+  'set -o pipefail; RESUME=1 bash scripts/run_candidate_campaign.sh 2>&1 | stdbuf -oL tee logs/setup/smvla-injection700-nodemo-20260918.campaign-r1.log; echo EXIT_CODE=$? | tee -a logs/setup/smvla-injection700-nodemo-20260918.campaign-r1.log'
+```
+
+恢复跳过全部正常终态；中断回合记入第一次尝试，运行错误仍最多尝试两次，不重置计数。
+恢复的 GL 包装日志使用 `-r1` 后缀，不覆盖首轮日志。只跟踪本轮两个 step，不释放 hold。

@@ -11,8 +11,26 @@ import time
 
 from robomme_sim.candidate_plan import (
     CONFIG, NORMAL, atomic_json, attempts, digest, load_plan, read_json,
-    result_dir, summarize, verify_manifest, read_candidates, partition, key,
+    result_dir, summarize, verify_manifest, read_candidates, partition, key, manifest_tokens,
 )
+
+
+def slurm_memory_snapshot():
+    """读取已核实的 GL cgroup v2 作业内存，避免把共享映射 RSS 当成实际收费内存。"""
+    job = os.environ.get("SLURM_JOB_ID")
+    if not job:
+        return {}
+    membership = Path("/proc/self/cgroup").read_text(encoding="utf-8").splitlines()
+    relative = next(line.split(":", 2)[2] for line in membership if line.startswith("0::"))
+    current = Path("/sys/fs/cgroup") / relative.lstrip("/")
+    root = next(p for p in (current, *current.parents) if p.name == f"job_{job}")
+    events = dict(line.split() for line in (root / "memory.events").read_text().splitlines())
+    snapshot = {"limit_bytes": int((root / "memory.max").read_text()),
+                "peak_bytes": int((root / "memory.peak").read_text()),
+                "oom_kill": int(events["oom_kill"]), "oom": int(events["oom"])}
+    if snapshot["limit_bytes"] != 24 * 1024 ** 3:
+        raise RuntimeError(f"已有 hold 内存上限与批准的 24 GiB 不符：{snapshot}")
+    return snapshot
 
 
 def record_crash(run, manifest, message):
@@ -40,7 +58,7 @@ def launch(suite, lane, resume=False):
         fcntl.flock(lock, fcntl.LOCK_EX | fcntl.LOCK_NB)
         manifest = verify_manifest(suite, full=True)
         lane_plan = read_json(suite / "plans" / f"{lane}.json")
-        if lane_plan["manifest_sha256"] != digest(manifest):
+        if lane_plan["manifest_sha256"] not in manifest_tokens(manifest):
             raise ValueError("分片目录指纹不符")
         _, all_rows = read_candidates(manifest["benchmark_root"])
         expected_chunks = partition(all_rows)[lane]
@@ -56,6 +74,7 @@ def launch(suite, lane, resume=False):
         if lane == "local-smoke" and expected:
             raise ValueError("本机冒烟不能在 GL 执行")
         record_crash(run, manifest, "上次运行中断；保留原候选和 seed")
+        memory_before = slurm_memory_snapshot()
         for relative in lane_plan["batches"]:
             plan_path = suite / relative
             _, _, rows = load_plan(plan_path, manifest)
@@ -103,10 +122,11 @@ def launch(suite, lane, resume=False):
                     raise RuntimeError("批次没有产生回合记录，不能将导入/模型启动失败当作完成")
             latest = [attempts(run, r, manifest)[-1] for r in rows]
             peak = max(r["max_rss_kib"] for r in latest)
-            if lane.startswith("hold") and peak >= 24 * 1024 * 1024:
-                raise RuntimeError("进程峰值达到已有分配的 24 GB 上限")
+            memory_after = slurm_memory_snapshot()
+            if memory_after and memory_after["oom_kill"] > memory_before["oom_kill"]:
+                raise RuntimeError(f"本次运行出现 cgroup OOM kill：{memory_after}")
             print(f"BATCH_PASS lane={lane} plan={plan_path.name} episodes={len(rows)} "
-                  f"peak_rss_kib={peak}", flush=True)
+                  f"peak_rss_kib={peak} cgroup={memory_after}", flush=True)
         if not summarize(suite, lane)["complete"]:
             raise RuntimeError("分片完整性验收失败")
 

@@ -3,6 +3,8 @@ from __future__ import annotations
 
 import argparse
 from collections import defaultdict
+import copy
+import fcntl
 import hashlib
 import importlib.util
 import json
@@ -26,11 +28,33 @@ CONFIG = dict(max_steps=2000, execute_horizon=16, num_denoising_steps=10,
               attn_implementation="sdpa", group_size=1, num_gpus=1,
               policy_seed=0, binfill_demo=False, max_attempts=2, chunk_size=14)
 NORMAL = {"success", "fail", "timeout"}
+# 只允许修复调度/持久化控制层；环境、模型、评估循环和推理配置不能沿用旧结果。
+CONTROLLER_FILES = {"robomme_sim/candidate_launcher.py", "robomme_sim/candidate_plan.py",
+                    "scripts/run_candidate_campaign.sh", "tests/test_candidate_eval.py"}
 
 
 def digest(value):
     return hashlib.sha256(json.dumps(value, sort_keys=True, separators=(",", ":"),
                                     ensure_ascii=False, allow_nan=False).encode()).hexdigest()
+
+
+def manifest_tokens(manifest):
+    tokens = {digest(manifest)}
+    ignored = {"source_commit", "source_files", "previous_manifests"}
+    for old in manifest.get("previous_manifests", []):
+        if old.get("previous_manifests"):
+            raise ValueError("不支持嵌套来源修订")
+        if {k: v for k, v in old.items() if k not in ignored} != {
+                k: v for k, v in manifest.items() if k not in ignored}:
+            raise ValueError("来源修订改变了权重、候选或评估配置")
+        old_files, new_files = old["source_files"], manifest["source_files"]
+        if old_files.keys() != new_files.keys():
+            raise ValueError("来源修订改变了运行文件集合")
+        changed = {p for p in old_files if old_files[p] != new_files[p]}
+        if not changed or not changed <= CONTROLLER_FILES:
+            raise ValueError(f"来源修订超出控制层：{sorted(changed)}")
+        tokens.add(digest(old))
+    return tokens
 
 
 def sha_file(path):
@@ -56,7 +80,7 @@ def atomic_json(path, value):
     p.parent.mkdir(parents=True, exist_ok=True)
     fd, tmp = tempfile.mkstemp(prefix=".pending-", dir=p.parent)
     try:
-        with os.fdopen(fd, "w") as f:
+        with os.fdopen(fd, "w", encoding="utf-8") as f:
             json.dump(value, f, ensure_ascii=False, indent=2, allow_nan=False)
             f.write("\n")
             f.flush()
@@ -67,7 +91,7 @@ def atomic_json(path, value):
 
 
 def read_json(path):
-    return json.loads(Path(path).read_text())
+    return json.loads(Path(path).read_text(encoding="utf-8"))
 
 
 def key(row):
@@ -156,6 +180,7 @@ def prepare(output, benchmark_root, checkpoint):
 
 def verify_manifest(suite, full=False):
     manifest = read_json(Path(suite) / "manifest.json")
+    manifest_tokens(manifest)
     if manifest["config"] != CONFIG or manifest["benchmark_commit"] != BENCHMARK_COMMIT:
         raise ValueError("运行配置或 benchmark 版本不符")
     for relative, expected in manifest["source_files"].items():
@@ -173,7 +198,7 @@ def verify_manifest(suite, full=False):
 def load_plan(path, manifest):
     plan = read_json(path)
     keys = [tuple(k) for k in plan["keys"]]
-    if plan["manifest_sha256"] != digest(manifest) or not 0 < len(keys) <= 14 or len(set(keys)) != len(keys):
+    if plan["manifest_sha256"] not in manifest_tokens(manifest) or not 0 < len(keys) <= 14 or len(set(keys)) != len(keys):
         raise ValueError("批次计划指纹、长度或唯一键不符")
     header, rows = read_candidates(manifest["benchmark_root"])
     lookup = {key(r): r for r in rows}
@@ -192,7 +217,7 @@ def attempts(run_dir, candidate, manifest):
     records = [read_json(p) for p in paths]
     for i, r in enumerate(records, 1):
         if (tuple(r["key"]) != key(candidate) or r["spec_sha256"] != candidate["spec_sha256"]
-                or r["seed"] != candidate["seed"] or r["manifest_sha256"] != digest(manifest)
+                or r["seed"] != candidate["seed"] or r["manifest_sha256"] not in manifest_tokens(manifest)
                 or r["attempt"] != i or r["status"] not in NORMAL | {"error"}):
             raise ValueError(f"回合结果身份、状态或尝试顺序不符：{paths[i - 1]}")
     if len(records) > 2 or any(r["status"] in NORMAL for r in records[:-1]):
@@ -250,6 +275,40 @@ def summarize(suite, lane=None, decode=True):
     return payload
 
 
+def revise_controller(suite):
+    """停机后的窄范围修订：保存完整旧指纹，旧结果与旧计划不改一个字节。"""
+    if os.environ.get("SLURM_JOB_ID") or git("status", "--porcelain"):
+        raise RuntimeError("控制器修订须在本机干净提交上执行")
+    suite = Path(suite)
+    locks = []
+    try:
+        for lane in ("local-smoke", "hold01", "hold02"):
+            lock = (suite / lane / "runner.lock").open("a")
+            locks.append(lock)
+            fcntl.flock(lock, fcntl.LOCK_EX | fcntl.LOCK_NB)
+        old = read_json(suite / "manifest.json")
+        if old.get("previous_manifests"):
+            raise ValueError("本入口只允许一次明确的控制层修订")
+        updated = copy.deepcopy(old)
+        updated["source_commit"] = git("rev-parse", "HEAD")
+        updated["source_files"] = {p: sha_file(REPO / p) for p in old["source_files"]}
+        updated["previous_manifests"] = [old]
+        manifest_tokens(updated)
+        for name, expected in old["assets"].items():
+            if sha_file(Path(old["checkpoint"]) / name) != expected["sha256"]:
+                raise ValueError(f"权重发生变化：{name}")
+        backup = suite / "manifest.before-controller-revision.json"
+        if backup.exists():
+            raise FileExistsError(backup)
+        atomic_json(backup, old)
+        atomic_json(suite / "manifest.json", updated)
+        print(f"CONTROLLER_REVISION_PASS old={digest(old)} new={digest(updated)} "
+              f"source_commit={updated['source_commit']}", flush=True)
+    finally:
+        for lock in locks:
+            lock.close()
+
+
 def main():
     ap = argparse.ArgumentParser(description=__doc__)
     sub = ap.add_subparsers(dest="command", required=True)
@@ -260,9 +319,13 @@ def main():
     p = sub.add_parser("summarize")
     p.add_argument("suite")
     p.add_argument("--lane", choices=["local-smoke", "hold01", "hold02"])
+    p = sub.add_parser("revise-controller")
+    p.add_argument("suite")
     args = ap.parse_args()
     if args.command == "prepare":
         prepare(args.suite, args.benchmark_root, args.checkpoint)
+    elif args.command == "revise-controller":
+        revise_controller(args.suite)
     else:
         raise SystemExit(0 if summarize(args.suite, args.lane)["complete"] else 1)
 

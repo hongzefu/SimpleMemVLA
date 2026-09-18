@@ -1,5 +1,6 @@
 """固定候选的反例测试；不加载模型或启动仿真 GPU。"""
 import copy
+import locale
 from pathlib import Path
 import tempfile
 from types import SimpleNamespace
@@ -31,6 +32,33 @@ class CandidateTests(unittest.TestCase):
             self.assertEqual(len(lanes[lane]), 25)
             self.assertTrue(all(len(c) == 14 and len({k[:2] for k in c}) == 14 for c in lanes[lane]))
         self.assertEqual(lanes["local-smoke"][0][0][:2], ("BinFill", "hard"))
+
+    def test_chinese_error_is_durable_after_native_locale_change(self):
+        previous = locale.setlocale(locale.LC_CTYPE)
+        try:
+            locale.setlocale(locale.LC_CTYPE, "C")
+            with tempfile.TemporaryDirectory() as d:
+                path = Path(d) / "error.json"
+                value = {"status": "error", "error": "环境重置失败，保留原 seed"}
+                plan.atomic_json(path, value)
+                self.assertEqual(plan.read_json(path), value)
+        finally:
+            locale.setlocale(locale.LC_CTYPE, previous)
+
+    def test_controller_revision_cannot_change_policy_or_inputs(self):
+        old = dict(source_commit="old", source_files={"robomme_sim/candidate_launcher.py": "a",
+                   "robomme_sim/candidate_eval.py": "b"}, config={"max_steps": 2000}, assets={"model": "same"})
+        new = copy.deepcopy(old)
+        new["source_commit"] = "new"
+        new["source_files"]["robomme_sim/candidate_launcher.py"] = "fixed"
+        new["previous_manifests"] = [old]
+        self.assertEqual(plan.manifest_tokens(new), {plan.digest(old), plan.digest(new)})
+        for section, field, value in (("source_files", "robomme_sim/candidate_eval.py", "changed"),
+                                      ("config", "max_steps", 1300), ("assets", "model", "other")):
+            bad = copy.deepcopy(new)
+            bad[section][field] = value
+            with self.assertRaises(ValueError):
+                plan.manifest_tokens(bad)
 
     def test_duplicate_extra_or_wrong_manifest_rejected(self):
         manifest = {"benchmark_root": str(self.root)}

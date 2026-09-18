@@ -1,0 +1,89 @@
+{
+  "complete": true,
+  "planned": 14,
+  "successes": 7,
+  "micro_avg": 0.5,
+  "macro_avg": 0.5,
+  "groups": {
+    "BinFill/hard": {
+      "planned": 1,
+      "timeout": 1,
+      "success": 0,
+      "success_rate": 0.0
+    },
+    "BinFill/easy": {
+      "planned": 1,
+      "success": 1,
+      "success_rate": 1.0
+    },
+    "BinFill/medium": {
+      "planned": 1,
+      "fail": 1,
+      "success": 0,
+      "success_rate": 0.0
+    },
+    "RouteStick/easy": {
+      "planned": 1,
+      "success": 1,
+      "success_rate": 1.0
+    },
+    "RouteStick/hard": {
+      "planned": 1,
+      "fail": 1,
+      "success": 0,
+      "success_rate": 0.0
+    },
+    "RouteStick/medium": {
+      "planned": 1,
+      "success": 1,
+      "success_rate": 1.0
+    },
+    "RouteStick/xhard": {
+      "planned": 1,
+      "fail": 1,
+      "success": 0,
+      "success_rate": 0.0
+    },
+    "VideoRepick/easy": {
+      "planned": 1,
+      "success": 1,
+      "success_rate": 1.0
+    },
+    "VideoRepick/medium": {
+      "planned": 1,
+      "success": 1,
+      "success_rate": 1.0
+    },
+    "VideoRepick/xhard": {
+      "planned": 1,
+      "fail": 1,
+      "success": 0,
+      "success_rate": 0.0
+    },
+    "VideoUnmaskSwap/easy": {
+      "planned": 1,
+      "success": 1,
+      "success_rate": 1.0
+    },
+    "VideoUnmaskSwap/hard": {
+      "planned": 1,
+      "fail": 1,
+      "success": 0,
+      "success_rate": 0.0
+    },
+    "VideoUnmaskSwap/medium": {
+      "planned": 1,
+      "success": 1,
+      "success_rate": 1.0
+    },
+    "VideoUnmaskSwap/xhard": {
+      "planned": 1,
+      "fail": 1,
+      "success": 0,
+      "success_rate": 0.0
+    }
+  },
+  "errors": [],
+  "missing": [],
+  "manifest_sha256": "3129f6751ff2849eadefffee9f88731b99f455cd2b88ef822ab5ea77fb8450c9"
+}
