@@ -1,0 +1,11 @@
+{
+  "tasks": {
+    "PickXtimes": {
+      "success_rate": 1.0,
+      "n": 1,
+      "oom": false
+    }
+  },
+  "macro_avg": 1.0,
+  "n_excluded_na": 0
+}
