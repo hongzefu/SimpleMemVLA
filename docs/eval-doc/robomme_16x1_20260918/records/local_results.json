@@ -1,0 +1,86 @@
+{
+  "tasks": {
+    "PickXtimes": {
+      "success_rate": 1.0,
+      "n": 1,
+      "oom": false
+    },
+    "StopCube": {
+      "success_rate": 1.0,
+      "n": 1,
+      "oom": false
+    },
+    "SwingXtimes": {
+      "success_rate": 1.0,
+      "n": 1,
+      "oom": false
+    },
+    "BinFill": {
+      "success_rate": 1.0,
+      "n": 1,
+      "oom": false
+    },
+    "VideoUnmaskSwap": {
+      "success_rate": 1.0,
+      "n": 1,
+      "oom": false
+    },
+    "VideoUnmask": {
+      "success_rate": 1.0,
+      "n": 1,
+      "oom": false
+    },
+    "ButtonUnmaskSwap": {
+      "success_rate": 1.0,
+      "n": 1,
+      "oom": false
+    },
+    "ButtonUnmask": {
+      "success_rate": 1.0,
+      "n": 1,
+      "oom": false
+    },
+    "VideoRepick": {
+      "success_rate": 1.0,
+      "n": 1,
+      "oom": false
+    },
+    "VideoPlaceButton": {
+      "success_rate": 1.0,
+      "n": 1,
+      "oom": false
+    },
+    "VideoPlaceOrder": {
+      "success_rate": 1.0,
+      "n": 1,
+      "oom": false
+    },
+    "PickHighlight": {
+      "success_rate": 1.0,
+      "n": 1,
+      "oom": false
+    },
+    "InsertPeg": {
+      "success_rate": 1.0,
+      "n": 1,
+      "oom": false
+    },
+    "MoveCube": {
+      "success_rate": 1.0,
+      "n": 1,
+      "oom": false
+    },
+    "PatternLock": {
+      "success_rate": 1.0,
+      "n": 1,
+      "oom": false
+    },
+    "RouteStick": {
+      "success_rate": 1.0,
+      "n": 1,
+      "oom": false
+    }
+  },
+  "macro_avg": 1.0,
+  "n_excluded_na": 0
+}
