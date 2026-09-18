@@ -8,6 +8,46 @@ import numpy as np
 CAMERA_ORDER = ("front", "wrist")
 
 
+class StreamingVideoRecorder:
+    """逐帧编码；成功关闭并完整解码后，调用方才发布 episode 结果。"""
+
+    def __init__(self, path, fps=20.0):
+        from pathlib import Path
+        import imageio.v2 as imageio
+        self.path = Path(path)
+        self.path.parent.mkdir(parents=True, exist_ok=True)
+        if self.path.exists():
+            raise FileExistsError(self.path)
+        self.writer = imageio.get_writer(
+            str(self.path), format="FFMPEG", mode="I", fps=fps,
+            codec="libx264", pixelformat="yuv420p", macro_block_size=1,
+            ffmpeg_params=["-threads", "1"],
+        )
+        self.count = 0
+
+    def add(self, frame):
+        tiled = tile_frame(frame)
+        if tiled is None:
+            raise ValueError("视频帧缺少相机图像")
+        self.writer.append_data(tiled)
+        self.count += 1
+
+    def close(self):
+        if self.writer is not None:
+            self.writer.close()
+            self.writer = None
+
+
+def verify_video(path, expected_frames=None):
+    """完整逐帧解码；只看文件大小无法识别截断视频。"""
+    import av
+    with av.open(str(path)) as container:
+        count = sum(1 for _ in container.decode(video=0))
+    if count <= 0 or (expected_frames is not None and count != expected_frames):
+        raise ValueError(f"视频帧数不符：{path}, 实际 {count}, 期望 {expected_frames}")
+    return count
+
+
 def tile_frame(frame: dict) -> np.ndarray | None:
     imgs = []
     for key in CAMERA_ORDER:

@@ -3,6 +3,7 @@ from __future__ import annotations
 
 import os
 import sys
+from pathlib import Path
 from typing import Any
 
 import numpy as np
@@ -17,9 +18,13 @@ CAM_FRONT = "front"
 CAM_WRIST = "wrist"
 
 
-def _setup_robomme_path() -> None:
-    if VENDORED_SIM_DIR not in sys.path:
-        sys.path.insert(0, VENDORED_SIM_DIR)
+def _setup_robomme_path(benchmark_root: str | None = None) -> None:
+    source = Path(benchmark_root).resolve() / "src" if benchmark_root else Path(VENDORED_SIM_DIR)
+    loaded = sys.modules.get("robomme")
+    if loaded is not None and Path(loaded.__file__).resolve().parent != source / "robomme":
+        raise RuntimeError(f"robomme 已从另一来源导入：{loaded.__file__}，期望 {source}")
+    if str(source) not in sys.path:
+        sys.path.insert(0, str(source))
 
 
 def pin_worker_gpu(gpu_id: int) -> str:
@@ -75,6 +80,19 @@ def _scalar(x) -> float:
     return float(x)
 
 
+def candidate_demo_info(task_name, env, obs, candidate):
+    """固定 fork 的 reset 返回示范帧加一个正常初始帧，二者必须区分。"""
+    if env.unwrapped.difficulty != candidate["difficulty"]:
+        raise RuntimeError("候选难度未生效")
+    demo_tasks = sum(bool(t.get("demonstration", False)) for t in env.unwrapped.task_list)
+    demo_frames = max(0, len(obs["front_rgb_list"]) - 1)
+    if task_name == "BinFill" and (demo_tasks != 0 or demo_frames != 0):
+        raise RuntimeError(f"BinFill 不允许 demo：tasks={demo_tasks}, frames={demo_frames}")
+    if task_name != "BinFill" and (demo_tasks == 0 or demo_frames == 0):
+        raise RuntimeError(f"{task_name} 缺少原有 demo")
+    return dict(demo_tasks=demo_tasks, demo_frames=demo_frames)
+
+
 class RoboMMESimEnv:
 
     def __init__(
@@ -83,21 +101,23 @@ class RoboMMESimEnv:
         dataset_split: str = "test",
         max_steps: int = 1300,
         action_space: str = "joint_angle",
+        benchmark_root: str | None = None,
     ):
-        _setup_robomme_path()
+        _setup_robomme_path(benchmark_root)
         import robomme.robomme_env
         from robomme.env_record_wrapper import BenchmarkEnvBuilder
 
         self.task_name = task_name
         self.dataset_split = dataset_split
         self.max_steps = int(max_steps)
-        self.builder = BenchmarkEnvBuilder(
+        self.benchmark_root = benchmark_root
+        self.builder = None if benchmark_root else BenchmarkEnvBuilder(
             env_id=task_name,
             dataset=dataset_split,
             action_space=action_space,
             max_steps=self.max_steps,
         )
-        n = self.builder.get_episode_num()
+        n = self.builder.get_episode_num() if self.builder else 1
         if n <= 0:
             raise RuntimeError(
                 f"RoboMME metadata lists no '{dataset_split}' episodes for task "
@@ -108,11 +128,25 @@ class RoboMMESimEnv:
         self._status = "ongoing"
         self._done = False
 
-    def reset(self, episode_idx: int) -> tuple[dict, dict]:
+    def reset(self, episode_idx: int, candidate=None, sampling=None) -> tuple[dict, dict]:
         self.close()
-        env = self.builder.make_env_for_episode(int(episode_idx))
-        obs, info = env.reset()
-        self.env = env
+        if self.benchmark_root:
+            from robomme.env_record_wrapper import make_env_for_spec
+            if candidate is None or sampling is None or candidate["task"] != self.task_name:
+                raise ValueError("候选环境缺少匹配的规格或采样快照")
+            self.env = make_env_for_spec(
+                self.task_name, candidate["seed"], candidate["difficulty"], candidate["spec"],
+                {"parameters": sampling["parameters"][self.task_name],
+                 "positions": sampling["positions"][self.task_name]},
+                max_steps=self.max_steps,
+            )
+        else:
+            self.env = self.builder.make_env_for_episode(int(episode_idx))
+        obs, info = self.env.reset()
+        if candidate is not None:
+            if str(info.get("status")) == "error":
+                raise RuntimeError(f"候选 reset 失败：{info.get('error_message')}")
+            info = dict(info, **candidate_demo_info(self.task_name, self.env, obs, candidate))
         self._status = str(info.get("status", "ongoing")) if isinstance(info, dict) else "ongoing"
         self._done = False
         return obs, info
@@ -155,10 +189,11 @@ class RoboMMESimEnv:
 class SimEnvService:
 
     def __init__(self, dataset_split: str = "test", max_steps: int = 1300,
-                 reset_retries: int = 2):
+                 reset_retries: int = 2, benchmark_root: str | None = None):
         self.dataset_split = dataset_split
         self.max_steps = int(max_steps)
-        self.reset_retries = int(reset_retries)
+        self.reset_retries = 0 if benchmark_root else int(reset_retries)
+        self.benchmark_root = benchmark_root
         self.env: RoboMMESimEnv | None = None
         self.task_name: str | None = None
 
@@ -167,7 +202,8 @@ class SimEnvService:
             if self.env is not None:
                 self.env.close()
             self.env = RoboMMESimEnv(
-                task_name, dataset_split=self.dataset_split, max_steps=self.max_steps
+                task_name, dataset_split=self.dataset_split, max_steps=self.max_steps,
+                benchmark_root=self.benchmark_root,
             )
             self.task_name = task_name
 
@@ -178,7 +214,7 @@ class SimEnvService:
         for attempt in range(self.reset_retries + 1):
             try:
                 self._ensure_env(task_name)
-                obs, info = self.env.reset(episode)
+                obs, info = self.env.reset(episode, payload.get("candidate"), payload.get("sampling"))
                 frames = encode_frames(obs)
                 states = encode_states(obs)
                 if not frames or not states:
@@ -195,6 +231,8 @@ class SimEnvService:
                     "frames": frames,
                     "states": states,
                     "max_steps": self.max_steps,
+                    "demo_frames": info.get("demo_frames"),
+                    "demo_tasks": info.get("demo_tasks"),
                 }
             except Exception as e:
                 last_err = f"{type(e).__name__}: {e}"

@@ -22,6 +22,12 @@ set -euo pipefail
 
 JOBID="${1:?必须指定已 Running 的 JOBID}"
 RUN_TAG="${2:?必须指定 RUN_TAG}"
+if [ -n "${CANDIDATE_SUITE:-}" ]; then
+  case "$JOBID:${CANDIDATE_LANE:-}" in
+    61495429:hold01|61495430:hold02) ;;
+    *) echo "候选评估只允许 hold-01、hold-02 及对应分片"; exit 2 ;;
+  esac
+fi
 
 REPO="${REPO:-/nfs/turbo/coe-chaijy-unreplicated/hongzefu/SimpleMemVLA}"
 ACCOUNT="${ACCOUNT:-chaijy2}"
@@ -42,6 +48,9 @@ srun --jobid="$JOBID" --account="$ACCOUNT" --partition="$PARTITION" --gpu_cmode=
      /usr/bin/env \
        REPO="$REPO" \
        RUN_TAG="$RUN_TAG" \
+       CANDIDATE_SUITE="${CANDIDATE_SUITE:-}" \
+       CANDIDATE_LANE="${CANDIDATE_LANE:-}" \
+       RESUME="${RESUME:-0}" \
        PROBE_ONLY="${PROBE_ONLY:-0}" \
        DRY_RUN="${DRY_RUN:-0}" \
        TASKS="${TASKS:-}" \

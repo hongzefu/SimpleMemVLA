@@ -17,6 +17,14 @@ REPO="${REPO:-/nfs/turbo/coe-chaijy-unreplicated/hongzefu/SimpleMemVLA}"
 RUN_TAG="${RUN_TAG:?必须指定 RUN_TAG}"
 cd "$REPO"
 
+# 候选路径有自己的来源、资源和原生渲染检查，保留 Slurm 的 GPU 映射。
+if [ -n "${CANDIDATE_SUITE:-}" ]; then
+  case "$(hostname)" in gl*) ;; *) echo "不是 GL 计算节点"; exit 2 ;; esac
+  [ ! -e /data/hongzefu ] || { echo "计算节点环境判据冲突"; exit 2; }
+  export SUITE="$CANDIDATE_SUITE" LANE="${CANDIDATE_LANE:?必须指定分片}"
+  exec /usr/bin/bash "$REPO/scripts/run_robomme_candidates.sh"
+fi
+
 export PYTHONUNBUFFERED=1
 export PYTHONPATH="$REPO"
 export OMP_NUM_THREADS="${SLURM_CPUS_PER_TASK:-1}"
@@ -31,7 +39,7 @@ unset SAPIEN_DISABLE_RAY_TRACING ROBOMME_GPU_RASTER || true
 
 echo "===== 一、运行环境判定（AGENTS.md 第 0 条）====="
 hostname
-echo "repo=$(git -C "$REPO" rev-parse --show-toplevel 2>/dev/null || echo '?')"
+echo "repo=$REPO"
 for p in /nfs/turbo/coe-chaijy-unreplicated/hongzefu /data/hongzefu; do
   printf '%s: %s\n' "$p" "$([ -e "$p" ] && echo 存在 || echo 不存在)"
 done
@@ -52,11 +60,14 @@ modes="$(nvidia-smi --query-gpu=compute_mode --format=csv,noheader | sort -u)"
 echo "环境 B：GreatLakes 计算节点，compute mode=Default ✓"
 
 echo "===== 二、依赖复用校验（NFS 上的 .venv-robomme 在计算节点是否可用）====="
-"$REPO/.venv-robomme/bin/python" "$REPO/scripts/check/verify_env.py" \
+command -v uv >/dev/null
+unset VIRTUAL_ENV
+export UV_PROJECT_ENVIRONMENT="$REPO/.venv-robomme" UV_LINK_MODE=copy UV_CACHE_DIR="$HOME/.cache/uv"
+uv run --frozen --no-sync python "$REPO/scripts/check/verify_env.py" \
   "$REPO/checkpoints/simplememvla_robomme"
 
 echo "===== 三、SAPIEN 离屏渲染探针 ====="
-"$REPO/.venv-robomme/bin/python" "$REPO/scripts/check/render_probe.py"
+uv run --frozen --no-sync python "$REPO/scripts/check/render_probe.py"
 
 if [ "${PROBE_ONLY:-0}" != 0 ]; then
   echo "PROBE_ONLY=1，三级探针全部通过，不跑评测。"

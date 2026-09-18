@@ -44,6 +44,10 @@ DEFAULT_TASKS = [
 
 def parse_args() -> argparse.Namespace:
     ap = argparse.ArgumentParser()
+    ap.add_argument("--benchmark_root", help="固定候选 benchmark 源码根目录")
+    ap.add_argument("--episode_plan", help="候选批次计划，与官方 metadata 路径互斥")
+    ap.add_argument("--run_dir", help="候选评估的独立结果目录")
+    ap.add_argument("--resume", action="store_true", help="指纹相同时恢复候选评估")
     ap.add_argument("--pretrained_checkpoint", default="./checkpoints/sft/simplememvla/robomme_baseline")
     ap.add_argument("--tasks", nargs="*", default=None,
                     help="Subset of tasks to evaluate (default: all 16 RoboMME tasks).")
@@ -481,6 +485,15 @@ def _validate_pipelined_horizon(args) -> None:
 
 def main():
     args = parse_args()
+    if args.episode_plan:
+        from robomme_sim.candidate_eval import evaluate_candidates
+        code = evaluate_candidates(args)
+        sys.stdout.flush()
+        sys.stderr.flush()
+        # 环境线程或 Vulkan 的析构不能把已落盘结果后的进程退出挂死。
+        os._exit(code)
+    if args.benchmark_root or args.run_dir or args.resume:
+        raise SystemExit("候选参数必须与 --episode_plan 一起使用")
     tasks = args.tasks if args.tasks else DEFAULT_TASKS
     _validate_pipelined_horizon(args)
     print(f"[eval] split={args.dataset_split}, episodes_per_task<={args.episodes_per_task} "

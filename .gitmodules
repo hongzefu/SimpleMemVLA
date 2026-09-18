@@ -1,0 +1,4 @@
+[submodule "third_party/robomme_benchmark"]
+	path = third_party/robomme_benchmark
+	url = https://github.com/hongzefu/robomme_benchmark_MotionJEPA.git
+	branch = PolicyEvalThirdParty-simplememvla-0918
