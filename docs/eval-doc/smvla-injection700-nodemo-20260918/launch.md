@@ -49,7 +49,8 @@ BinFill 示范任务及示范帧必须为零，正常初始帧仍进入模型；
 3. 每路 25 批，每批 14 组各一条。每批新进程；首批正常完成且内核无新增 OOM kill 后继续。
    RSS 包含共享映射页，不能直接与 cgroup 限额比较；记录 cgroup 的真实上限、峰值与 OOM 事件。
 4. 进程启动前设置 `GLIBC_TUNABLES=glibc.rtld.optional_static_tls=65536`。
-   reset 超时 3600 秒、单次推理/step 超时 300 秒，监督进程额外留 30 秒收尾；挂死时终止本轮批次进程组。
+   reset 硬超时 600 秒、单次推理/step 硬超时 300 秒；监督进程每 2 秒检查一次，
+   超时直接 SIGKILL 本轮批次进程组，不再额外等 30 秒。正常持续推进的长回合不按总时长误杀。
 5. `srun --overlap --exact --account=chaijy2 --partition=spgpu --gpu_cmode=shared`，
    `/usr/bin/env`、`/usr/bin/bash` 使用绝对路径。保留 Slurm GPU 映射，禁止使用其他 hold。
 
@@ -63,7 +64,8 @@ tmux new-session -d -s smvla-candidates-0918 \
 
 唯一主编排脚本是 `scripts/run_candidate_campaign.sh`，每路执行器为 `scripts/run_robomme_candidates.sh`。
 同名运行根禁止覆盖。中断恢复使用现有计划，显式 `RESUME=1`；正常失败和超时不能挑样本重跑，
-运行错误最多同身份尝试两次，仍有错误就停止该路。恢复要重新核对来源/权重指纹。
+卡死样本直接保留 error，不再重试；其他运行错误仍最多同身份尝试两次。error 不阻止后续候选，
+不换 seed、不补样本、不缩小分母。恢复要重新核对来源/权重指纹。
 
 ## 产物及验收
 
@@ -73,8 +75,10 @@ tmux new-session -d -s smvla-candidates-0918 \
 对应 mp4 保存完整 front+wrist 回放，错误重跑使用新的 attempt 编号，不覆盖旧证据。
 各记录含状态、seed、spec 指纹、PID、策略种子、步数、示范帧数、耗时、峰值 RSS、视频 SHA/帧数。
 
-`COVERAGE_PASS planned=700` 且两路退出码 0、700 条正常终态、700 个视频完整解码才算完成。
-`success/fail/timeout` 都是正常终态，`error` 与 missing 单列且不缩小分母；完整性通过不等于策略成功。
+按用户追加的卡死处理口径，`coverage_complete=true` 表示 700 条均有结果（允许 error）；
+`error_free=true` 表示没有环境错误，`complete=true` 仍严格要求覆盖完整且无环境错误。
+`success/fail/timeout` 都是正常终态，每条必须有完整可解码视频；卡死 error 不伪造完整视频。
+error 与 missing 单列且不缩小分母；扫完全部候选不等于无错误通过，更不等于策略全部成功。
 报告给出每组成功数/50、总成功数/700、宏平均、错误、重跑及耗时。本机冒烟不加入正式统计。
 运行中冻结源码与权重；结束后补写 result.md 并归档轻量原始证据，不归档代码、脚本或权重副本。
 
@@ -103,4 +107,21 @@ tmux new-session -d -s smvla-candidates-0918-r1 \
 ```
 
 恢复跳过全部正常终态；中断回合记入第一次尝试，运行错误仍最多尝试两次，不重置计数。
-恢复的 GL 包装日志使用 `-r1` 后缀，不覆盖首轮日志。只跟踪本轮两个 step，不释放 hold。
+首轮恢复的 GL 包装日志使用 `-r1` 后缀；后续恢复改用时间戳后缀，不覆盖旧日志。
+只跟踪本轮两个 step，不释放 hold。
+
+## 卡死处理增量（9 月 18 日晚）
+
+用户追加：「卡死的如果超多少分钟 需要直接kill标记为error」。当前固定规则为 reset 10 分钟、
+单次推理/step 5 分钟；超时进程直接终止，该键记 error 后继续，只有控制器在后台计时，
+不需要 agent 每分钟唤醒检查。模型初次加载仍有单独的 30 分钟启动守卫。
+
+父进程把每次实际待跑的候选键写入 `worker-plans/`，不会再次把已判卡死的键传给工作进程。
+旧版 3600 秒 reset 超时记录也识别为终态 error；旧结果和尝试次数原样保留。
+全量结束输出 `CAMPAIGN_COMPLETE` 并完整列出 error，不能把带 error 的完成说成全绿。
+
+运行器规则单列于 manifest 的 `controller_policy`，与模型推理配置分开。控制层来源修订支持
+可追溯的历史链，每一层仍检查模型、环境、权重、候选和推理配置没有变化。
+本次恢复会话为 `smvla-candidates-0918-r2`，日志为
+`logs/setup/smvla-injection700-nodemo-20260918.campaign-r2.log`，同样通过
+`RESUME=1 bash scripts/run_candidate_campaign.sh` 起跑。

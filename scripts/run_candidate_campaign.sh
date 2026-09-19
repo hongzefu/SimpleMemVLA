@@ -13,7 +13,7 @@ export SUITE="$REPO/logs/robomme_sim/$RUN_TAG"
 export RESUME="${RESUME:-0}"
 case "$RESUME" in 0|1) ;; *) echo "RESUME 只能为 0 或 1"; exit 2 ;; esac
 RESTART_SUFFIX=""
-if [ "$RESUME" = 1 ]; then RESTART_SUFFIX=-r1; fi
+if [ "$RESUME" = 1 ]; then RESTART_SUFFIX="-resume-$(date +%Y%m%dT%H%M%S)"; fi
 ssh -O check greatlakes
 if [ "$RESUME" = 0 ]; then
     uv run --frozen --no-sync python -m robomme_sim.candidate_plan prepare "$SUITE"
@@ -32,4 +32,4 @@ wait "$HOLD02_PID" || CODE02=$?
 echo "HOLD_EXIT hold01=$CODE01 hold02=$CODE02"
 uv run --frozen --no-sync python -m robomme_sim.candidate_plan summarize "$SUITE"
 [ "$CODE01" = 0 ] && [ "$CODE02" = 0 ]
-echo "CAMPAIGN_PASS total=700"
+echo "CAMPAIGN_COMPLETE total=700（环境error保留在结果中，不等于无错误通过）"

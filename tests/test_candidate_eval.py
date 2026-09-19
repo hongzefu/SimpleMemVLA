@@ -1,6 +1,10 @@
 """固定候选的反例测试；不加载模型或启动仿真 GPU。"""
 import copy
 import locale
+import os
+import signal
+import subprocess
+import time
 from pathlib import Path
 import tempfile
 from types import SimpleNamespace
@@ -59,6 +63,60 @@ class CandidateTests(unittest.TestCase):
             bad[section][field] = value
             with self.assertRaises(ValueError):
                 plan.manifest_tokens(bad)
+        newest = copy.deepcopy(new)
+        newest["source_files"]["robomme_sim/candidate_launcher.py"] = "watchdog-fixed"
+        newest["previous_manifests"] = [new]
+        newest["controller_policy"] = plan.CONTROL_POLICY
+        self.assertEqual(plan.manifest_tokens(newest), {plan.digest(old), plan.digest(new), plan.digest(newest)})
+
+    def test_hung_episode_is_final_error_but_other_work_remains(self):
+        from robomme_sim.candidate_launcher import needs_attempt, phase_deadline
+        hung = dict(status="error", steps=0, elapsed_s=3600, error="reset_exc: ")
+        transient = dict(status="error", steps=0, elapsed_s=1, error="Vulkan 初始化错误")
+        self.assertFalse(needs_attempt([hung]))
+        self.assertTrue(needs_attempt([transient]))
+        self.assertFalse(needs_attempt([transient, transient]))
+        self.assertTrue(needs_attempt([]))
+        self.assertFalse(needs_attempt([dict(status="fail")]))
+        now = time.time()
+        # 总回合已经一小时，但新的 step 在推进，不能按总时长误杀。
+        self.assertGreater(phase_deadline(dict(phase="step", started=now-3600, deadline=now+330)), now)
+        self.assertLess(phase_deadline(dict(phase="reset", started=now-601, deadline=now+3000)), now)
+
+    def test_watchdog_kills_real_process_group_and_records_error(self):
+        from robomme_sim.candidate_launcher import watch_worker, record_crash, needs_attempt
+        with tempfile.TemporaryDirectory() as d:
+            run = Path(d)
+            marker = run / "child.pid"
+            code = ("import subprocess,time,pathlib; "
+                    "p=subprocess.Popen(['/usr/bin/sleep','60']); "
+                    f"pathlib.Path({str(marker)!r}).write_text(str(p.pid)); time.sleep(60)")
+            child = subprocess.Popen(["uv", "run", "--frozen", "--no-sync", "python", "-c", code],
+                                     start_new_session=True, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+            try:
+                deadline = time.time() + 10
+                while not marker.exists() and child.poll() is None and time.time() < deadline:
+                    time.sleep(0.05)
+                self.assertTrue(marker.exists(), "测试子进程未就绪")
+                active = dict(key=["BinFill", "hard", 153], phase="reset", started=time.time()-599.8,
+                              deadline=time.time()+30.2, attempt=1, status="error")
+                plan.atomic_json(run / "active.json", active)
+                code, reason, kind = watch_worker(child, run / "active.json", poll_seconds=0.02)
+                self.assertEqual(code, -signal.SIGKILL)
+                self.assertEqual(kind, "reset_timeout")
+                record_crash(run, {}, reason, kind)
+                r = plan.read_json(run / "episodes/BinFill/hard/153/attempt-1.json")
+                self.assertEqual(r["status"], "error")
+                self.assertEqual(r["error_kind"], "reset_timeout")
+                self.assertFalse(needs_attempt([r]))
+                status = Path(f"/proc/{marker.read_text()}/stat")
+                # 被杀子进程可能短暂等待 init 回收，不能仍处于运行/睡眠状态。
+                if status.exists():
+                    self.assertEqual(status.read_text().split()[2], "Z")
+            finally:
+                if child.poll() is None:
+                    os.killpg(child.pid, signal.SIGKILL)
+                    child.wait()
 
     def test_duplicate_extra_or_wrong_manifest_rejected(self):
         manifest = {"benchmark_root": str(self.root)}
@@ -126,6 +184,22 @@ class CandidateTests(unittest.TestCase):
             self.assertEqual(result["planned"], 700)
             self.assertEqual(len(result["errors"]), 1)
             self.assertEqual(len(result["missing"]), 699)
+
+    def test_coverage_complete_is_distinct_from_error_free(self):
+        manifest = {"benchmark_root": str(self.root)}
+        row = self.rows[0]
+        with tempfile.TemporaryDirectory() as d:
+            r = dict(key=plan.key(row), seed=row["seed"], spec_sha256=row["spec_sha256"],
+                     manifest_sha256=plan.digest(manifest), attempt=1, status="error")
+            plan.atomic_json(plan.result_dir(Path(d) / "hold01", row) / "attempt-1.json", r)
+            with patch.object(plan, "verify_manifest", return_value=manifest), \
+                    patch.object(plan, "partition", return_value={"hold01": [[plan.key(row)]]}):
+                result = plan.summarize(d, "hold01", decode=False)
+            self.assertTrue(result["coverage_complete"])
+            self.assertFalse(result["complete"])
+            self.assertFalse(result["error_free"])
+            self.assertEqual(result["attempted"], 1)
+            self.assertEqual(result["micro_avg"], 0)
 
     def test_streaming_video_decode_and_damage(self):
         with tempfile.TemporaryDirectory() as d:

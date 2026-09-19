@@ -28,6 +28,8 @@ CONFIG = dict(max_steps=2000, execute_horizon=16, num_denoising_steps=10,
               attn_implementation="sdpa", group_size=1, num_gpus=1,
               policy_seed=0, binfill_demo=False, max_attempts=2, chunk_size=14)
 NORMAL = {"success", "fail", "timeout"}
+CONTROL_POLICY = dict(reset_timeout_seconds=600, operation_timeout_seconds=300,
+                      retry_hung_episodes=False, continue_after_episode_error=True)
 # 只允许修复调度/持久化控制层；环境、模型、评估循环和推理配置不能沿用旧结果。
 CONTROLLER_FILES = {"robomme_sim/candidate_launcher.py", "robomme_sim/candidate_plan.py",
                     "scripts/run_candidate_campaign.sh", "tests/test_candidate_eval.py"}
@@ -38,12 +40,12 @@ def digest(value):
                                     ensure_ascii=False, allow_nan=False).encode()).hexdigest()
 
 
-def manifest_tokens(manifest):
+def manifest_tokens(manifest, _depth=0):
+    if _depth > 8:
+        raise ValueError("来源修订链过深")
     tokens = {digest(manifest)}
-    ignored = {"source_commit", "source_files", "previous_manifests"}
+    ignored = {"source_commit", "source_files", "previous_manifests", "controller_policy"}
     for old in manifest.get("previous_manifests", []):
-        if old.get("previous_manifests"):
-            raise ValueError("不支持嵌套来源修订")
         if {k: v for k, v in old.items() if k not in ignored} != {
                 k: v for k, v in manifest.items() if k not in ignored}:
             raise ValueError("来源修订改变了权重、候选或评估配置")
@@ -53,7 +55,7 @@ def manifest_tokens(manifest):
         changed = {p for p in old_files if old_files[p] != new_files[p]}
         if not changed or not changed <= CONTROLLER_FILES:
             raise ValueError(f"来源修订超出控制层：{sorted(changed)}")
-        tokens.add(digest(old))
+        tokens.update(manifest_tokens(old, _depth + 1))
     return tokens
 
 
@@ -165,7 +167,8 @@ def prepare(output, benchmark_root, checkpoint):
     manifest = dict(schema=1, source_commit=git("rev-parse", "HEAD"),
                     benchmark_commit=BENCHMARK_COMMIT, benchmark_root=str(root),
                     candidates_sha256=CANDIDATES_SHA, identity_sha256=header["identity_sha256"],
-                    checkpoint=str(ckpt), assets=assets, source_files=files, config=CONFIG)
+                    checkpoint=str(ckpt), assets=assets, source_files=files, config=CONFIG,
+                    controller_policy=CONTROL_POLICY)
     token = digest(manifest)
     atomic_json(output / "manifest.json", manifest)
     for lane, chunks in partition(rows).items():
@@ -181,6 +184,8 @@ def prepare(output, benchmark_root, checkpoint):
 def verify_manifest(suite, full=False):
     manifest = read_json(Path(suite) / "manifest.json")
     manifest_tokens(manifest)
+    if manifest.get("controller_policy") != CONTROL_POLICY:
+        raise ValueError("卡死处理规则与当前控制器不符，须显式修订来源后恢复")
     if manifest["config"] != CONFIG or manifest["benchmark_commit"] != BENCHMARK_COMMIT:
         raise ValueError("运行配置或 benchmark 版本不符")
     for relative, expected in manifest["source_files"].items():
@@ -266,11 +271,13 @@ def summarize(suite, lane=None, decode=True):
         stats["success_rate"] = stats["success"] / stats["planned"]
     total = sum(g["planned"] for g in groups.values())
     successes = sum(g["success"] for g in groups.values())
-    payload = dict(complete=not errors and not missing, planned=total, successes=successes,
+    payload = dict(complete=not errors and not missing, coverage_complete=not missing,
+                   error_free=not errors, attempted=total - len(missing),
+                   planned=total, successes=successes,
                    micro_avg=successes / total, macro_avg=sum(g["success_rate"] for g in groups.values()) / len(groups),
                    groups=dict(groups), errors=errors, missing=missing, manifest_sha256=digest(manifest))
     atomic_json((suite / lane if lane else suite) / "results.json", payload)
-    print(f"COVERAGE_{'PASS' if payload['complete'] else 'FAIL'} planned={total} success={successes} "
+    print(f"COVERAGE_{'PASS' if payload['coverage_complete'] else 'FAIL'} planned={total} success={successes} "
           f"errors={len(errors)} missing={len(missing)}", flush=True)
     return payload
 
@@ -287,17 +294,16 @@ def revise_controller(suite):
             locks.append(lock)
             fcntl.flock(lock, fcntl.LOCK_EX | fcntl.LOCK_NB)
         old = read_json(suite / "manifest.json")
-        if old.get("previous_manifests"):
-            raise ValueError("本入口只允许一次明确的控制层修订")
         updated = copy.deepcopy(old)
         updated["source_commit"] = git("rev-parse", "HEAD")
         updated["source_files"] = {p: sha_file(REPO / p) for p in old["source_files"]}
         updated["previous_manifests"] = [old]
+        updated["controller_policy"] = CONTROL_POLICY
         manifest_tokens(updated)
         for name, expected in old["assets"].items():
             if sha_file(Path(old["checkpoint"]) / name) != expected["sha256"]:
                 raise ValueError(f"权重发生变化：{name}")
-        backup = suite / "manifest.before-controller-revision.json"
+        backup = suite / f"manifest.before-{digest(old)[:16]}.json"
         if backup.exists():
             raise FileExistsError(backup)
         atomic_json(backup, old)
@@ -327,7 +333,7 @@ def main():
     elif args.command == "revise-controller":
         revise_controller(args.suite)
     else:
-        raise SystemExit(0 if summarize(args.suite, args.lane)["complete"] else 1)
+        raise SystemExit(0 if summarize(args.suite, args.lane)["coverage_complete"] else 1)
 
 
 if __name__ == "__main__":
