@@ -1,0 +1,2415 @@
+# 源日志：logs/setup/smvla-injection700-nodemo-20260918.campaign.log
+PLAN_PASS total=700 hold01=350 hold02=350 smoke=14 identity=3b4de03a0b4639181f9c68086aea11e9b51ffcb65bbed701a44f573e74e0beb7
+VERIFY_ENV_PASS
+RENDER_PROBE_PASS
+BATCH_START lane=local-smoke plan=batch-00.json pending=1
+EPISODE_START key=('BinFill', 'hard', 153) attempt=1 pid=2139119
+DEMO_CHECK key=('BinFill', 'hard', 153) tasks=0 frames=0
+EPISODE_END key=('BinFill', 'hard', 153) status=timeout steps=2000 elapsed=244.7s rss_kib=26444040
+BATCH_EXIT lane=local-smoke code=0 new_attempts=1
+BATCH_PASS lane=local-smoke plan=batch-00.json episodes=1 peak_rss_kib=26444040
+BATCH_START lane=local-smoke plan=batch-01.json pending=13
+EPISODE_START key=('BinFill', 'easy', 155) attempt=1 pid=2155903
+DEMO_CHECK key=('BinFill', 'easy', 155) tasks=0 frames=0
+EPISODE_END key=('BinFill', 'easy', 155) status=success steps=665 elapsed=78.9s rss_kib=26442516
+EPISODE_START key=('BinFill', 'medium', 153) attempt=1 pid=2155903
+DEMO_CHECK key=('BinFill', 'medium', 153) tasks=0 frames=0
+EPISODE_END key=('BinFill', 'medium', 153) status=fail steps=425 elapsed=48.2s rss_kib=26442516
+EPISODE_START key=('RouteStick', 'easy', 115) attempt=1 pid=2155903
+DEMO_CHECK key=('RouteStick', 'easy', 115) tasks=6 frames=150
+EPISODE_END key=('RouteStick', 'easy', 115) status=success steps=156 elapsed=31.8s rss_kib=26442516
+EPISODE_START key=('RouteStick', 'hard', 115) attempt=1 pid=2155903
+DEMO_CHECK key=('RouteStick', 'hard', 115) tasks=8 frames=250
+EPISODE_END key=('RouteStick', 'hard', 115) status=fail steps=436 elapsed=71.4s rss_kib=26442516
+EPISODE_START key=('RouteStick', 'medium', 115) attempt=1 pid=2155903
+DEMO_CHECK key=('RouteStick', 'medium', 115) tasks=8 frames=250
+EPISODE_END key=('RouteStick', 'medium', 115) status=success steps=267 elapsed=50.7s rss_kib=26442516
+EPISODE_START key=('RouteStick', 'xhard', 115) attempt=1 pid=2155903
+DEMO_CHECK key=('RouteStick', 'xhard', 115) tasks=12 frames=450
+EPISODE_END key=('RouteStick', 'xhard', 115) status=fail steps=52 elapsed=32.6s rss_kib=26442516
+EPISODE_START key=('VideoRepick', 'easy', 155) attempt=1 pid=2155903
+DEMO_CHECK key=('VideoRepick', 'easy', 155) tasks=5 frames=255
+EPISODE_END key=('VideoRepick', 'easy', 155) status=success steps=516 elapsed=60.7s rss_kib=26442516
+EPISODE_START key=('VideoRepick', 'medium', 153) attempt=1 pid=2155903
+DEMO_CHECK key=('VideoRepick', 'medium', 153) tasks=6 frames=322
+EPISODE_END key=('VideoRepick', 'medium', 153) status=success steps=388 elapsed=52.7s rss_kib=26442516
+EPISODE_START key=('VideoRepick', 'xhard', 153) attempt=1 pid=2155903
+DEMO_CHECK key=('VideoRepick', 'xhard', 153) tasks=9 frames=475
+EPISODE_END key=('VideoRepick', 'xhard', 153) status=fail steps=175 elapsed=38.7s rss_kib=26442516
+EPISODE_START key=('VideoUnmaskSwap', 'easy', 115) attempt=1 pid=2155903
+DEMO_CHECK key=('VideoUnmaskSwap', 'easy', 115) tasks=1 frames=168
+EPISODE_END key=('VideoUnmaskSwap', 'easy', 115) status=success steps=276 elapsed=36.5s rss_kib=26442516
+EPISODE_START key=('VideoUnmaskSwap', 'hard', 115) attempt=1 pid=2155903
+DEMO_CHECK key=('VideoUnmaskSwap', 'hard', 115) tasks=1 frames=168
+EPISODE_END key=('VideoUnmaskSwap', 'hard', 115) status=fail steps=274 elapsed=72.8s rss_kib=26442516
+EPISODE_START key=('VideoUnmaskSwap', 'medium', 115) attempt=1 pid=2155903
+DEMO_CHECK key=('VideoUnmaskSwap', 'medium', 115) tasks=1 frames=114
+EPISODE_END key=('VideoUnmaskSwap', 'medium', 115) status=success steps=100 elapsed=23.1s rss_kib=26442516
+EPISODE_START key=('VideoUnmaskSwap', 'xhard', 115) attempt=1 pid=2155903
+DEMO_CHECK key=('VideoUnmaskSwap', 'xhard', 115) tasks=1 frames=318
+EPISODE_END key=('VideoUnmaskSwap', 'xhard', 115) status=fail steps=106 elapsed=60.4s rss_kib=26442516
+BATCH_EXIT lane=local-smoke code=0 new_attempts=13
+BATCH_PASS lane=local-smoke plan=batch-01.json episodes=13 peak_rss_kib=26442516
+COVERAGE_PASS planned=14 success=7 errors=0 missing=0
+COVERAGE_PASS planned=14 success=7 errors=0 missing=0
+VERIFY_ENV_PASS
+VERIFY_ENV_PASS
+RENDER_PROBE_PASS
+RENDER_PROBE_PASS
+BATCH_START lane=hold02 plan=batch-00.json pending=14
+BATCH_START lane=hold01 plan=batch-00.json pending=14
+EPISODE_START key=('BinFill', 'easy', 155) attempt=1 pid=1089864
+EPISODE_START key=('BinFill', 'easy', 156) attempt=1 pid=1089865
+DEMO_CHECK key=('BinFill', 'easy', 155) tasks=0 frames=0
+DEMO_CHECK key=('BinFill', 'easy', 156) tasks=0 frames=0
+EPISODE_END key=('BinFill', 'easy', 156) status=success steps=240 elapsed=38.6s rss_kib=26440792
+EPISODE_START key=('BinFill', 'hard', 154) attempt=1 pid=1089865
+DEMO_CHECK key=('BinFill', 'hard', 154) tasks=0 frames=0
+EPISODE_END key=('BinFill', 'easy', 155) status=success steps=665 elapsed=113.1s rss_kib=26440860
+EPISODE_START key=('BinFill', 'hard', 153) attempt=1 pid=1089864
+DEMO_CHECK key=('BinFill', 'hard', 153) tasks=0 frames=0
+EPISODE_END key=('BinFill', 'hard', 154) status=success steps=799 elapsed=120.9s rss_kib=26440792
+EPISODE_START key=('BinFill', 'medium', 154) attempt=1 pid=1089865
+DEMO_CHECK key=('BinFill', 'medium', 154) tasks=0 frames=0
+EPISODE_END key=('BinFill', 'hard', 153) status=fail steps=912 elapsed=155.1s rss_kib=26440860
+EPISODE_START key=('BinFill', 'medium', 153) attempt=1 pid=1089864
+DEMO_CHECK key=('BinFill', 'medium', 153) tasks=0 frames=0
+EPISODE_END key=('BinFill', 'medium', 154) status=success steps=814 elapsed=121.7s rss_kib=26440792
+EPISODE_START key=('RouteStick', 'easy', 116) attempt=1 pid=1089865
+DEMO_CHECK key=('RouteStick', 'easy', 116) tasks=5 frames=100
+EPISODE_END key=('RouteStick', 'easy', 116) status=success steps=98 elapsed=27.6s rss_kib=26440792
+EPISODE_START key=('RouteStick', 'hard', 116) attempt=1 pid=1089865
+DEMO_CHECK key=('RouteStick', 'hard', 116) tasks=7 frames=200
+EPISODE_END key=('BinFill', 'medium', 153) status=fail steps=424 elapsed=72.0s rss_kib=26440860
+EPISODE_START key=('RouteStick', 'easy', 115) attempt=1 pid=1089864
+DEMO_CHECK key=('RouteStick', 'easy', 115) tasks=6 frames=150
+EPISODE_END key=('RouteStick', 'hard', 116) status=success steps=225 elapsed=51.7s rss_kib=26440792
+EPISODE_START key=('RouteStick', 'medium', 116) attempt=1 pid=1089865
+DEMO_CHECK key=('RouteStick', 'medium', 116) tasks=8 frames=250
+EPISODE_END key=('RouteStick', 'easy', 115) status=success steps=157 elapsed=41.8s rss_kib=26440860
+EPISODE_START key=('RouteStick', 'hard', 115) attempt=1 pid=1089864
+DEMO_CHECK key=('RouteStick', 'hard', 115) tasks=8 frames=250
+EPISODE_END key=('RouteStick', 'medium', 116) status=success steps=265 elapsed=59.3s rss_kib=26440792
+EPISODE_START key=('RouteStick', 'xhard', 116) attempt=1 pid=1089865
+DEMO_CHECK key=('RouteStick', 'xhard', 116) tasks=11 frames=400
+EPISODE_END key=('RouteStick', 'hard', 115) status=fail steps=302 elapsed=75.3s rss_kib=26440860
+EPISODE_START key=('RouteStick', 'medium', 115) attempt=1 pid=1089864
+EPISODE_END key=('RouteStick', 'xhard', 116) status=fail steps=106 elapsed=36.6s rss_kib=26440792
+EPISODE_START key=('VideoRepick', 'easy', 156) attempt=1 pid=1089865
+DEMO_CHECK key=('VideoRepick', 'easy', 156) tasks=6 frames=321
+DEMO_CHECK key=('RouteStick', 'medium', 115) tasks=8 frames=250
+EPISODE_END key=('RouteStick', 'medium', 115) status=success steps=267 elapsed=69.2s rss_kib=26440860
+EPISODE_END key=('VideoRepick', 'easy', 156) status=success steps=374 elapsed=66.3s rss_kib=26440792
+EPISODE_START key=('RouteStick', 'xhard', 115) attempt=1 pid=1089864
+EPISODE_START key=('VideoRepick', 'medium', 154) attempt=1 pid=1089865
+Traceback (most recent call last):
+  File "/nfs/turbo/coe-chaijy-unreplicated/hongzefu/SimpleMemVLA/robomme_sim/candidate_eval.py", line 71, in evaluate_candidates
+RuntimeError: reset 错误：{'ok': False, 'reason': 'reset_failed: RuntimeError: vk::PhysicalDevice::createDeviceUnique: ErrorInitializationFailed'}
+Traceback (most recent call last):
+  File "/nfs/turbo/coe-chaijy-unreplicated/hongzefu/uv-python/cpython-3.10.19-linux-x86_64-gnu/lib/python3.10/runpy.py", line 196, in _run_module_as_main
+  File "/nfs/turbo/coe-chaijy-unreplicated/hongzefu/uv-python/cpython-3.10.19-linux-x86_64-gnu/lib/python3.10/runpy.py", line 86, in _run_code
+  File "/nfs/turbo/coe-chaijy-unreplicated/hongzefu/SimpleMemVLA/robomme_sim/eval_success.py", line 552, in <module>
+  File "/nfs/turbo/coe-chaijy-unreplicated/hongzefu/SimpleMemVLA/robomme_sim/eval_success.py", line 490, in main
+  File "/nfs/turbo/coe-chaijy-unreplicated/hongzefu/SimpleMemVLA/robomme_sim/candidate_eval.py", line 136, in evaluate_candidates
+  File "/nfs/turbo/coe-chaijy-unreplicated/hongzefu/SimpleMemVLA/robomme_sim/candidate_plan.py", line 60, in atomic_json
+  File "/nfs/turbo/coe-chaijy-unreplicated/hongzefu/uv-python/cpython-3.10.19-linux-x86_64-gnu/lib/python3.10/json/__init__.py", line 180, in dump
+UnicodeEncodeError: 'ascii' codec can't encode characters in position 201-203: ordinal not in range(128)
+BATCH_EXIT lane=hold01 code=1 new_attempts=7
+BATCH_START lane=hold01 plan=batch-00.json pending=8
+DEMO_CHECK key=('VideoRepick', 'medium', 154) tasks=6 frames=307
+EPISODE_END key=('VideoRepick', 'medium', 154) status=fail steps=100 elapsed=26.1s rss_kib=26440792
+EPISODE_START key=('VideoRepick', 'xhard', 154) attempt=1 pid=1089865
+DEMO_CHECK key=('VideoRepick', 'xhard', 154) tasks=8 frames=420
+EPISODE_END key=('VideoRepick', 'xhard', 154) status=success steps=292 elapsed=57.3s rss_kib=26440792
+EPISODE_START key=('VideoUnmaskSwap', 'easy', 116) attempt=1 pid=1089865
+EXIT_CODE=137
+EXIT_CODE=137
+HOLD_EXIT hold01=137 hold02=137
+COVERAGE_FAIL planned=700 success=11 errors=1 missing=683
+EXIT_CODE=1
+# 源日志：logs/setup/smvla-injection700-nodemo-20260918.campaign-r1.log
+VERIFY_ENV_PASS
+RENDER_PROBE_PASS
+BATCH_PASS lane=local-smoke plan=batch-00.json episodes=1 peak_rss_kib=26444040 cgroup={}
+BATCH_PASS lane=local-smoke plan=batch-01.json episodes=13 peak_rss_kib=26442516 cgroup={}
+COVERAGE_PASS planned=14 success=7 errors=0 missing=0
+COVERAGE_PASS planned=14 success=7 errors=0 missing=0
+VERIFY_ENV_PASS
+RENDER_PROBE_PASS
+VERIFY_ENV_PASS
+RENDER_PROBE_PASS
+BATCH_START lane=hold02 plan=batch-00.json pending=4
+BATCH_START lane=hold01 plan=batch-00.json pending=8
+EPISODE_START key=('VideoUnmaskSwap', 'easy', 116) attempt=2 pid=1107609
+EPISODE_START key=('RouteStick', 'xhard', 115) attempt=2 pid=1107671
+DEMO_CHECK key=('VideoUnmaskSwap', 'easy', 116) tasks=1 frames=114
+DEMO_CHECK key=('RouteStick', 'xhard', 115) tasks=12 frames=450
+EPISODE_END key=('VideoUnmaskSwap', 'easy', 116) status=success steps=111 elapsed=30.7s rss_kib=26417376
+EPISODE_START key=('VideoUnmaskSwap', 'hard', 116) attempt=1 pid=1107609
+DEMO_CHECK key=('VideoUnmaskSwap', 'hard', 116) tasks=1 frames=168
+EPISODE_END key=('RouteStick', 'xhard', 115) status=fail steps=52 elapsed=36.7s rss_kib=26441504
+EPISODE_START key=('VideoRepick', 'easy', 155) attempt=1 pid=1107671
+DEMO_CHECK key=('VideoRepick', 'easy', 155) tasks=5 frames=255
+EPISODE_END key=('VideoUnmaskSwap', 'hard', 116) status=success steps=269 elapsed=50.3s rss_kib=26417376
+EPISODE_START key=('VideoUnmaskSwap', 'medium', 116) attempt=1 pid=1107609
+DEMO_CHECK key=('VideoUnmaskSwap', 'medium', 116) tasks=1 frames=168
+EPISODE_END key=('VideoRepick', 'easy', 155) status=success steps=514 elapsed=95.5s rss_kib=26441504
+EPISODE_START key=('VideoRepick', 'medium', 153) attempt=1 pid=1107671
+DEMO_CHECK key=('VideoRepick', 'medium', 153) tasks=6 frames=322
+EPISODE_END key=('VideoUnmaskSwap', 'medium', 116) status=success steps=106 elapsed=64.4s rss_kib=26417376
+EPISODE_START key=('VideoUnmaskSwap', 'xhard', 116) attempt=1 pid=1107609
+DEMO_CHECK key=('VideoUnmaskSwap', 'xhard', 116) tasks=1 frames=264
+EPISODE_END key=('VideoUnmaskSwap', 'xhard', 116) status=fail steps=116 elapsed=41.2s rss_kib=26417376
+BATCH_EXIT lane=hold02 code=0 new_attempts=4
+BATCH_PASS lane=hold02 plan=batch-00.json episodes=14 peak_rss_kib=26440792 cgroup={'limit_bytes': 25769803776, 'peak_bytes': 20547264512, 'oom_kill': 0, 'oom': 0}
+BATCH_START lane=hold02 plan=batch-01.json pending=14
+EPISODE_END key=('VideoRepick', 'medium', 153) status=success steps=387 elapsed=76.2s rss_kib=26441504
+EPISODE_START key=('VideoRepick', 'xhard', 153) attempt=1 pid=1107671
+DEMO_CHECK key=('VideoRepick', 'xhard', 153) tasks=9 frames=475
+EPISODE_END key=('VideoRepick', 'xhard', 153) status=fail steps=175 elapsed=46.0s rss_kib=26441504
+EPISODE_START key=('VideoUnmaskSwap', 'easy', 115) attempt=1 pid=1107671
+DEMO_CHECK key=('VideoUnmaskSwap', 'easy', 115) tasks=1 frames=168
+EPISODE_END key=('VideoUnmaskSwap', 'easy', 115) status=success steps=276 elapsed=56.2s rss_kib=26441504
+EPISODE_START key=('VideoUnmaskSwap', 'hard', 115) attempt=1 pid=1107671
+DEMO_CHECK key=('VideoUnmaskSwap', 'hard', 115) tasks=1 frames=168
+EPISODE_END key=('VideoUnmaskSwap', 'hard', 115) status=fail steps=274 elapsed=111.1s rss_kib=26441504
+EPISODE_START key=('VideoUnmaskSwap', 'medium', 115) attempt=1 pid=1107671
+EPISODE_START key=('BinFill', 'easy', 158) attempt=1 pid=1112694
+DEMO_CHECK key=('BinFill', 'easy', 158) tasks=0 frames=0
+DEMO_CHECK key=('VideoUnmaskSwap', 'medium', 115) tasks=1 frames=114
+EPISODE_END key=('VideoUnmaskSwap', 'medium', 115) status=success steps=100 elapsed=31.9s rss_kib=26441504
+EPISODE_START key=('VideoUnmaskSwap', 'xhard', 115) attempt=1 pid=1107671
+EPISODE_END key=('BinFill', 'easy', 158) status=success steps=270 elapsed=43.1s rss_kib=26440876
+EPISODE_START key=('BinFill', 'hard', 156) attempt=1 pid=1112694
+DEMO_CHECK key=('BinFill', 'hard', 156) tasks=0 frames=0
+DEMO_CHECK key=('VideoUnmaskSwap', 'xhard', 115) tasks=1 frames=318
+EPISODE_END key=('VideoUnmaskSwap', 'xhard', 115) status=fail steps=106 elapsed=80.4s rss_kib=26441504
+BATCH_EXIT lane=hold01 code=0 new_attempts=8
+BATCH_PASS lane=hold01 plan=batch-00.json episodes=14 peak_rss_kib=26441504 cgroup={'limit_bytes': 25769803776, 'peak_bytes': 22243323904, 'oom_kill': 0, 'oom': 0}
+BATCH_START lane=hold01 plan=batch-01.json pending=14
+EPISODE_START key=('BinFill', 'easy', 157) attempt=1 pid=1120305
+DEMO_CHECK key=('BinFill', 'easy', 157) tasks=0 frames=0
+EPISODE_END key=('BinFill', 'hard', 156) status=timeout steps=2000 elapsed=321.7s rss_kib=26440876
+EPISODE_START key=('BinFill', 'medium', 156) attempt=1 pid=1112694
+DEMO_CHECK key=('BinFill', 'medium', 156) tasks=0 frames=0
+EPISODE_END key=('BinFill', 'easy', 157) status=success steps=623 elapsed=104.4s rss_kib=26416872
+EPISODE_START key=('BinFill', 'hard', 155) attempt=1 pid=1120305
+DEMO_CHECK key=('BinFill', 'hard', 155) tasks=0 frames=0
+EPISODE_END key=('BinFill', 'medium', 156) status=fail steps=821 elapsed=125.0s rss_kib=26440876
+EPISODE_START key=('RouteStick', 'easy', 118) attempt=1 pid=1112694
+DEMO_CHECK key=('RouteStick', 'easy', 118) tasks=5 frames=100
+EPISODE_END key=('RouteStick', 'easy', 118) status=fail steps=191 elapsed=40.4s rss_kib=26440876
+EPISODE_START key=('RouteStick', 'hard', 118) attempt=1 pid=1112694
+DEMO_CHECK key=('RouteStick', 'hard', 118) tasks=9 frames=300
+EPISODE_END key=('RouteStick', 'hard', 118) status=success steps=326 elapsed=73.3s rss_kib=26440876
+EPISODE_START key=('RouteStick', 'medium', 118) attempt=1 pid=1112694
+DEMO_CHECK key=('RouteStick', 'medium', 118) tasks=7 frames=200
+EPISODE_END key=('RouteStick', 'medium', 118) status=fail steps=46 elapsed=19.2s rss_kib=26440876
+EPISODE_START key=('RouteStick', 'xhard', 118) attempt=1 pid=1112694
+DEMO_CHECK key=('RouteStick', 'xhard', 118) tasks=12 frames=450
+EPISODE_END key=('BinFill', 'hard', 155) status=fail steps=1262 elapsed=215.1s rss_kib=26416872
+EPISODE_START key=('BinFill', 'medium', 155) attempt=1 pid=1120305
+DEMO_CHECK key=('BinFill', 'medium', 155) tasks=0 frames=0
+EPISODE_END key=('RouteStick', 'xhard', 118) status=fail steps=319 elapsed=76.2s rss_kib=26440876
+EPISODE_START key=('VideoRepick', 'easy', 158) attempt=1 pid=1112694
+DEMO_CHECK key=('VideoRepick', 'easy', 158) tasks=5 frames=276
+EPISODE_END key=('BinFill', 'medium', 155) status=fail steps=539 elapsed=89.5s rss_kib=26416872
+EPISODE_START key=('RouteStick', 'easy', 117) attempt=1 pid=1120305
+EPISODE_END key=('VideoRepick', 'easy', 158) status=success steps=365 elapsed=61.7s rss_kib=26440876
+EPISODE_START key=('VideoRepick', 'medium', 156) attempt=1 pid=1112694
+DEMO_CHECK key=('RouteStick', 'easy', 117) tasks=5 frames=100
+DEMO_CHECK key=('VideoRepick', 'medium', 156) tasks=7 frames=369
+EPISODE_END key=('VideoRepick', 'medium', 156) status=fail steps=95 elapsed=25.3s rss_kib=26440876
+EPISODE_START key=('VideoRepick', 'xhard', 156) attempt=1 pid=1112694
+EPISODE_END key=('RouteStick', 'easy', 117) status=success steps=100 elapsed=31.4s rss_kib=26416872
+EPISODE_START key=('RouteStick', 'hard', 117) attempt=1 pid=1120305
+DEMO_CHECK key=('VideoRepick', 'xhard', 156) tasks=9 frames=480
+DEMO_CHECK key=('RouteStick', 'hard', 117) tasks=10 frames=350
+EPISODE_END key=('RouteStick', 'hard', 117) status=fail steps=171 elapsed=52.8s rss_kib=26416872
+EPISODE_START key=('RouteStick', 'medium', 117) attempt=1 pid=1120305
+DEMO_CHECK key=('RouteStick', 'medium', 117) tasks=7 frames=200
+EPISODE_END key=('VideoRepick', 'xhard', 156) status=success steps=497 elapsed=90.8s rss_kib=26440876
+EPISODE_START key=('VideoUnmaskSwap', 'easy', 118) attempt=1 pid=1112694
+DEMO_CHECK key=('VideoUnmaskSwap', 'easy', 118) tasks=1 frames=114
+EPISODE_END key=('RouteStick', 'medium', 117) status=success steps=224 elapsed=57.1s rss_kib=26416872
+EPISODE_START key=('RouteStick', 'xhard', 117) attempt=1 pid=1120305
+DEMO_CHECK key=('RouteStick', 'xhard', 117) tasks=13 frames=500
+EPISODE_END key=('VideoUnmaskSwap', 'easy', 118) status=success steps=296 elapsed=54.5s rss_kib=26440876
+EPISODE_START key=('VideoUnmaskSwap', 'hard', 118) attempt=1 pid=1112694
+EPISODE_END key=('RouteStick', 'xhard', 117) status=fail steps=111 elapsed=45.4s rss_kib=26416872
+EPISODE_START key=('VideoRepick', 'easy', 157) attempt=1 pid=1120305
+DEMO_CHECK key=('VideoRepick', 'easy', 157) tasks=6 frames=328
+DEMO_CHECK key=('VideoUnmaskSwap', 'hard', 118) tasks=1 frames=168
+EPISODE_END key=('VideoUnmaskSwap', 'hard', 118) status=success steps=248 elapsed=70.5s rss_kib=26440876
+EPISODE_START key=('VideoUnmaskSwap', 'medium', 118) attempt=1 pid=1112694
+DEMO_CHECK key=('VideoUnmaskSwap', 'medium', 118) tasks=1 frames=168
+EPISODE_END key=('VideoUnmaskSwap', 'medium', 118) status=success steps=101 elapsed=25.1s rss_kib=26440876
+EPISODE_START key=('VideoUnmaskSwap', 'xhard', 118) attempt=1 pid=1112694
+EPISODE_END key=('VideoRepick', 'easy', 157) status=success steps=520 elapsed=98.1s rss_kib=26416872
+EPISODE_START key=('VideoRepick', 'medium', 155) attempt=1 pid=1120305
+DEMO_CHECK key=('VideoUnmaskSwap', 'xhard', 118) tasks=1 frames=318
+EPISODE_END key=('VideoUnmaskSwap', 'xhard', 118) status=fail steps=255 elapsed=60.9s rss_kib=26440876
+BATCH_EXIT lane=hold02 code=0 new_attempts=14
+BATCH_PASS lane=hold02 plan=batch-01.json episodes=14 peak_rss_kib=26440876 cgroup={'limit_bytes': 25769803776, 'peak_bytes': 20584902656, 'oom_kill': 0, 'oom': 0}
+BATCH_START lane=hold02 plan=batch-02.json pending=14
+EPISODE_START key=('BinFill', 'easy', 160) attempt=1 pid=1133884
+DEMO_CHECK key=('BinFill', 'easy', 160) tasks=0 frames=0
+EPISODE_END key=('BinFill', 'easy', 160) status=success steps=263 elapsed=42.7s rss_kib=26440532
+EPISODE_START key=('BinFill', 'hard', 158) attempt=1 pid=1133884
+DEMO_CHECK key=('BinFill', 'hard', 158) tasks=0 frames=0
+EPISODE_END key=('BinFill', 'hard', 158) status=success steps=689 elapsed=103.2s rss_kib=26440532
+EPISODE_START key=('BinFill', 'medium', 158) attempt=1 pid=1133884
+DEMO_CHECK key=('BinFill', 'medium', 158) tasks=0 frames=0
+EPISODE_END key=('BinFill', 'medium', 158) status=success steps=904 elapsed=134.1s rss_kib=26440532
+EPISODE_START key=('RouteStick', 'easy', 120) attempt=1 pid=1133884
+DEMO_CHECK key=('RouteStick', 'easy', 120) tasks=5 frames=100
+EPISODE_END key=('RouteStick', 'easy', 120) status=success steps=104 elapsed=27.4s rss_kib=26440532
+EPISODE_START key=('RouteStick', 'hard', 120) attempt=1 pid=1133884
+DEMO_CHECK key=('RouteStick', 'hard', 120) tasks=9 frames=300
+EPISODE_END key=('RouteStick', 'hard', 120) status=success steps=320 elapsed=69.7s rss_kib=26440532
+EPISODE_START key=('RouteStick', 'medium', 120) attempt=1 pid=1133884
+DEMO_CHECK key=('RouteStick', 'medium', 120) tasks=8 frames=250
+EPISODE_END key=('RouteStick', 'medium', 120) status=success steps=258 elapsed=61.3s rss_kib=26440532
+EPISODE_START key=('RouteStick', 'xhard', 120) attempt=1 pid=1133884
+DEMO_CHECK key=('RouteStick', 'xhard', 120) tasks=12 frames=450
+EPISODE_END key=('RouteStick', 'xhard', 120) status=fail steps=141 elapsed=45.3s rss_kib=26440532
+EPISODE_START key=('VideoRepick', 'easy', 160) attempt=1 pid=1133884
+DEMO_CHECK key=('VideoRepick', 'easy', 160) tasks=5 frames=260
+EPISODE_END key=('VideoRepick', 'easy', 160) status=success steps=361 elapsed=61.1s rss_kib=26440532
+EPISODE_START key=('VideoRepick', 'medium', 158) attempt=1 pid=1133884
+DEMO_CHECK key=('VideoRepick', 'medium', 158) tasks=7 frames=369
+EPISODE_END key=('VideoRepick', 'medium', 158) status=success steps=486 elapsed=85.3s rss_kib=26440532
+EPISODE_START key=('VideoRepick', 'xhard', 158) attempt=1 pid=1133884
+DEMO_CHECK key=('VideoRepick', 'xhard', 158) tasks=8 frames=433
+EPISODE_END key=('VideoRepick', 'xhard', 158) status=fail steps=96 elapsed=26.4s rss_kib=26440532
+EPISODE_START key=('VideoUnmaskSwap', 'easy', 120) attempt=1 pid=1133884
+DEMO_CHECK key=('VideoUnmaskSwap', 'easy', 120) tasks=1 frames=168
+EPISODE_END key=('VideoUnmaskSwap', 'easy', 120) status=timeout steps=2000 elapsed=339.7s rss_kib=26440532
+EPISODE_START key=('VideoUnmaskSwap', 'hard', 120) attempt=1 pid=1133884
+DEMO_CHECK key=('VideoUnmaskSwap', 'hard', 120) tasks=1 frames=216
+EPISODE_END key=('VideoUnmaskSwap', 'hard', 120) status=success steps=260 elapsed=67.9s rss_kib=26440532
+EPISODE_START key=('VideoUnmaskSwap', 'medium', 120) attempt=1 pid=1133884
+DEMO_CHECK key=('VideoUnmaskSwap', 'medium', 120) tasks=1 frames=168
+EPISODE_END key=('VideoUnmaskSwap', 'medium', 120) status=success steps=101 elapsed=53.8s rss_kib=26440532
+EPISODE_START key=('VideoUnmaskSwap', 'xhard', 120) attempt=1 pid=1133884
+DEMO_CHECK key=('VideoUnmaskSwap', 'xhard', 120) tasks=1 frames=264
+EPISODE_END key=('VideoUnmaskSwap', 'xhard', 120) status=fail steps=104 elapsed=110.5s rss_kib=26440532
+BATCH_EXIT lane=hold02 code=0 new_attempts=14
+BATCH_PASS lane=hold02 plan=batch-02.json episodes=14 peak_rss_kib=26440532 cgroup={'limit_bytes': 25769803776, 'peak_bytes': 20659482624, 'oom_kill': 0, 'oom': 0}
+BATCH_START lane=hold02 plan=batch-03.json pending=14
+EPISODE_START key=('BinFill', 'easy', 162) attempt=1 pid=1155249
+DEMO_CHECK key=('BinFill', 'easy', 162) tasks=0 frames=0
+EPISODE_END key=('BinFill', 'easy', 162) status=success steps=749 elapsed=114.0s rss_kib=26417288
+EPISODE_START key=('BinFill', 'hard', 160) attempt=1 pid=1155249
+DEMO_CHECK key=('BinFill', 'hard', 160) tasks=0 frames=0
+EPISODE_END key=('BinFill', 'hard', 160) status=fail steps=877 elapsed=135.6s rss_kib=26417288
+EPISODE_START key=('BinFill', 'medium', 160) attempt=1 pid=1155249
+DEMO_CHECK key=('BinFill', 'medium', 160) tasks=0 frames=0
+EPISODE_END key=('BinFill', 'medium', 160) status=success steps=550 elapsed=81.8s rss_kib=26417288
+EPISODE_START key=('RouteStick', 'easy', 122) attempt=1 pid=1155249
+DEMO_CHECK key=('RouteStick', 'easy', 122) tasks=6 frames=150
+EPISODE_END key=('RouteStick', 'easy', 122) status=success steps=155 elapsed=37.5s rss_kib=26417288
+EPISODE_START key=('RouteStick', 'hard', 122) attempt=1 pid=1155249
+DEMO_CHECK key=('RouteStick', 'hard', 122) tasks=10 frames=350
+EPISODE_END key=('RouteStick', 'hard', 122) status=fail steps=124 elapsed=38.3s rss_kib=26417288
+EPISODE_START key=('RouteStick', 'medium', 122) attempt=1 pid=1155249
+DEMO_CHECK key=('RouteStick', 'medium', 122) tasks=7 frames=200
+EPISODE_END key=('RouteStick', 'medium', 122) status=success steps=210 elapsed=49.3s rss_kib=26417288
+EPISODE_START key=('RouteStick', 'xhard', 122) attempt=1 pid=1155249
+DEMO_CHECK key=('RouteStick', 'xhard', 122) tasks=13 frames=500
+EPISODE_END key=('RouteStick', 'xhard', 122) status=fail steps=47 elapsed=30.0s rss_kib=26417288
+EPISODE_START key=('VideoRepick', 'easy', 162) attempt=1 pid=1155249
+DEMO_CHECK key=('VideoRepick', 'easy', 162) tasks=5 frames=263
+EPISODE_END key=('VideoRepick', 'easy', 162) status=success steps=227 elapsed=42.6s rss_kib=26417288
+EPISODE_START key=('VideoRepick', 'medium', 160) attempt=1 pid=1155249
+DEMO_CHECK key=('VideoRepick', 'medium', 160) tasks=7 frames=377
+EPISODE_END key=('VideoRepick', 'medium', 160) status=success steps=365 elapsed=65.4s rss_kib=26417288
+EPISODE_START key=('VideoRepick', 'xhard', 160) attempt=1 pid=1155249
+DEMO_CHECK key=('VideoRepick', 'xhard', 160) tasks=9 frames=480
+EPISODE_END key=('VideoRepick', 'xhard', 160) status=fail steps=87 elapsed=27.5s rss_kib=26417288
+EPISODE_START key=('VideoUnmaskSwap', 'easy', 122) attempt=1 pid=1155249
+DEMO_CHECK key=('VideoUnmaskSwap', 'easy', 122) tasks=1 frames=114
+EPISODE_END key=('VideoUnmaskSwap', 'easy', 122) status=success steps=282 elapsed=50.0s rss_kib=26417288
+EPISODE_START key=('VideoUnmaskSwap', 'hard', 122) attempt=1 pid=1155249
+DEMO_CHECK key=('VideoUnmaskSwap', 'hard', 122) tasks=1 frames=168
+EPISODE_END key=('VideoUnmaskSwap', 'hard', 122) status=success steps=353 elapsed=72.0s rss_kib=26417288
+EPISODE_START key=('VideoUnmaskSwap', 'medium', 122) attempt=1 pid=1155249
+DEMO_CHECK key=('VideoUnmaskSwap', 'medium', 122) tasks=1 frames=168
+EPISODE_END key=('VideoUnmaskSwap', 'medium', 122) status=success steps=106 elapsed=31.2s rss_kib=26417288
+EPISODE_START key=('VideoUnmaskSwap', 'xhard', 122) attempt=1 pid=1155249
+DEMO_CHECK key=('VideoUnmaskSwap', 'xhard', 122) tasks=1 frames=318
+EPISODE_END key=('VideoUnmaskSwap', 'xhard', 122) status=success steps=259 elapsed=133.6s rss_kib=26417288
+BATCH_EXIT lane=hold02 code=0 new_attempts=14
+BATCH_PASS lane=hold02 plan=batch-03.json episodes=14 peak_rss_kib=26417288 cgroup={'limit_bytes': 25769803776, 'peak_bytes': 20704550912, 'oom_kill': 0, 'oom': 0}
+BATCH_START lane=hold02 plan=batch-04.json pending=14
+EPISODE_START key=('BinFill', 'easy', 164) attempt=1 pid=1172530
+DEMO_CHECK key=('BinFill', 'easy', 164) tasks=0 frames=0
+EPISODE_END key=('BinFill', 'easy', 164) status=success steps=678 elapsed=104.4s rss_kib=26440260
+EPISODE_START key=('BinFill', 'hard', 162) attempt=1 pid=1172530
+DEMO_CHECK key=('BinFill', 'hard', 162) tasks=0 frames=0
+EPISODE_END key=('BinFill', 'hard', 162) status=fail steps=1771 elapsed=279.6s rss_kib=26440260
+EPISODE_START key=('BinFill', 'medium', 162) attempt=1 pid=1172530
+DEMO_CHECK key=('BinFill', 'medium', 162) tasks=0 frames=0
+EPISODE_END key=('BinFill', 'medium', 162) status=success steps=875 elapsed=130.3s rss_kib=26440260
+EPISODE_START key=('RouteStick', 'easy', 124) attempt=1 pid=1172530
+DEMO_CHECK key=('RouteStick', 'easy', 124) tasks=6 frames=150
+EPISODE_END key=('RouteStick', 'easy', 124) status=success steps=158 elapsed=36.9s rss_kib=26440260
+EPISODE_START key=('RouteStick', 'hard', 124) attempt=1 pid=1172530
+DEMO_CHECK key=('RouteStick', 'hard', 124) tasks=8 frames=250
+EPISODE_END key=('RouteStick', 'hard', 124) status=fail steps=285 elapsed=62.6s rss_kib=26440260
+EPISODE_START key=('RouteStick', 'medium', 124) attempt=1 pid=1172530
+DEMO_CHECK key=('RouteStick', 'medium', 124) tasks=7 frames=200
+EPISODE_END key=('RouteStick', 'medium', 124) status=success steps=218 elapsed=50.0s rss_kib=26440260
+EPISODE_START key=('RouteStick', 'xhard', 124) attempt=1 pid=1172530
+DEMO_CHECK key=('RouteStick', 'xhard', 124) tasks=11 frames=400
+Traceback (most recent call last):
+  File "/nfs/turbo/coe-chaijy-unreplicated/hongzefu/SimpleMemVLA/robomme_sim/candidate_eval.py", line 71, in evaluate_candidates
+RuntimeError: reset 错误：{'ok': False, 'reason': 'reset_exc: '}
+EPISODE_END key=('VideoRepick', 'medium', 155) status=error steps=0 elapsed=3600.0s rss_kib=26416872
+BATCH_EXIT lane=hold01 code=1 new_attempts=9
+BATCH_START lane=hold01 plan=batch-01.json pending=6
+EPISODE_END key=('RouteStick', 'xhard', 124) status=fail steps=196 elapsed=53.9s rss_kib=26440260
+EPISODE_START key=('VideoRepick', 'easy', 164) attempt=1 pid=1172530
+DEMO_CHECK key=('VideoRepick', 'easy', 164) tasks=6 frames=313
+EPISODE_END key=('VideoRepick', 'easy', 164) status=fail steps=102 elapsed=25.9s rss_kib=26440260
+EPISODE_START key=('VideoRepick', 'medium', 162) attempt=1 pid=1172530
+DEMO_CHECK key=('VideoRepick', 'medium', 162) tasks=6 frames=324
+EPISODE_END key=('VideoRepick', 'medium', 162) status=success steps=232 elapsed=44.1s rss_kib=26440260
+EPISODE_START key=('VideoRepick', 'xhard', 162) attempt=1 pid=1172530
+DEMO_CHECK key=('VideoRepick', 'xhard', 162) tasks=8 frames=438
+EPISODE_END key=('VideoRepick', 'xhard', 162) status=fail steps=99 elapsed=28.5s rss_kib=26440260
+EPISODE_START key=('VideoUnmaskSwap', 'easy', 124) attempt=1 pid=1172530
+DEMO_CHECK key=('VideoUnmaskSwap', 'easy', 124) tasks=1 frames=168
+EPISODE_START key=('VideoRepick', 'medium', 155) attempt=2 pid=1185484
+EPISODE_END key=('VideoUnmaskSwap', 'easy', 124) status=timeout steps=2000 elapsed=347.2s rss_kib=26440260
+EPISODE_START key=('VideoUnmaskSwap', 'hard', 124) attempt=1 pid=1172530
+DEMO_CHECK key=('VideoUnmaskSwap', 'hard', 124) tasks=1 frames=168
+EPISODE_END key=('VideoUnmaskSwap', 'hard', 124) status=success steps=254 elapsed=68.0s rss_kib=26440260
+EPISODE_START key=('VideoUnmaskSwap', 'medium', 124) attempt=1 pid=1172530
+DEMO_CHECK key=('VideoUnmaskSwap', 'medium', 124) tasks=1 frames=168
+EPISODE_END key=('VideoUnmaskSwap', 'medium', 124) status=success steps=195 elapsed=63.1s rss_kib=26440260
+EPISODE_START key=('VideoUnmaskSwap', 'xhard', 124) attempt=1 pid=1172530
+DEMO_CHECK key=('VideoUnmaskSwap', 'xhard', 124) tasks=1 frames=264
+EPISODE_END key=('VideoUnmaskSwap', 'xhard', 124) status=fail steps=102 elapsed=49.0s rss_kib=26440260
+BATCH_EXIT lane=hold02 code=0 new_attempts=14
+BATCH_PASS lane=hold02 plan=batch-04.json episodes=14 peak_rss_kib=26440260 cgroup={'limit_bytes': 25769803776, 'peak_bytes': 20765380608, 'oom_kill': 0, 'oom': 0}
+BATCH_START lane=hold02 plan=batch-05.json pending=14
+EPISODE_START key=('BinFill', 'easy', 166) attempt=1 pid=1194683
+DEMO_CHECK key=('BinFill', 'easy', 166) tasks=0 frames=0
+EPISODE_END key=('BinFill', 'easy', 166) status=success steps=585 elapsed=90.3s rss_kib=26439428
+EPISODE_START key=('BinFill', 'hard', 164) attempt=1 pid=1194683
+DEMO_CHECK key=('BinFill', 'hard', 164) tasks=0 frames=0
+EPISODE_END key=('BinFill', 'hard', 164) status=success steps=1057 elapsed=162.0s rss_kib=26439428
+EPISODE_START key=('BinFill', 'medium', 164) attempt=1 pid=1194683
+DEMO_CHECK key=('BinFill', 'medium', 164) tasks=0 frames=0
+EPISODE_END key=('BinFill', 'medium', 164) status=success steps=492 elapsed=72.4s rss_kib=26439428
+EPISODE_START key=('RouteStick', 'easy', 126) attempt=1 pid=1194683
+DEMO_CHECK key=('RouteStick', 'easy', 126) tasks=6 frames=150
+EPISODE_END key=('RouteStick', 'easy', 126) status=success steps=158 elapsed=37.4s rss_kib=26439428
+EPISODE_START key=('RouteStick', 'hard', 126) attempt=1 pid=1194683
+DEMO_CHECK key=('RouteStick', 'hard', 126) tasks=7 frames=200
+EPISODE_END key=('RouteStick', 'hard', 126) status=success steps=201 elapsed=46.6s rss_kib=26439428
+EPISODE_START key=('RouteStick', 'medium', 126) attempt=1 pid=1194683
+DEMO_CHECK key=('RouteStick', 'medium', 126) tasks=8 frames=250
+EPISODE_END key=('RouteStick', 'medium', 126) status=success steps=272 elapsed=60.5s rss_kib=26439428
+EPISODE_START key=('RouteStick', 'xhard', 126) attempt=1 pid=1194683
+DEMO_CHECK key=('RouteStick', 'xhard', 126) tasks=11 frames=400
+EPISODE_END key=('RouteStick', 'xhard', 126) status=success steps=465 elapsed=104.3s rss_kib=26439428
+EPISODE_START key=('VideoRepick', 'easy', 166) attempt=1 pid=1194683
+DEMO_CHECK key=('VideoRepick', 'easy', 166) tasks=6 frames=324
+EPISODE_END key=('VideoRepick', 'easy', 166) status=success steps=370 elapsed=65.9s rss_kib=26439428
+EPISODE_START key=('VideoRepick', 'medium', 164) attempt=1 pid=1194683
+DEMO_CHECK key=('VideoRepick', 'medium', 164) tasks=7 frames=379
+EPISODE_END key=('VideoRepick', 'medium', 164) status=success steps=515 elapsed=89.8s rss_kib=26439428
+EPISODE_START key=('VideoRepick', 'xhard', 164) attempt=1 pid=1194683
+DEMO_CHECK key=('VideoRepick', 'xhard', 164) tasks=8 frames=433
+EPISODE_END key=('VideoRepick', 'xhard', 164) status=fail steps=92 elapsed=26.6s rss_kib=26439428
+EPISODE_START key=('VideoUnmaskSwap', 'easy', 126) attempt=1 pid=1194683
+DEMO_CHECK key=('VideoUnmaskSwap', 'easy', 126) tasks=1 frames=114
+EPISODE_END key=('VideoUnmaskSwap', 'easy', 126) status=success steps=101 elapsed=28.3s rss_kib=26439428
+EPISODE_START key=('VideoUnmaskSwap', 'hard', 126) attempt=1 pid=1194683
+DEMO_CHECK key=('VideoUnmaskSwap', 'hard', 126) tasks=1 frames=216
+EPISODE_END key=('VideoUnmaskSwap', 'hard', 126) status=success steps=353 elapsed=81.4s rss_kib=26439428
+EPISODE_START key=('VideoUnmaskSwap', 'medium', 126) attempt=1 pid=1194683
+DEMO_CHECK key=('VideoUnmaskSwap', 'medium', 126) tasks=1 frames=114
+EPISODE_END key=('VideoUnmaskSwap', 'medium', 126) status=success steps=99 elapsed=38.6s rss_kib=26439428
+EPISODE_START key=('VideoUnmaskSwap', 'xhard', 126) attempt=1 pid=1194683
+DEMO_CHECK key=('VideoUnmaskSwap', 'xhard', 126) tasks=1 frames=318
+EPISODE_END key=('VideoUnmaskSwap', 'xhard', 126) status=fail steps=256 elapsed=130.7s rss_kib=26439428
+BATCH_EXIT lane=hold02 code=0 new_attempts=14
+BATCH_PASS lane=hold02 plan=batch-05.json episodes=14 peak_rss_kib=26439428 cgroup={'limit_bytes': 25769803776, 'peak_bytes': 20766728192, 'oom_kill': 0, 'oom': 0}
+BATCH_START lane=hold02 plan=batch-06.json pending=14
+EPISODE_START key=('BinFill', 'easy', 168) attempt=1 pid=1216590
+DEMO_CHECK key=('BinFill', 'easy', 168) tasks=0 frames=0
+EPISODE_END key=('BinFill', 'easy', 168) status=fail steps=400 elapsed=63.0s rss_kib=26441052
+EPISODE_START key=('BinFill', 'hard', 166) attempt=1 pid=1216590
+DEMO_CHECK key=('BinFill', 'hard', 166) tasks=0 frames=0
+EPISODE_END key=('BinFill', 'hard', 166) status=fail steps=1112 elapsed=171.2s rss_kib=26441052
+EPISODE_START key=('BinFill', 'medium', 166) attempt=1 pid=1216590
+DEMO_CHECK key=('BinFill', 'medium', 166) tasks=0 frames=0
+EPISODE_END key=('BinFill', 'medium', 166) status=fail steps=406 elapsed=63.1s rss_kib=26441052
+EPISODE_START key=('RouteStick', 'easy', 128) attempt=1 pid=1216590
+DEMO_CHECK key=('RouteStick', 'easy', 128) tasks=5 frames=100
+EPISODE_END key=('RouteStick', 'easy', 128) status=success steps=103 elapsed=27.0s rss_kib=26441052
+EPISODE_START key=('RouteStick', 'hard', 128) attempt=1 pid=1216590
+DEMO_CHECK key=('RouteStick', 'hard', 128) tasks=7 frames=200
+EPISODE_END key=('RouteStick', 'hard', 128) status=success steps=629 elapsed=123.9s rss_kib=26441052
+EPISODE_START key=('RouteStick', 'medium', 128) attempt=1 pid=1216590
+DEMO_CHECK key=('RouteStick', 'medium', 128) tasks=8 frames=250
+EPISODE_END key=('RouteStick', 'medium', 128) status=success steps=256 elapsed=57.5s rss_kib=26441052
+EPISODE_START key=('RouteStick', 'xhard', 128) attempt=1 pid=1216590
+DEMO_CHECK key=('RouteStick', 'xhard', 128) tasks=11 frames=400
+EPISODE_END key=('RouteStick', 'xhard', 128) status=fail steps=109 elapsed=36.4s rss_kib=26441052
+EPISODE_START key=('VideoRepick', 'easy', 168) attempt=1 pid=1216590
+DEMO_CHECK key=('VideoRepick', 'easy', 168) tasks=6 frames=324
+EPISODE_END key=('VideoRepick', 'easy', 168) status=fail steps=477 elapsed=80.7s rss_kib=26441052
+EPISODE_START key=('VideoRepick', 'medium', 166) attempt=1 pid=1216590
+DEMO_CHECK key=('VideoRepick', 'medium', 166) tasks=7 frames=381
+EPISODE_END key=('VideoRepick', 'medium', 166) status=success steps=384 elapsed=67.1s rss_kib=26441052
+EPISODE_START key=('VideoRepick', 'xhard', 166) attempt=1 pid=1216590
+DEMO_CHECK key=('VideoRepick', 'xhard', 166) tasks=8 frames=449
+EPISODE_END key=('VideoRepick', 'xhard', 166) status=success steps=512 elapsed=88.8s rss_kib=26441052
+EPISODE_START key=('VideoUnmaskSwap', 'easy', 128) attempt=1 pid=1216590
+DEMO_CHECK key=('VideoUnmaskSwap', 'easy', 128) tasks=1 frames=114
+EPISODE_END key=('VideoUnmaskSwap', 'easy', 128) status=success steps=102 elapsed=24.4s rss_kib=26441052
+EPISODE_START key=('VideoUnmaskSwap', 'hard', 128) attempt=1 pid=1216590
+DEMO_CHECK key=('VideoUnmaskSwap', 'hard', 128) tasks=1 frames=216
+EPISODE_END key=('VideoUnmaskSwap', 'hard', 128) status=success steps=267 elapsed=92.6s rss_kib=26441052
+EPISODE_START key=('VideoUnmaskSwap', 'medium', 128) attempt=1 pid=1216590
+DEMO_CHECK key=('VideoUnmaskSwap', 'medium', 128) tasks=1 frames=168
+EPISODE_END key=('VideoUnmaskSwap', 'medium', 128) status=success steps=97 elapsed=30.7s rss_kib=26441052
+EPISODE_START key=('VideoUnmaskSwap', 'xhard', 128) attempt=1 pid=1216590
+DEMO_CHECK key=('VideoUnmaskSwap', 'xhard', 128) tasks=1 frames=264
+EPISODE_END key=('VideoUnmaskSwap', 'xhard', 128) status=fail steps=267 elapsed=96.2s rss_kib=26441052
+BATCH_EXIT lane=hold02 code=0 new_attempts=14
+BATCH_PASS lane=hold02 plan=batch-06.json episodes=14 peak_rss_kib=26441052 cgroup={'limit_bytes': 25769803776, 'peak_bytes': 20790366208, 'oom_kill': 0, 'oom': 0}
+BATCH_START lane=hold02 plan=batch-07.json pending=14
+EPISODE_START key=('BinFill', 'easy', 170) attempt=1 pid=1235008
+DEMO_CHECK key=('BinFill', 'easy', 170) tasks=0 frames=0
+EPISODE_END key=('BinFill', 'easy', 170) status=success steps=231 elapsed=38.8s rss_kib=26439988
+EPISODE_START key=('BinFill', 'hard', 168) attempt=1 pid=1235008
+DEMO_CHECK key=('BinFill', 'hard', 168) tasks=0 frames=0
+EPISODE_END key=('BinFill', 'hard', 168) status=success steps=773 elapsed=115.7s rss_kib=26439988
+EPISODE_START key=('BinFill', 'medium', 168) attempt=1 pid=1235008
+DEMO_CHECK key=('BinFill', 'medium', 168) tasks=0 frames=0
+EPISODE_END key=('BinFill', 'medium', 168) status=fail steps=819 elapsed=121.8s rss_kib=26439988
+EPISODE_START key=('RouteStick', 'easy', 130) attempt=1 pid=1235008
+DEMO_CHECK key=('RouteStick', 'easy', 130) tasks=5 frames=100
+EPISODE_END key=('RouteStick', 'easy', 130) status=success steps=102 elapsed=26.9s rss_kib=26439988
+EPISODE_START key=('RouteStick', 'hard', 130) attempt=1 pid=1235008
+DEMO_CHECK key=('RouteStick', 'hard', 130) tasks=7 frames=200
+EPISODE_END key=('RouteStick', 'hard', 130) status=success steps=210 elapsed=48.8s rss_kib=26439988
+EPISODE_START key=('RouteStick', 'medium', 130) attempt=1 pid=1235008
+DEMO_CHECK key=('RouteStick', 'medium', 130) tasks=7 frames=200
+Traceback (most recent call last):
+  File "/nfs/turbo/coe-chaijy-unreplicated/hongzefu/SimpleMemVLA/robomme_sim/candidate_eval.py", line 71, in evaluate_candidates
+RuntimeError: reset 错误：{'ok': False, 'reason': 'reset_exc: '}
+EPISODE_END key=('VideoRepick', 'medium', 155) status=error steps=0 elapsed=3600.0s rss_kib=26440232
+BATCH_EXIT lane=hold01 code=1 new_attempts=1
+BATCH_START lane=hold01 plan=batch-01.json pending=5
+EPISODE_END key=('RouteStick', 'medium', 130) status=success steps=205 elapsed=46.9s rss_kib=26439988
+EPISODE_START key=('RouteStick', 'xhard', 130) attempt=1 pid=1235008
+DEMO_CHECK key=('RouteStick', 'xhard', 130) tasks=13 frames=500
+EPISODE_END key=('RouteStick', 'xhard', 130) status=fail steps=51 elapsed=31.4s rss_kib=26439988
+EPISODE_START key=('VideoRepick', 'easy', 170) attempt=1 pid=1235008
+DEMO_CHECK key=('VideoRepick', 'easy', 170) tasks=5 frames=262
+EPISODE_END key=('VideoRepick', 'easy', 170) status=success steps=243 elapsed=44.3s rss_kib=26439988
+EPISODE_START key=('VideoRepick', 'medium', 168) attempt=1 pid=1235008
+DEMO_CHECK key=('VideoRepick', 'medium', 168) tasks=6 frames=343
+EPISODE_END key=('VideoRepick', 'medium', 168) status=success steps=232 elapsed=44.1s rss_kib=26439988
+EPISODE_START key=('VideoRepick', 'xhard', 168) attempt=1 pid=1235008
+EPISODE_START key=('VideoRepick', 'xhard', 155) attempt=1 pid=1245984
+DEMO_CHECK key=('VideoRepick', 'xhard', 155) tasks=8 frames=419
+EPISODE_END key=('VideoRepick', 'xhard', 155) status=success steps=230 elapsed=55.7s rss_kib=26440888
+EPISODE_START key=('VideoUnmaskSwap', 'easy', 117) attempt=1 pid=1245984
+DEMO_CHECK key=('VideoUnmaskSwap', 'easy', 117) tasks=1 frames=168
+EPISODE_END key=('VideoUnmaskSwap', 'easy', 117) status=success steps=102 elapsed=27.1s rss_kib=26440888
+EPISODE_START key=('VideoUnmaskSwap', 'hard', 117) attempt=1 pid=1245984
+DEMO_CHECK key=('VideoUnmaskSwap', 'hard', 117) tasks=1 frames=216
+EPISODE_END key=('VideoUnmaskSwap', 'hard', 117) status=success steps=257 elapsed=120.8s rss_kib=26440888
+EPISODE_START key=('VideoUnmaskSwap', 'medium', 117) attempt=1 pid=1245984
+DEMO_CHECK key=('VideoUnmaskSwap', 'medium', 117) tasks=1 frames=168
+EPISODE_END key=('VideoUnmaskSwap', 'medium', 117) status=success steps=108 elapsed=84.0s rss_kib=26440888
+EPISODE_START key=('VideoUnmaskSwap', 'xhard', 117) attempt=1 pid=1245984
+DEMO_CHECK key=('VideoUnmaskSwap', 'xhard', 117) tasks=1 frames=264
+EPISODE_END key=('VideoUnmaskSwap', 'xhard', 117) status=fail steps=194 elapsed=50.4s rss_kib=26440888
+BATCH_EXIT lane=hold01 code=0 new_attempts=5
+Traceback (most recent call last):
+  File "/nfs/turbo/coe-chaijy-unreplicated/hongzefu/uv-python/cpython-3.10.19-linux-x86_64-gnu/lib/python3.10/runpy.py", line 196, in _run_module_as_main
+  File "/nfs/turbo/coe-chaijy-unreplicated/hongzefu/uv-python/cpython-3.10.19-linux-x86_64-gnu/lib/python3.10/runpy.py", line 86, in _run_code
+  File "/nfs/turbo/coe-chaijy-unreplicated/hongzefu/SimpleMemVLA/robomme_sim/candidate_launcher.py", line 147, in <module>
+  File "/nfs/turbo/coe-chaijy-unreplicated/hongzefu/SimpleMemVLA/robomme_sim/candidate_launcher.py", line 143, in main
+  File "/nfs/turbo/coe-chaijy-unreplicated/hongzefu/SimpleMemVLA/robomme_sim/candidate_launcher.py", line 87, in launch
+RuntimeError: 固定候选两次尝试仍有运行错误，停止该路后续批次
+EXIT_CODE=1
+EXIT_CODE=137
+HOLD_EXIT hold01=1 hold02=137
+COVERAGE_FAIL planned=700 success=87 errors=2 missing=564
+EXIT_CODE=1
+# 源日志：logs/setup/smvla-injection700-nodemo-20260918.campaign-r2.log
+VERIFY_ENV_PASS
+RENDER_PROBE_PASS
+BATCH_DONE lane=local-smoke plan=batch-00.json episodes=1 errors=0 peak_rss_kib=26444040 cgroup={}
+BATCH_DONE lane=local-smoke plan=batch-01.json episodes=13 errors=0 peak_rss_kib=26442516 cgroup={}
+COVERAGE_PASS planned=14 success=7 errors=0 missing=0
+COVERAGE_PASS planned=14 success=7 errors=0 missing=0
+VERIFY_ENV_PASS
+RENDER_PROBE_PASS
+VERIFY_ENV_PASS
+RENDER_PROBE_PASS
+BATCH_DONE lane=hold02 plan=batch-00.json episodes=14 errors=0 peak_rss_kib=26440792 cgroup={'limit_bytes': 25769803776, 'peak_bytes': 20808638464, 'oom_kill': 0, 'oom': 0}
+BATCH_DONE lane=hold02 plan=batch-01.json episodes=14 errors=0 peak_rss_kib=26440876 cgroup={'limit_bytes': 25769803776, 'peak_bytes': 20808638464, 'oom_kill': 0, 'oom': 0}
+BATCH_DONE lane=hold02 plan=batch-02.json episodes=14 errors=0 peak_rss_kib=26440532 cgroup={'limit_bytes': 25769803776, 'peak_bytes': 20808638464, 'oom_kill': 0, 'oom': 0}
+BATCH_DONE lane=hold02 plan=batch-03.json episodes=14 errors=0 peak_rss_kib=26417288 cgroup={'limit_bytes': 25769803776, 'peak_bytes': 20808638464, 'oom_kill': 0, 'oom': 0}
+BATCH_DONE lane=hold01 plan=batch-00.json episodes=14 errors=0 peak_rss_kib=26441504 cgroup={'limit_bytes': 25769803776, 'peak_bytes': 22243323904, 'oom_kill': 0, 'oom': 0}
+BATCH_DONE lane=hold02 plan=batch-04.json episodes=14 errors=0 peak_rss_kib=26440260 cgroup={'limit_bytes': 25769803776, 'peak_bytes': 20808638464, 'oom_kill': 0, 'oom': 0}
+BATCH_DONE lane=hold01 plan=batch-01.json episodes=14 errors=1 peak_rss_kib=26440888 cgroup={'limit_bytes': 25769803776, 'peak_bytes': 22243323904, 'oom_kill': 0, 'oom': 0}
+BATCH_START lane=hold01 plan=batch-02.json pending=14
+BATCH_DONE lane=hold02 plan=batch-05.json episodes=14 errors=0 peak_rss_kib=26439428 cgroup={'limit_bytes': 25769803776, 'peak_bytes': 20808638464, 'oom_kill': 0, 'oom': 0}
+BATCH_DONE lane=hold02 plan=batch-06.json episodes=14 errors=0 peak_rss_kib=26441052 cgroup={'limit_bytes': 25769803776, 'peak_bytes': 20808638464, 'oom_kill': 0, 'oom': 0}
+BATCH_START lane=hold02 plan=batch-07.json pending=4
+EPISODE_START key=('BinFill', 'easy', 159) attempt=1 pid=1295203
+EPISODE_START key=('VideoUnmaskSwap', 'easy', 130) attempt=1 pid=1295225
+DEMO_CHECK key=('BinFill', 'easy', 159) tasks=0 frames=0
+DEMO_CHECK key=('VideoUnmaskSwap', 'easy', 130) tasks=1 frames=168
+EPISODE_END key=('VideoUnmaskSwap', 'easy', 130) status=success steps=116 elapsed=47.9s rss_kib=26417104
+EPISODE_START key=('VideoUnmaskSwap', 'hard', 130) attempt=1 pid=1295225
+DEMO_CHECK key=('VideoUnmaskSwap', 'hard', 130) tasks=1 frames=168
+EPISODE_END key=('BinFill', 'easy', 159) status=success steps=535 elapsed=91.7s rss_kib=26417012
+EPISODE_START key=('BinFill', 'hard', 157) attempt=1 pid=1295203
+DEMO_CHECK key=('BinFill', 'hard', 157) tasks=0 frames=0
+EPISODE_END key=('VideoUnmaskSwap', 'hard', 130) status=success steps=334 elapsed=70.5s rss_kib=26417104
+EPISODE_START key=('VideoUnmaskSwap', 'medium', 130) attempt=1 pid=1295225
+DEMO_CHECK key=('VideoUnmaskSwap', 'medium', 130) tasks=1 frames=168
+EPISODE_END key=('VideoUnmaskSwap', 'medium', 130) status=success steps=106 elapsed=56.7s rss_kib=26417104
+EPISODE_START key=('VideoUnmaskSwap', 'xhard', 130) attempt=1 pid=1295225
+EPISODE_END key=('BinFill', 'hard', 157) status=fail steps=809 elapsed=139.2s rss_kib=26417012
+EPISODE_START key=('BinFill', 'medium', 157) attempt=1 pid=1295203
+DEMO_CHECK key=('BinFill', 'medium', 157) tasks=0 frames=0
+DEMO_CHECK key=('VideoUnmaskSwap', 'xhard', 130) tasks=1 frames=264
+EPISODE_END key=('VideoUnmaskSwap', 'xhard', 130) status=fail steps=98 elapsed=122.9s rss_kib=26417104
+BATCH_EXIT lane=hold02 code=0 new_attempts=4
+BATCH_DONE lane=hold02 plan=batch-07.json episodes=14 errors=1 peak_rss_kib=26439988 cgroup={'limit_bytes': 25769803776, 'peak_bytes': 20808638464, 'oom_kill': 0, 'oom': 0}
+BATCH_START lane=hold02 plan=batch-08.json pending=14
+EPISODE_END key=('BinFill', 'medium', 157) status=success steps=471 elapsed=77.6s rss_kib=26417012
+EPISODE_START key=('RouteStick', 'easy', 119) attempt=1 pid=1295203
+DEMO_CHECK key=('RouteStick', 'easy', 119) tasks=6 frames=150
+EPISODE_END key=('RouteStick', 'easy', 119) status=success steps=149 elapsed=42.5s rss_kib=26417012
+EPISODE_START key=('RouteStick', 'hard', 119) attempt=1 pid=1295203
+DEMO_CHECK key=('RouteStick', 'hard', 119) tasks=9 frames=300
+EPISODE_END key=('RouteStick', 'hard', 119) status=success steps=322 elapsed=83.2s rss_kib=26417012
+EPISODE_START key=('RouteStick', 'medium', 119) attempt=1 pid=1295203
+DEMO_CHECK key=('RouteStick', 'medium', 119) tasks=7 frames=200
+EPISODE_END key=('RouteStick', 'medium', 119) status=success steps=211 elapsed=56.1s rss_kib=26417012
+EPISODE_START key=('RouteStick', 'xhard', 119) attempt=1 pid=1295203
+DEMO_CHECK key=('RouteStick', 'xhard', 119) tasks=12 frames=450
+EPISODE_START key=('BinFill', 'easy', 172) attempt=1 pid=1304255
+DEMO_CHECK key=('BinFill', 'easy', 172) tasks=0 frames=0
+EPISODE_END key=('RouteStick', 'xhard', 119) status=fail steps=305 elapsed=86.5s rss_kib=26417012
+EPISODE_START key=('VideoRepick', 'easy', 159) attempt=1 pid=1295203
+DEMO_CHECK key=('VideoRepick', 'easy', 159) tasks=5 frames=285
+EPISODE_END key=('BinFill', 'easy', 172) status=success steps=261 elapsed=42.7s rss_kib=26440256
+EPISODE_START key=('BinFill', 'hard', 170) attempt=1 pid=1304255
+DEMO_CHECK key=('BinFill', 'hard', 170) tasks=0 frames=0
+EPISODE_END key=('VideoRepick', 'easy', 159) status=success steps=484 elapsed=91.0s rss_kib=26417012
+EPISODE_START key=('VideoRepick', 'medium', 157) attempt=1 pid=1295203
+DEMO_CHECK key=('VideoRepick', 'medium', 157) tasks=6 frames=313
+EPISODE_END key=('VideoRepick', 'medium', 157) status=fail steps=103 elapsed=28.8s rss_kib=26417012
+EPISODE_START key=('VideoRepick', 'xhard', 157) attempt=1 pid=1295203
+DEMO_CHECK key=('VideoRepick', 'xhard', 157) tasks=8 frames=447
+EPISODE_END key=('BinFill', 'hard', 170) status=success steps=861 elapsed=130.1s rss_kib=26440256
+EPISODE_START key=('BinFill', 'medium', 170) attempt=1 pid=1304255
+DEMO_CHECK key=('BinFill', 'medium', 170) tasks=0 frames=0
+EPISODE_END key=('VideoRepick', 'xhard', 157) status=fail steps=181 elapsed=47.0s rss_kib=26417012
+EPISODE_START key=('VideoUnmaskSwap', 'easy', 119) attempt=1 pid=1295203
+DEMO_CHECK key=('VideoUnmaskSwap', 'easy', 119) tasks=1 frames=114
+EPISODE_END key=('VideoUnmaskSwap', 'easy', 119) status=success steps=106 elapsed=25.8s rss_kib=26417012
+EPISODE_START key=('VideoUnmaskSwap', 'hard', 119) attempt=1 pid=1295203
+DEMO_CHECK key=('VideoUnmaskSwap', 'hard', 119) tasks=1 frames=216
+EPISODE_END key=('VideoUnmaskSwap', 'hard', 119) status=fail steps=106 elapsed=92.1s rss_kib=26417012
+EPISODE_START key=('VideoUnmaskSwap', 'medium', 119) attempt=1 pid=1295203
+DEMO_CHECK key=('VideoUnmaskSwap', 'medium', 119) tasks=1 frames=114
+EPISODE_END key=('VideoUnmaskSwap', 'medium', 119) status=success steps=100 elapsed=40.5s rss_kib=26417012
+EPISODE_START key=('VideoUnmaskSwap', 'xhard', 119) attempt=1 pid=1295203
+DEMO_CHECK key=('VideoUnmaskSwap', 'xhard', 119) tasks=1 frames=264
+EPISODE_END key=('VideoUnmaskSwap', 'xhard', 119) status=fail steps=100 elapsed=69.8s rss_kib=26417012
+BATCH_EXIT lane=hold01 code=0 new_attempts=14
+BATCH_DONE lane=hold01 plan=batch-02.json episodes=14 errors=0 peak_rss_kib=26417012 cgroup={'limit_bytes': 25769803776, 'peak_bytes': 22243323904, 'oom_kill': 0, 'oom': 0}
+BATCH_START lane=hold01 plan=batch-03.json pending=14
+EPISODE_END key=('BinFill', 'medium', 170) status=timeout steps=2000 elapsed=310.4s rss_kib=26440256
+EPISODE_START key=('RouteStick', 'easy', 132) attempt=1 pid=1304255
+DEMO_CHECK key=('RouteStick', 'easy', 132) tasks=6 frames=150
+EPISODE_END key=('RouteStick', 'easy', 132) status=success steps=158 elapsed=38.1s rss_kib=26440256
+EPISODE_START key=('RouteStick', 'hard', 132) attempt=1 pid=1304255
+DEMO_CHECK key=('RouteStick', 'hard', 132) tasks=9 frames=300
+EPISODE_END key=('RouteStick', 'hard', 132) status=success steps=305 elapsed=70.6s rss_kib=26440256
+EPISODE_START key=('RouteStick', 'medium', 132) attempt=1 pid=1304255
+DEMO_CHECK key=('RouteStick', 'medium', 132) tasks=7 frames=200
+EPISODE_END key=('RouteStick', 'medium', 132) status=fail steps=225 elapsed=52.9s rss_kib=26440256
+EPISODE_START key=('RouteStick', 'xhard', 132) attempt=1 pid=1304255
+DEMO_CHECK key=('RouteStick', 'xhard', 132) tasks=11 frames=400
+EPISODE_END key=('RouteStick', 'xhard', 132) status=fail steps=50 elapsed=28.2s rss_kib=26440256
+EPISODE_START key=('VideoRepick', 'easy', 172) attempt=1 pid=1304255
+EPISODE_START key=('BinFill', 'easy', 161) attempt=1 pid=1314110
+DEMO_CHECK key=('VideoRepick', 'easy', 172) tasks=6 frames=340
+DEMO_CHECK key=('BinFill', 'easy', 161) tasks=0 frames=0
+EPISODE_END key=('VideoRepick', 'easy', 172) status=success steps=367 elapsed=64.2s rss_kib=26440256
+EPISODE_START key=('VideoRepick', 'medium', 170) attempt=1 pid=1304255
+DEMO_CHECK key=('VideoRepick', 'medium', 170) tasks=6 frames=324
+EPISODE_END key=('BinFill', 'easy', 161) status=success steps=624 elapsed=105.5s rss_kib=26440236
+EPISODE_START key=('BinFill', 'hard', 159) attempt=1 pid=1314110
+DEMO_CHECK key=('BinFill', 'hard', 159) tasks=0 frames=0
+EPISODE_END key=('VideoRepick', 'medium', 170) status=success steps=377 elapsed=66.0s rss_kib=26440256
+EPISODE_START key=('VideoRepick', 'xhard', 170) attempt=1 pid=1304255
+DEMO_CHECK key=('VideoRepick', 'xhard', 170) tasks=8 frames=416
+EPISODE_END key=('VideoRepick', 'xhard', 170) status=fail steps=172 elapsed=39.8s rss_kib=26440256
+EPISODE_START key=('VideoUnmaskSwap', 'easy', 132) attempt=1 pid=1304255
+DEMO_CHECK key=('VideoUnmaskSwap', 'easy', 132) tasks=1 frames=168
+EPISODE_END key=('VideoUnmaskSwap', 'easy', 132) status=success steps=271 elapsed=61.6s rss_kib=26440256
+EPISODE_START key=('VideoUnmaskSwap', 'hard', 132) attempt=1 pid=1304255
+EPISODE_END key=('BinFill', 'hard', 159) status=fail steps=810 elapsed=141.3s rss_kib=26440236
+EPISODE_START key=('BinFill', 'medium', 159) attempt=1 pid=1314110
+DEMO_CHECK key=('BinFill', 'medium', 159) tasks=0 frames=0
+DEMO_CHECK key=('VideoUnmaskSwap', 'hard', 132) tasks=1 frames=216
+EPISODE_END key=('VideoUnmaskSwap', 'hard', 132) status=success steps=271 elapsed=68.0s rss_kib=26440256
+EPISODE_START key=('VideoUnmaskSwap', 'medium', 132) attempt=1 pid=1304255
+DEMO_CHECK key=('VideoUnmaskSwap', 'medium', 132) tasks=1 frames=114
+EPISODE_END key=('VideoUnmaskSwap', 'medium', 132) status=success steps=99 elapsed=34.4s rss_kib=26440256
+EPISODE_START key=('VideoUnmaskSwap', 'xhard', 132) attempt=1 pid=1304255
+EPISODE_END key=('BinFill', 'medium', 159) status=fail steps=579 elapsed=99.5s rss_kib=26440236
+EPISODE_START key=('RouteStick', 'easy', 121) attempt=1 pid=1314110
+DEMO_CHECK key=('RouteStick', 'easy', 121) tasks=6 frames=150
+DEMO_CHECK key=('VideoUnmaskSwap', 'xhard', 132) tasks=1 frames=264
+EPISODE_END key=('RouteStick', 'easy', 121) status=success steps=176 elapsed=45.1s rss_kib=26440236
+EPISODE_START key=('RouteStick', 'hard', 121) attempt=1 pid=1314110
+DEMO_CHECK key=('RouteStick', 'hard', 121) tasks=10 frames=350
+EPISODE_END key=('VideoUnmaskSwap', 'xhard', 132) status=fail steps=304 elapsed=96.1s rss_kib=26440256
+BATCH_EXIT lane=hold02 code=0 new_attempts=14
+BATCH_DONE lane=hold02 plan=batch-08.json episodes=14 errors=0 peak_rss_kib=26440256 cgroup={'limit_bytes': 25769803776, 'peak_bytes': 20831862784, 'oom_kill': 0, 'oom': 0}
+BATCH_START lane=hold02 plan=batch-09.json pending=14
+EPISODE_END key=('RouteStick', 'hard', 121) status=fail steps=366 elapsed=93.6s rss_kib=26440236
+EPISODE_START key=('RouteStick', 'medium', 121) attempt=1 pid=1314110
+DEMO_CHECK key=('RouteStick', 'medium', 121) tasks=7 frames=200
+EPISODE_END key=('RouteStick', 'medium', 121) status=success steps=213 elapsed=56.4s rss_kib=26440236
+EPISODE_START key=('RouteStick', 'xhard', 121) attempt=1 pid=1314110
+DEMO_CHECK key=('RouteStick', 'xhard', 121) tasks=11 frames=400
+EPISODE_END key=('RouteStick', 'xhard', 121) status=fail steps=157 elapsed=50.0s rss_kib=26440236
+EPISODE_START key=('VideoRepick', 'easy', 161) attempt=1 pid=1314110
+DEMO_CHECK key=('VideoRepick', 'easy', 161) tasks=5 frames=262
+EPISODE_END key=('VideoRepick', 'easy', 161) status=success steps=247 elapsed=50.2s rss_kib=26440236
+EPISODE_START key=('VideoRepick', 'medium', 159) attempt=1 pid=1314110
+DEMO_CHECK key=('VideoRepick', 'medium', 159) tasks=7 frames=365
+EPISODE_START key=('BinFill', 'easy', 174) attempt=1 pid=1325291
+DEMO_CHECK key=('BinFill', 'easy', 174) tasks=0 frames=0
+EPISODE_END key=('BinFill', 'easy', 174) status=success steps=429 elapsed=66.1s rss_kib=26440392
+EPISODE_START key=('BinFill', 'hard', 172) attempt=1 pid=1325291
+DEMO_CHECK key=('BinFill', 'hard', 172) tasks=0 frames=0
+EPISODE_END key=('VideoRepick', 'medium', 159) status=success steps=505 elapsed=97.8s rss_kib=26440236
+EPISODE_START key=('VideoRepick', 'xhard', 159) attempt=1 pid=1314110
+DEMO_CHECK key=('VideoRepick', 'xhard', 159) tasks=9 frames=479
+EPISODE_END key=('VideoRepick', 'xhard', 159) status=success steps=313 elapsed=69.7s rss_kib=26440236
+EPISODE_START key=('VideoUnmaskSwap', 'easy', 121) attempt=1 pid=1314110
+DEMO_CHECK key=('VideoUnmaskSwap', 'easy', 121) tasks=1 frames=168
+EPISODE_END key=('VideoUnmaskSwap', 'easy', 121) status=success steps=269 elapsed=70.7s rss_kib=26440236
+EPISODE_START key=('VideoUnmaskSwap', 'hard', 121) attempt=1 pid=1314110
+DEMO_CHECK key=('VideoUnmaskSwap', 'hard', 121) tasks=1 frames=168
+EPISODE_END key=('BinFill', 'hard', 172) status=fail steps=1322 elapsed=205.7s rss_kib=26440392
+EPISODE_START key=('BinFill', 'medium', 172) attempt=1 pid=1325291
+DEMO_CHECK key=('BinFill', 'medium', 172) tasks=0 frames=0
+EPISODE_END key=('VideoUnmaskSwap', 'hard', 121) status=success steps=278 elapsed=104.3s rss_kib=26440236
+EPISODE_START key=('VideoUnmaskSwap', 'medium', 121) attempt=1 pid=1314110
+DEMO_CHECK key=('VideoUnmaskSwap', 'medium', 121) tasks=1 frames=168
+EPISODE_END key=('VideoUnmaskSwap', 'medium', 121) status=success steps=111 elapsed=37.1s rss_kib=26440236
+EPISODE_START key=('VideoUnmaskSwap', 'xhard', 121) attempt=1 pid=1314110
+DEMO_CHECK key=('VideoUnmaskSwap', 'xhard', 121) tasks=1 frames=318
+EPISODE_END key=('VideoUnmaskSwap', 'xhard', 121) status=fail steps=176 elapsed=59.6s rss_kib=26440236
+BATCH_EXIT lane=hold01 code=0 new_attempts=14
+BATCH_DONE lane=hold01 plan=batch-03.json episodes=14 errors=0 peak_rss_kib=26440236 cgroup={'limit_bytes': 25769803776, 'peak_bytes': 22243323904, 'oom_kill': 0, 'oom': 0}
+BATCH_START lane=hold01 plan=batch-04.json pending=14
+EPISODE_END key=('BinFill', 'medium', 172) status=success steps=1118 elapsed=167.2s rss_kib=26440392
+EPISODE_START key=('RouteStick', 'easy', 134) attempt=1 pid=1325291
+DEMO_CHECK key=('RouteStick', 'easy', 134) tasks=6 frames=150
+EPISODE_END key=('RouteStick', 'easy', 134) status=success steps=155 elapsed=36.5s rss_kib=26440392
+EPISODE_START key=('RouteStick', 'hard', 134) attempt=1 pid=1325291
+DEMO_CHECK key=('RouteStick', 'hard', 134) tasks=8 frames=250
+EPISODE_END key=('RouteStick', 'hard', 134) status=success steps=274 elapsed=62.2s rss_kib=26440392
+EPISODE_START key=('RouteStick', 'medium', 134) attempt=1 pid=1325291
+DEMO_CHECK key=('RouteStick', 'medium', 134) tasks=7 frames=200
+EPISODE_END key=('RouteStick', 'medium', 134) status=fail steps=246 elapsed=54.2s rss_kib=26440392
+EPISODE_START key=('RouteStick', 'xhard', 134) attempt=1 pid=1325291
+DEMO_CHECK key=('RouteStick', 'xhard', 134) tasks=12 frames=450
+EPISODE_END key=('RouteStick', 'xhard', 134) status=fail steps=209 elapsed=57.7s rss_kib=26440392
+EPISODE_START key=('VideoRepick', 'easy', 174) attempt=1 pid=1325291
+EPISODE_START key=('BinFill', 'easy', 163) attempt=1 pid=1334650
+DEMO_CHECK key=('VideoRepick', 'easy', 174) tasks=5 frames=257
+DEMO_CHECK key=('BinFill', 'easy', 163) tasks=0 frames=0
+EPISODE_END key=('VideoRepick', 'easy', 174) status=success steps=358 elapsed=61.0s rss_kib=26440392
+EPISODE_START key=('VideoRepick', 'medium', 172) attempt=1 pid=1325291
+EPISODE_END key=('BinFill', 'easy', 163) status=fail steps=371 elapsed=67.0s rss_kib=26440900
+EPISODE_START key=('BinFill', 'hard', 161) attempt=1 pid=1334650
+DEMO_CHECK key=('BinFill', 'hard', 161) tasks=0 frames=0
+EPISODE_END key=('BinFill', 'hard', 161) status=fail steps=972 elapsed=166.7s rss_kib=26440900
+EPISODE_START key=('BinFill', 'medium', 161) attempt=1 pid=1334650
+DEMO_CHECK key=('BinFill', 'medium', 161) tasks=0 frames=0
+EPISODE_END key=('BinFill', 'medium', 161) status=fail steps=820 elapsed=138.2s rss_kib=26440900
+EPISODE_START key=('RouteStick', 'easy', 123) attempt=1 pid=1334650
+DEMO_CHECK key=('RouteStick', 'easy', 123) tasks=5 frames=100
+EPISODE_END key=('RouteStick', 'easy', 123) status=success steps=99 elapsed=30.6s rss_kib=26440900
+EPISODE_START key=('RouteStick', 'hard', 123) attempt=1 pid=1334650
+DEMO_CHECK key=('RouteStick', 'hard', 123) tasks=9 frames=300
+EPISODE_END key=('RouteStick', 'hard', 123) status=fail steps=47 elapsed=25.9s rss_kib=26440900
+EPISODE_START key=('RouteStick', 'medium', 123) attempt=1 pid=1334650
+DEMO_CHECK key=('RouteStick', 'medium', 123) tasks=8 frames=250
+EPISODE_END key=('RouteStick', 'medium', 123) status=success steps=263 elapsed=68.2s rss_kib=26440900
+EPISODE_START key=('RouteStick', 'xhard', 123) attempt=1 pid=1334650
+DEMO_CHECK key=('RouteStick', 'xhard', 123) tasks=11 frames=400
+EPISODE_END key=('RouteStick', 'xhard', 123) status=fail steps=366 elapsed=93.6s rss_kib=26440900
+EPISODE_START key=('VideoRepick', 'easy', 163) attempt=1 pid=1334650
+DEMO_CHECK key=('VideoRepick', 'easy', 163) tasks=5 frames=265
+Traceback (most recent call last):
+  File "/nfs/turbo/coe-chaijy-unreplicated/hongzefu/SimpleMemVLA/robomme_sim/candidate_eval.py", line 71, in evaluate_candidates
+RuntimeError: reset 错误：{'ok': False, 'reason': 'reset_exc: '}
+EPISODE_END key=('VideoRepick', 'medium', 172) status=error steps=0 elapsed=600.0s rss_kib=26440392
+BATCH_EXIT lane=hold02 code=1 new_attempts=9
+BATCH_START lane=hold02 plan=batch-09.json pending=5
+EPISODE_END key=('VideoRepick', 'easy', 163) status=success steps=485 elapsed=90.5s rss_kib=26440900
+EPISODE_START key=('VideoRepick', 'medium', 161) attempt=1 pid=1334650
+DEMO_CHECK key=('VideoRepick', 'medium', 161) tasks=6 frames=318
+EPISODE_END key=('VideoRepick', 'medium', 161) status=fail steps=99 elapsed=29.0s rss_kib=26440900
+EPISODE_START key=('VideoRepick', 'xhard', 161) attempt=1 pid=1334650
+DEMO_CHECK key=('VideoRepick', 'xhard', 161) tasks=9 frames=491
+EPISODE_END key=('VideoRepick', 'xhard', 161) status=fail steps=94 elapsed=31.3s rss_kib=26440900
+EPISODE_START key=('VideoUnmaskSwap', 'easy', 123) attempt=1 pid=1334650
+DEMO_CHECK key=('VideoUnmaskSwap', 'easy', 123) tasks=1 frames=114
+EPISODE_END key=('VideoUnmaskSwap', 'easy', 123) status=success steps=253 elapsed=58.1s rss_kib=26440900
+EPISODE_START key=('VideoUnmaskSwap', 'hard', 123) attempt=1 pid=1334650
+DEMO_CHECK key=('VideoUnmaskSwap', 'hard', 123) tasks=1 frames=168
+EPISODE_END key=('VideoUnmaskSwap', 'hard', 123) status=success steps=255 elapsed=60.4s rss_kib=26440900
+EPISODE_START key=('VideoUnmaskSwap', 'medium', 123) attempt=1 pid=1334650
+DEMO_CHECK key=('VideoUnmaskSwap', 'medium', 123) tasks=1 frames=114
+EPISODE_END key=('VideoUnmaskSwap', 'medium', 123) status=success steps=103 elapsed=26.2s rss_kib=26440900
+EPISODE_START key=('VideoUnmaskSwap', 'xhard', 123) attempt=1 pid=1334650
+EPISODE_START key=('VideoRepick', 'xhard', 172) attempt=1 pid=1346273
+DEMO_CHECK key=('VideoRepick', 'xhard', 172) tasks=8 frames=421
+EPISODE_END key=('VideoRepick', 'xhard', 172) status=fail steps=90 elapsed=29.7s rss_kib=26441612
+EPISODE_START key=('VideoUnmaskSwap', 'easy', 134) attempt=1 pid=1346273
+DEMO_CHECK key=('VideoUnmaskSwap', 'easy', 134) tasks=1 frames=114
+DEMO_CHECK key=('VideoUnmaskSwap', 'xhard', 123) tasks=1 frames=264
+EPISODE_END key=('VideoUnmaskSwap', 'easy', 134) status=success steps=263 elapsed=53.9s rss_kib=26441612
+EPISODE_START key=('VideoUnmaskSwap', 'hard', 134) attempt=1 pid=1346273
+EPISODE_END key=('VideoUnmaskSwap', 'xhard', 123) status=fail steps=257 elapsed=107.4s rss_kib=26440900
+BATCH_EXIT lane=hold01 code=0 new_attempts=14
+BATCH_DONE lane=hold01 plan=batch-04.json episodes=14 errors=0 peak_rss_kib=26440900 cgroup={'limit_bytes': 25769803776, 'peak_bytes': 22243323904, 'oom_kill': 0, 'oom': 0}
+BATCH_START lane=hold01 plan=batch-05.json pending=14
+DEMO_CHECK key=('VideoUnmaskSwap', 'hard', 134) tasks=1 frames=168
+EPISODE_END key=('VideoUnmaskSwap', 'hard', 134) status=success steps=250 elapsed=91.0s rss_kib=26441612
+EPISODE_START key=('VideoUnmaskSwap', 'medium', 134) attempt=1 pid=1346273
+DEMO_CHECK key=('VideoUnmaskSwap', 'medium', 134) tasks=1 frames=168
+EPISODE_END key=('VideoUnmaskSwap', 'medium', 134) status=success steps=97 elapsed=62.4s rss_kib=26441612
+EPISODE_START key=('VideoUnmaskSwap', 'xhard', 134) attempt=1 pid=1346273
+DEMO_CHECK key=('VideoUnmaskSwap', 'xhard', 134) tasks=1 frames=318
+EPISODE_END key=('VideoUnmaskSwap', 'xhard', 134) status=success steps=458 elapsed=96.9s rss_kib=26441612
+BATCH_EXIT lane=hold02 code=0 new_attempts=5
+BATCH_DONE lane=hold02 plan=batch-09.json episodes=14 errors=1 peak_rss_kib=26441612 cgroup={'limit_bytes': 25769803776, 'peak_bytes': 20860796928, 'oom_kill': 0, 'oom': 0}
+BATCH_START lane=hold02 plan=batch-10.json pending=14
+EPISODE_START key=('BinFill', 'easy', 165) attempt=1 pid=1352729
+DEMO_CHECK key=('BinFill', 'easy', 165) tasks=0 frames=0
+EPISODE_END key=('BinFill', 'easy', 165) status=success steps=792 elapsed=133.2s rss_kib=26440740
+EPISODE_START key=('BinFill', 'hard', 163) attempt=1 pid=1352729
+DEMO_CHECK key=('BinFill', 'hard', 163) tasks=0 frames=0
+EPISODE_START key=('BinFill', 'easy', 176) attempt=1 pid=1353474
+DEMO_CHECK key=('BinFill', 'easy', 176) tasks=0 frames=0
+EPISODE_END key=('BinFill', 'hard', 163) status=fail steps=959 elapsed=162.7s rss_kib=26440740
+EPISODE_START key=('BinFill', 'medium', 163) attempt=1 pid=1352729
+DEMO_CHECK key=('BinFill', 'medium', 163) tasks=0 frames=0
+EPISODE_END key=('BinFill', 'easy', 176) status=success steps=448 elapsed=68.0s rss_kib=26416464
+EPISODE_START key=('BinFill', 'hard', 174) attempt=1 pid=1353474
+DEMO_CHECK key=('BinFill', 'hard', 174) tasks=0 frames=0
+EPISODE_END key=('BinFill', 'hard', 174) status=fail steps=773 elapsed=118.4s rss_kib=26416464
+EPISODE_START key=('BinFill', 'medium', 174) attempt=1 pid=1353474
+DEMO_CHECK key=('BinFill', 'medium', 174) tasks=0 frames=0
+EPISODE_END key=('BinFill', 'medium', 174) status=success steps=847 elapsed=126.0s rss_kib=26416464
+EPISODE_START key=('RouteStick', 'easy', 136) attempt=1 pid=1353474
+DEMO_CHECK key=('RouteStick', 'easy', 136) tasks=5 frames=100
+EPISODE_END key=('RouteStick', 'easy', 136) status=success steps=108 elapsed=27.5s rss_kib=26416464
+EPISODE_START key=('RouteStick', 'hard', 136) attempt=1 pid=1353474
+DEMO_CHECK key=('RouteStick', 'hard', 136) tasks=7 frames=200
+EPISODE_END key=('RouteStick', 'hard', 136) status=fail steps=167 elapsed=40.9s rss_kib=26416464
+EPISODE_START key=('RouteStick', 'medium', 136) attempt=1 pid=1353474
+DEMO_CHECK key=('RouteStick', 'medium', 136) tasks=7 frames=200
+EPISODE_END key=('BinFill', 'medium', 163) status=timeout steps=2000 elapsed=346.4s rss_kib=26440740
+EPISODE_START key=('RouteStick', 'easy', 125) attempt=1 pid=1352729
+DEMO_CHECK key=('RouteStick', 'easy', 125) tasks=5 frames=100
+EPISODE_END key=('RouteStick', 'medium', 136) status=success steps=220 elapsed=50.5s rss_kib=26416464
+EPISODE_START key=('RouteStick', 'xhard', 136) attempt=1 pid=1353474
+EPISODE_END key=('RouteStick', 'easy', 125) status=success steps=101 elapsed=30.9s rss_kib=26440740
+EPISODE_START key=('RouteStick', 'hard', 125) attempt=1 pid=1352729
+DEMO_CHECK key=('RouteStick', 'hard', 125) tasks=8 frames=250
+DEMO_CHECK key=('RouteStick', 'xhard', 136) tasks=12 frames=450
+EPISODE_END key=('RouteStick', 'hard', 125) status=success steps=260 elapsed=69.1s rss_kib=26440740
+EPISODE_START key=('RouteStick', 'medium', 125) attempt=1 pid=1352729
+EPISODE_END key=('RouteStick', 'xhard', 136) status=fail steps=320 elapsed=78.2s rss_kib=26416464
+EPISODE_START key=('VideoRepick', 'easy', 176) attempt=1 pid=1353474
+DEMO_CHECK key=('RouteStick', 'medium', 125) tasks=7 frames=200
+DEMO_CHECK key=('VideoRepick', 'easy', 176) tasks=5 frames=263
+EPISODE_END key=('VideoRepick', 'easy', 176) status=success steps=238 elapsed=43.0s rss_kib=26416464
+EPISODE_START key=('VideoRepick', 'medium', 174) attempt=1 pid=1353474
+DEMO_CHECK key=('VideoRepick', 'medium', 174) tasks=7 frames=410
+EPISODE_END key=('RouteStick', 'medium', 125) status=success steps=231 elapsed=59.8s rss_kib=26440740
+EPISODE_START key=('RouteStick', 'xhard', 125) attempt=1 pid=1352729
+DEMO_CHECK key=('RouteStick', 'xhard', 125) tasks=13 frames=500
+EPISODE_END key=('VideoRepick', 'medium', 174) status=success steps=251 elapsed=49.0s rss_kib=26416464
+EPISODE_START key=('VideoRepick', 'xhard', 174) attempt=1 pid=1353474
+DEMO_CHECK key=('VideoRepick', 'xhard', 174) tasks=9 frames=482
+EPISODE_END key=('RouteStick', 'xhard', 125) status=fail steps=284 elapsed=81.3s rss_kib=26440740
+EPISODE_START key=('VideoRepick', 'easy', 165) attempt=1 pid=1352729
+DEMO_CHECK key=('VideoRepick', 'easy', 165) tasks=6 frames=308
+EPISODE_END key=('VideoRepick', 'xhard', 174) status=success steps=308 elapsed=61.4s rss_kib=26416464
+EPISODE_START key=('VideoUnmaskSwap', 'easy', 136) attempt=1 pid=1353474
+DEMO_CHECK key=('VideoUnmaskSwap', 'easy', 136) tasks=1 frames=168
+EPISODE_END key=('VideoRepick', 'easy', 165) status=success steps=228 elapsed=48.7s rss_kib=26440740
+EPISODE_START key=('VideoRepick', 'medium', 163) attempt=1 pid=1352729
+DEMO_CHECK key=('VideoRepick', 'medium', 163) tasks=6 frames=328
+EPISODE_END key=('VideoUnmaskSwap', 'easy', 136) status=success steps=266 elapsed=61.3s rss_kib=26416464
+EPISODE_START key=('VideoUnmaskSwap', 'hard', 136) attempt=1 pid=1353474
+DEMO_CHECK key=('VideoUnmaskSwap', 'hard', 136) tasks=1 frames=216
+EPISODE_END key=('VideoRepick', 'medium', 163) status=success steps=482 elapsed=92.2s rss_kib=26440740
+EPISODE_START key=('VideoRepick', 'xhard', 163) attempt=1 pid=1352729
+DEMO_CHECK key=('VideoRepick', 'xhard', 163) tasks=9 frames=482
+EPISODE_END key=('VideoUnmaskSwap', 'hard', 136) status=success steps=663 elapsed=128.6s rss_kib=26416464
+EPISODE_START key=('VideoUnmaskSwap', 'medium', 136) attempt=1 pid=1353474
+DEMO_CHECK key=('VideoUnmaskSwap', 'medium', 136) tasks=1 frames=114
+EPISODE_END key=('VideoUnmaskSwap', 'medium', 136) status=success steps=101 elapsed=24.7s rss_kib=26416464
+EPISODE_START key=('VideoUnmaskSwap', 'xhard', 136) attempt=1 pid=1353474
+EPISODE_END key=('VideoRepick', 'xhard', 163) status=success steps=473 elapsed=97.3s rss_kib=26440740
+EPISODE_START key=('VideoUnmaskSwap', 'easy', 125) attempt=1 pid=1352729
+DEMO_CHECK key=('VideoUnmaskSwap', 'easy', 125) tasks=1 frames=168
+EPISODE_END key=('VideoUnmaskSwap', 'easy', 125) status=success steps=102 elapsed=27.3s rss_kib=26440740
+EPISODE_START key=('VideoUnmaskSwap', 'hard', 125) attempt=1 pid=1352729
+DEMO_CHECK key=('VideoUnmaskSwap', 'xhard', 136) tasks=1 frames=264
+EPISODE_END key=('VideoUnmaskSwap', 'xhard', 136) status=fail steps=106 elapsed=69.2s rss_kib=26416464
+BATCH_EXIT lane=hold02 code=0 new_attempts=14
+BATCH_DONE lane=hold02 plan=batch-10.json episodes=14 errors=0 peak_rss_kib=26416464 cgroup={'limit_bytes': 25769803776, 'peak_bytes': 20860796928, 'oom_kill': 0, 'oom': 0}
+BATCH_START lane=hold02 plan=batch-11.json pending=14
+DEMO_CHECK key=('VideoUnmaskSwap', 'hard', 125) tasks=1 frames=216
+EPISODE_END key=('VideoUnmaskSwap', 'hard', 125) status=success steps=245 elapsed=86.7s rss_kib=26440740
+EPISODE_START key=('VideoUnmaskSwap', 'medium', 125) attempt=1 pid=1352729
+DEMO_CHECK key=('VideoUnmaskSwap', 'medium', 125) tasks=1 frames=114
+EPISODE_END key=('VideoUnmaskSwap', 'medium', 125) status=success steps=105 elapsed=31.6s rss_kib=26440740
+EPISODE_START key=('VideoUnmaskSwap', 'xhard', 125) attempt=1 pid=1352729
+DEMO_CHECK key=('VideoUnmaskSwap', 'xhard', 125) tasks=1 frames=318
+EPISODE_END key=('VideoUnmaskSwap', 'xhard', 125) status=success steps=262 elapsed=89.4s rss_kib=26440740
+BATCH_EXIT lane=hold01 code=0 new_attempts=14
+BATCH_DONE lane=hold01 plan=batch-05.json episodes=14 errors=0 peak_rss_kib=26440740 cgroup={'limit_bytes': 25769803776, 'peak_bytes': 22243323904, 'oom_kill': 0, 'oom': 0}
+BATCH_START lane=hold01 plan=batch-06.json pending=14
+EPISODE_START key=('BinFill', 'easy', 178) attempt=1 pid=1369294
+DEMO_CHECK key=('BinFill', 'easy', 178) tasks=0 frames=0
+EPISODE_END key=('BinFill', 'easy', 178) status=success steps=698 elapsed=106.1s rss_kib=26441184
+EPISODE_START key=('BinFill', 'hard', 176) attempt=1 pid=1369294
+DEMO_CHECK key=('BinFill', 'hard', 176) tasks=0 frames=0
+EPISODE_START key=('BinFill', 'easy', 167) attempt=1 pid=1373218
+DEMO_CHECK key=('BinFill', 'easy', 167) tasks=0 frames=0
+EPISODE_END key=('BinFill', 'hard', 176) status=success steps=736 elapsed=110.8s rss_kib=26441184
+EPISODE_START key=('BinFill', 'medium', 176) attempt=1 pid=1369294
+DEMO_CHECK key=('BinFill', 'medium', 176) tasks=0 frames=0
+EPISODE_END key=('BinFill', 'easy', 167) status=success steps=410 elapsed=70.1s rss_kib=26418032
+EPISODE_START key=('BinFill', 'hard', 165) attempt=1 pid=1373218
+DEMO_CHECK key=('BinFill', 'hard', 165) tasks=0 frames=0
+EPISODE_END key=('BinFill', 'medium', 176) status=success steps=1044 elapsed=158.2s rss_kib=26441184
+EPISODE_START key=('RouteStick', 'easy', 138) attempt=1 pid=1369294
+EPISODE_END key=('BinFill', 'hard', 165) status=success steps=838 elapsed=143.8s rss_kib=26418032
+EPISODE_START key=('BinFill', 'medium', 165) attempt=1 pid=1373218
+DEMO_CHECK key=('RouteStick', 'easy', 138) tasks=6 frames=150
+DEMO_CHECK key=('BinFill', 'medium', 165) tasks=0 frames=0
+EPISODE_END key=('RouteStick', 'easy', 138) status=success steps=159 elapsed=37.2s rss_kib=26441184
+EPISODE_START key=('RouteStick', 'hard', 138) attempt=1 pid=1369294
+DEMO_CHECK key=('RouteStick', 'hard', 138) tasks=9 frames=300
+EPISODE_END key=('RouteStick', 'hard', 138) status=fail steps=317 elapsed=69.7s rss_kib=26441184
+EPISODE_START key=('RouteStick', 'medium', 138) attempt=1 pid=1369294
+EPISODE_END key=('BinFill', 'medium', 165) status=success steps=614 elapsed=100.2s rss_kib=26418032
+EPISODE_START key=('RouteStick', 'easy', 127) attempt=1 pid=1373218
+DEMO_CHECK key=('RouteStick', 'medium', 138) tasks=8 frames=250
+DEMO_CHECK key=('RouteStick', 'easy', 127) tasks=6 frames=150
+EPISODE_END key=('RouteStick', 'easy', 127) status=success steps=150 elapsed=42.7s rss_kib=26418032
+EPISODE_START key=('RouteStick', 'hard', 127) attempt=1 pid=1373218
+DEMO_CHECK key=('RouteStick', 'hard', 127) tasks=7 frames=200
+EPISODE_END key=('RouteStick', 'medium', 138) status=success steps=261 elapsed=60.5s rss_kib=26441184
+EPISODE_START key=('RouteStick', 'xhard', 138) attempt=1 pid=1369294
+DEMO_CHECK key=('RouteStick', 'xhard', 138) tasks=12 frames=450
+EPISODE_END key=('RouteStick', 'hard', 127) status=fail steps=144 elapsed=41.4s rss_kib=26418032
+EPISODE_START key=('RouteStick', 'medium', 127) attempt=1 pid=1373218
+DEMO_CHECK key=('RouteStick', 'medium', 127) tasks=8 frames=250
+EPISODE_END key=('RouteStick', 'medium', 127) status=success steps=267 elapsed=68.1s rss_kib=26418032
+EPISODE_START key=('RouteStick', 'xhard', 127) attempt=1 pid=1373218
+EPISODE_END key=('RouteStick', 'xhard', 138) status=fail steps=442 elapsed=101.1s rss_kib=26441184
+EPISODE_START key=('VideoRepick', 'easy', 178) attempt=1 pid=1369294
+DEMO_CHECK key=('VideoRepick', 'easy', 178) tasks=6 frames=312
+DEMO_CHECK key=('RouteStick', 'xhard', 127) tasks=13 frames=500
+EPISODE_END key=('VideoRepick', 'easy', 178) status=fail steps=106 elapsed=25.9s rss_kib=26441184
+EPISODE_START key=('VideoRepick', 'medium', 176) attempt=1 pid=1369294
+EPISODE_END key=('RouteStick', 'xhard', 127) status=fail steps=50 elapsed=35.4s rss_kib=26418032
+EPISODE_START key=('VideoRepick', 'easy', 167) attempt=1 pid=1373218
+DEMO_CHECK key=('VideoRepick', 'medium', 176) tasks=7 frames=368
+DEMO_CHECK key=('VideoRepick', 'easy', 167) tasks=5 frames=284
+EPISODE_END key=('VideoRepick', 'medium', 176) status=success steps=480 elapsed=82.5s rss_kib=26441184
+EPISODE_START key=('VideoRepick', 'xhard', 176) attempt=1 pid=1369294
+DEMO_CHECK key=('VideoRepick', 'xhard', 176) tasks=8 frames=434
+EPISODE_END key=('VideoRepick', 'easy', 167) status=success steps=517 elapsed=96.9s rss_kib=26418032
+EPISODE_START key=('VideoRepick', 'medium', 165) attempt=1 pid=1373218
+DEMO_CHECK key=('VideoRepick', 'medium', 165) tasks=7 frames=361
+EPISODE_END key=('VideoRepick', 'xhard', 176) status=fail steps=90 elapsed=26.3s rss_kib=26441184
+EPISODE_START key=('VideoUnmaskSwap', 'easy', 138) attempt=1 pid=1369294
+DEMO_CHECK key=('VideoUnmaskSwap', 'easy', 138) tasks=1 frames=114
+EPISODE_END key=('VideoRepick', 'medium', 165) status=fail steps=93 elapsed=27.6s rss_kib=26418032
+EPISODE_START key=('VideoRepick', 'xhard', 165) attempt=1 pid=1373218
+DEMO_CHECK key=('VideoRepick', 'xhard', 165) tasks=8 frames=453
+EPISODE_END key=('VideoUnmaskSwap', 'easy', 138) status=success steps=285 elapsed=47.7s rss_kib=26441184
+EPISODE_START key=('VideoUnmaskSwap', 'hard', 138) attempt=1 pid=1369294
+EPISODE_END key=('VideoRepick', 'xhard', 165) status=fail steps=100 elapsed=32.7s rss_kib=26418032
+EPISODE_START key=('VideoUnmaskSwap', 'easy', 127) attempt=1 pid=1373218
+DEMO_CHECK key=('VideoUnmaskSwap', 'easy', 127) tasks=1 frames=114
+DEMO_CHECK key=('VideoUnmaskSwap', 'hard', 138) tasks=1 frames=168
+EPISODE_END key=('VideoUnmaskSwap', 'easy', 127) status=success steps=98 elapsed=24.4s rss_kib=26418032
+EPISODE_START key=('VideoUnmaskSwap', 'hard', 127) attempt=1 pid=1373218
+EPISODE_END key=('VideoUnmaskSwap', 'hard', 138) status=success steps=256 elapsed=61.2s rss_kib=26441184
+EPISODE_START key=('VideoUnmaskSwap', 'medium', 138) attempt=1 pid=1369294
+DEMO_CHECK key=('VideoUnmaskSwap', 'hard', 127) tasks=1 frames=216
+DEMO_CHECK key=('VideoUnmaskSwap', 'medium', 138) tasks=1 frames=168
+EPISODE_END key=('VideoUnmaskSwap', 'medium', 138) status=success steps=96 elapsed=31.9s rss_kib=26441184
+EPISODE_START key=('VideoUnmaskSwap', 'xhard', 138) attempt=1 pid=1369294
+DEMO_CHECK key=('VideoUnmaskSwap', 'xhard', 138) tasks=1 frames=318
+EPISODE_END key=('VideoUnmaskSwap', 'hard', 127) status=success steps=264 elapsed=85.6s rss_kib=26418032
+EPISODE_START key=('VideoUnmaskSwap', 'medium', 127) attempt=1 pid=1373218
+DEMO_CHECK key=('VideoUnmaskSwap', 'medium', 127) tasks=1 frames=114
+EPISODE_END key=('VideoUnmaskSwap', 'xhard', 138) status=success steps=247 elapsed=54.4s rss_kib=26441184
+EPISODE_END key=('VideoUnmaskSwap', 'medium', 127) status=success steps=105 elapsed=35.9s rss_kib=26418032
+EPISODE_START key=('VideoUnmaskSwap', 'xhard', 127) attempt=1 pid=1373218
+BATCH_EXIT lane=hold02 code=0 new_attempts=14
+BATCH_DONE lane=hold02 plan=batch-11.json episodes=14 errors=0 peak_rss_kib=26441184 cgroup={'limit_bytes': 25769803776, 'peak_bytes': 20883320832, 'oom_kill': 0, 'oom': 0}
+BATCH_START lane=hold02 plan=batch-12.json pending=14
+DEMO_CHECK key=('VideoUnmaskSwap', 'xhard', 127) tasks=1 frames=318
+EPISODE_END key=('VideoUnmaskSwap', 'xhard', 127) status=fail steps=332 elapsed=101.7s rss_kib=26418032
+BATCH_EXIT lane=hold01 code=0 new_attempts=14
+BATCH_DONE lane=hold01 plan=batch-06.json episodes=14 errors=0 peak_rss_kib=26418032 cgroup={'limit_bytes': 25769803776, 'peak_bytes': 22243323904, 'oom_kill': 0, 'oom': 0}
+BATCH_START lane=hold01 plan=batch-07.json pending=14
+EPISODE_START key=('BinFill', 'easy', 180) attempt=1 pid=1385675
+DEMO_CHECK key=('BinFill', 'easy', 180) tasks=0 frames=0
+EPISODE_END key=('BinFill', 'easy', 180) status=fail steps=658 elapsed=101.9s rss_kib=26440020
+EPISODE_START key=('BinFill', 'hard', 178) attempt=1 pid=1385675
+EPISODE_START key=('BinFill', 'easy', 169) attempt=1 pid=1388594
+DEMO_CHECK key=('BinFill', 'hard', 178) tasks=0 frames=0
+DEMO_CHECK key=('BinFill', 'easy', 169) tasks=0 frames=0
+EPISODE_END key=('BinFill', 'hard', 178) status=success steps=698 elapsed=104.3s rss_kib=26440020
+EPISODE_START key=('BinFill', 'medium', 178) attempt=1 pid=1385675
+DEMO_CHECK key=('BinFill', 'medium', 178) tasks=0 frames=0
+EPISODE_END key=('BinFill', 'easy', 169) status=fail steps=727 elapsed=124.4s rss_kib=26416628
+EPISODE_START key=('BinFill', 'hard', 167) attempt=1 pid=1388594
+DEMO_CHECK key=('BinFill', 'hard', 167) tasks=0 frames=0
+EPISODE_END key=('BinFill', 'medium', 178) status=fail steps=549 elapsed=83.0s rss_kib=26440020
+EPISODE_START key=('RouteStick', 'easy', 140) attempt=1 pid=1385675
+DEMO_CHECK key=('RouteStick', 'easy', 140) tasks=5 frames=100
+EPISODE_END key=('RouteStick', 'easy', 140) status=success steps=102 elapsed=27.4s rss_kib=26440020
+EPISODE_START key=('RouteStick', 'hard', 140) attempt=1 pid=1385675
+DEMO_CHECK key=('RouteStick', 'hard', 140) tasks=9 frames=300
+EPISODE_END key=('BinFill', 'hard', 167) status=success steps=765 elapsed=128.3s rss_kib=26416628
+EPISODE_START key=('BinFill', 'medium', 167) attempt=1 pid=1388594
+DEMO_CHECK key=('BinFill', 'medium', 167) tasks=0 frames=0
+EPISODE_END key=('RouteStick', 'hard', 140) status=success steps=312 elapsed=70.3s rss_kib=26440020
+EPISODE_START key=('RouteStick', 'medium', 140) attempt=1 pid=1385675
+DEMO_CHECK key=('RouteStick', 'medium', 140) tasks=8 frames=250
+EPISODE_END key=('BinFill', 'medium', 167) status=success steps=513 elapsed=86.6s rss_kib=26416628
+EPISODE_START key=('RouteStick', 'easy', 129) attempt=1 pid=1388594
+EPISODE_END key=('RouteStick', 'medium', 140) status=success steps=264 elapsed=59.8s rss_kib=26440020
+EPISODE_START key=('RouteStick', 'xhard', 140) attempt=1 pid=1385675
+DEMO_CHECK key=('RouteStick', 'easy', 129) tasks=5 frames=100
+DEMO_CHECK key=('RouteStick', 'xhard', 140) tasks=13 frames=500
+EPISODE_END key=('RouteStick', 'easy', 129) status=success steps=101 elapsed=31.9s rss_kib=26416628
+EPISODE_START key=('RouteStick', 'hard', 129) attempt=1 pid=1388594
+DEMO_CHECK key=('RouteStick', 'hard', 129) tasks=8 frames=250
+EPISODE_END key=('RouteStick', 'xhard', 140) status=fail steps=107 elapsed=41.3s rss_kib=26440020
+EPISODE_START key=('VideoRepick', 'easy', 180) attempt=1 pid=1385675
+DEMO_CHECK key=('VideoRepick', 'easy', 180) tasks=6 frames=327
+EPISODE_END key=('VideoRepick', 'easy', 180) status=success steps=249 elapsed=46.6s rss_kib=26440020
+EPISODE_START key=('VideoRepick', 'medium', 178) attempt=1 pid=1385675
+DEMO_CHECK key=('VideoRepick', 'medium', 178) tasks=7 frames=366
+EPISODE_END key=('RouteStick', 'hard', 129) status=fail steps=261 elapsed=68.5s rss_kib=26416628
+EPISODE_START key=('RouteStick', 'medium', 129) attempt=1 pid=1388594
+DEMO_CHECK key=('RouteStick', 'medium', 129) tasks=7 frames=200
+EPISODE_END key=('VideoRepick', 'medium', 178) status=fail steps=193 elapsed=41.2s rss_kib=26440020
+EPISODE_START key=('VideoRepick', 'xhard', 178) attempt=1 pid=1385675
+DEMO_CHECK key=('VideoRepick', 'xhard', 178) tasks=8 frames=423
+EPISODE_END key=('RouteStick', 'medium', 129) status=success steps=214 elapsed=55.9s rss_kib=26416628
+EPISODE_START key=('RouteStick', 'xhard', 129) attempt=1 pid=1388594
+DEMO_CHECK key=('RouteStick', 'xhard', 129) tasks=13 frames=500
+EPISODE_END key=('RouteStick', 'xhard', 129) status=fail steps=47 elapsed=32.6s rss_kib=26416628
+EPISODE_START key=('VideoRepick', 'easy', 169) attempt=1 pid=1388594
+EPISODE_END key=('VideoRepick', 'xhard', 178) status=success steps=328 elapsed=62.3s rss_kib=26440020
+EPISODE_START key=('VideoUnmaskSwap', 'easy', 140) attempt=1 pid=1385675
+DEMO_CHECK key=('VideoRepick', 'easy', 169) tasks=6 frames=324
+DEMO_CHECK key=('VideoUnmaskSwap', 'easy', 140) tasks=1 frames=168
+EPISODE_END key=('VideoUnmaskSwap', 'easy', 140) status=success steps=102 elapsed=24.0s rss_kib=26440020
+EPISODE_START key=('VideoUnmaskSwap', 'hard', 140) attempt=1 pid=1385675
+DEMO_CHECK key=('VideoUnmaskSwap', 'hard', 140) tasks=1 frames=216
+EPISODE_END key=('VideoRepick', 'easy', 169) status=success steps=497 elapsed=95.7s rss_kib=26416628
+EPISODE_START key=('VideoRepick', 'medium', 167) attempt=1 pid=1388594
+EPISODE_END key=('VideoUnmaskSwap', 'hard', 140) status=success steps=264 elapsed=90.1s rss_kib=26440020
+EPISODE_START key=('VideoUnmaskSwap', 'medium', 140) attempt=1 pid=1385675
+DEMO_CHECK key=('VideoUnmaskSwap', 'medium', 140) tasks=1 frames=168
+EPISODE_END key=('VideoUnmaskSwap', 'medium', 140) status=success steps=99 elapsed=67.9s rss_kib=26440020
+EPISODE_START key=('VideoUnmaskSwap', 'xhard', 140) attempt=1 pid=1385675
+DEMO_CHECK key=('VideoUnmaskSwap', 'xhard', 140) tasks=1 frames=264
+EPISODE_END key=('VideoUnmaskSwap', 'xhard', 140) status=timeout steps=2000 elapsed=344.2s rss_kib=26440020
+BATCH_EXIT lane=hold02 code=0 new_attempts=14
+BATCH_DONE lane=hold02 plan=batch-12.json episodes=14 errors=0 peak_rss_kib=26440020 cgroup={'limit_bytes': 25769803776, 'peak_bytes': 20904759296, 'oom_kill': 0, 'oom': 0}
+BATCH_START lane=hold02 plan=batch-13.json pending=14
+Traceback (most recent call last):
+  File "/nfs/turbo/coe-chaijy-unreplicated/hongzefu/SimpleMemVLA/robomme_sim/candidate_eval.py", line 71, in evaluate_candidates
+RuntimeError: reset 错误：{'ok': False, 'reason': 'reset_exc: '}
+EPISODE_END key=('VideoRepick', 'medium', 167) status=error steps=0 elapsed=600.0s rss_kib=26416628
+BATCH_EXIT lane=hold01 code=1 new_attempts=9
+BATCH_START lane=hold01 plan=batch-07.json pending=5
+EPISODE_START key=('BinFill', 'easy', 182) attempt=1 pid=1404792
+DEMO_CHECK key=('BinFill', 'easy', 182) tasks=0 frames=0
+EPISODE_END key=('BinFill', 'easy', 182) status=fail steps=794 elapsed=122.4s rss_kib=26416964
+EPISODE_START key=('BinFill', 'hard', 180) attempt=1 pid=1404792
+DEMO_CHECK key=('BinFill', 'hard', 180) tasks=0 frames=0
+EPISODE_START key=('VideoRepick', 'xhard', 167) attempt=1 pid=1408113
+DEMO_CHECK key=('VideoRepick', 'xhard', 167) tasks=9 frames=491
+EPISODE_END key=('VideoRepick', 'xhard', 167) status=fail steps=176 elapsed=49.4s rss_kib=26441436
+EPISODE_START key=('VideoUnmaskSwap', 'easy', 129) attempt=1 pid=1408113
+DEMO_CHECK key=('VideoUnmaskSwap', 'easy', 129) tasks=1 frames=168
+EPISODE_END key=('VideoUnmaskSwap', 'easy', 129) status=success steps=99 elapsed=49.6s rss_kib=26441436
+EPISODE_START key=('VideoUnmaskSwap', 'hard', 129) attempt=1 pid=1408113
+DEMO_CHECK key=('VideoUnmaskSwap', 'hard', 129) tasks=1 frames=168
+EPISODE_END key=('BinFill', 'hard', 180) status=success steps=1171 elapsed=181.0s rss_kib=26416964
+EPISODE_START key=('BinFill', 'medium', 180) attempt=1 pid=1404792
+DEMO_CHECK key=('BinFill', 'medium', 180) tasks=0 frames=0
+EPISODE_END key=('VideoUnmaskSwap', 'hard', 129) status=success steps=263 elapsed=77.3s rss_kib=26441436
+EPISODE_START key=('VideoUnmaskSwap', 'medium', 129) attempt=1 pid=1408113
+DEMO_CHECK key=('VideoUnmaskSwap', 'medium', 129) tasks=1 frames=114
+EPISODE_END key=('VideoUnmaskSwap', 'medium', 129) status=success steps=102 elapsed=29.3s rss_kib=26441436
+EPISODE_START key=('VideoUnmaskSwap', 'xhard', 129) attempt=1 pid=1408113
+EPISODE_END key=('BinFill', 'medium', 180) status=fail steps=737 elapsed=111.1s rss_kib=26416964
+EPISODE_START key=('RouteStick', 'easy', 142) attempt=1 pid=1404792
+DEMO_CHECK key=('RouteStick', 'easy', 142) tasks=5 frames=100
+DEMO_CHECK key=('VideoUnmaskSwap', 'xhard', 129) tasks=1 frames=264
+EPISODE_END key=('RouteStick', 'easy', 142) status=success steps=107 elapsed=27.2s rss_kib=26416964
+EPISODE_START key=('RouteStick', 'hard', 142) attempt=1 pid=1404792
+DEMO_CHECK key=('RouteStick', 'hard', 142) tasks=7 frames=200
+EPISODE_END key=('VideoUnmaskSwap', 'xhard', 129) status=fail steps=101 elapsed=85.2s rss_kib=26441436
+BATCH_EXIT lane=hold01 code=0 new_attempts=5
+BATCH_DONE lane=hold01 plan=batch-07.json episodes=14 errors=1 peak_rss_kib=26441436 cgroup={'limit_bytes': 25769803776, 'peak_bytes': 22243323904, 'oom_kill': 0, 'oom': 0}
+BATCH_START lane=hold01 plan=batch-08.json pending=14
+EPISODE_END key=('RouteStick', 'hard', 142) status=success steps=212 elapsed=50.0s rss_kib=26416964
+EPISODE_START key=('RouteStick', 'medium', 142) attempt=1 pid=1404792
+DEMO_CHECK key=('RouteStick', 'medium', 142) tasks=7 frames=200
+EPISODE_END key=('RouteStick', 'medium', 142) status=fail steps=150 elapsed=38.0s rss_kib=26416964
+EPISODE_START key=('RouteStick', 'xhard', 142) attempt=1 pid=1404792
+DEMO_CHECK key=('RouteStick', 'xhard', 142) tasks=11 frames=400
+EPISODE_END key=('RouteStick', 'xhard', 142) status=fail steps=315 elapsed=74.0s rss_kib=26416964
+EPISODE_START key=('VideoRepick', 'easy', 182) attempt=1 pid=1404792
+DEMO_CHECK key=('VideoRepick', 'easy', 182) tasks=5 frames=270
+EPISODE_END key=('VideoRepick', 'easy', 182) status=success steps=238 elapsed=42.7s rss_kib=26416964
+EPISODE_START key=('VideoRepick', 'medium', 180) attempt=1 pid=1404792
+DEMO_CHECK key=('VideoRepick', 'medium', 180) tasks=7 frames=380
+EPISODE_START key=('BinFill', 'easy', 171) attempt=1 pid=1413143
+DEMO_CHECK key=('BinFill', 'easy', 171) tasks=0 frames=0
+EPISODE_END key=('VideoRepick', 'medium', 180) status=success steps=498 elapsed=87.3s rss_kib=26416964
+EPISODE_START key=('VideoRepick', 'xhard', 180) attempt=1 pid=1404792
+DEMO_CHECK key=('VideoRepick', 'xhard', 180) tasks=9 frames=483
+EPISODE_END key=('BinFill', 'easy', 171) status=success steps=294 elapsed=52.2s rss_kib=26440860
+EPISODE_START key=('BinFill', 'hard', 169) attempt=1 pid=1413143
+DEMO_CHECK key=('BinFill', 'hard', 169) tasks=0 frames=0
+EPISODE_END key=('VideoRepick', 'xhard', 180) status=success steps=508 elapsed=90.7s rss_kib=26416964
+EPISODE_START key=('VideoUnmaskSwap', 'easy', 142) attempt=1 pid=1404792
+DEMO_CHECK key=('VideoUnmaskSwap', 'easy', 142) tasks=1 frames=168
+EPISODE_END key=('BinFill', 'hard', 169) status=success steps=625 elapsed=104.5s rss_kib=26440860
+EPISODE_START key=('BinFill', 'medium', 169) attempt=1 pid=1413143
+DEMO_CHECK key=('BinFill', 'medium', 169) tasks=0 frames=0
+EPISODE_END key=('VideoUnmaskSwap', 'easy', 142) status=success steps=99 elapsed=31.9s rss_kib=26416964
+EPISODE_START key=('VideoUnmaskSwap', 'hard', 142) attempt=1 pid=1404792
+DEMO_CHECK key=('VideoUnmaskSwap', 'hard', 142) tasks=1 frames=216
+EPISODE_END key=('VideoUnmaskSwap', 'hard', 142) status=success steps=253 elapsed=61.7s rss_kib=26416964
+EPISODE_START key=('VideoUnmaskSwap', 'medium', 142) attempt=1 pid=1404792
+EPISODE_END key=('BinFill', 'medium', 169) status=success steps=428 elapsed=69.7s rss_kib=26440860
+EPISODE_START key=('RouteStick', 'easy', 131) attempt=1 pid=1413143
+DEMO_CHECK key=('RouteStick', 'easy', 131) tasks=6 frames=150
+DEMO_CHECK key=('VideoUnmaskSwap', 'medium', 142) tasks=1 frames=168
+EPISODE_END key=('VideoUnmaskSwap', 'medium', 142) status=success steps=95 elapsed=30.4s rss_kib=26416964
+EPISODE_START key=('VideoUnmaskSwap', 'xhard', 142) attempt=1 pid=1404792
+EPISODE_END key=('RouteStick', 'easy', 131) status=fail steps=225 elapsed=57.0s rss_kib=26440860
+EPISODE_START key=('RouteStick', 'hard', 131) attempt=1 pid=1413143
+DEMO_CHECK key=('RouteStick', 'hard', 131) tasks=10 frames=350
+EPISODE_END key=('RouteStick', 'hard', 131) status=fail steps=182 elapsed=55.5s rss_kib=26440860
+EPISODE_START key=('RouteStick', 'medium', 131) attempt=1 pid=1413143
+DEMO_CHECK key=('RouteStick', 'medium', 131) tasks=8 frames=250
+DEMO_CHECK key=('VideoUnmaskSwap', 'xhard', 142) tasks=1 frames=264
+EPISODE_END key=('RouteStick', 'medium', 131) status=success steps=268 elapsed=68.7s rss_kib=26440860
+EPISODE_START key=('RouteStick', 'xhard', 131) attempt=1 pid=1413143
+EPISODE_END key=('VideoUnmaskSwap', 'xhard', 142) status=fail steps=262 elapsed=167.9s rss_kib=26416964
+BATCH_EXIT lane=hold02 code=0 new_attempts=14
+BATCH_DONE lane=hold02 plan=batch-13.json episodes=14 errors=0 peak_rss_kib=26416964 cgroup={'limit_bytes': 25769803776, 'peak_bytes': 20904759296, 'oom_kill': 0, 'oom': 0}
+BATCH_START lane=hold02 plan=batch-14.json pending=14
+DEMO_CHECK key=('RouteStick', 'xhard', 131) tasks=13 frames=500
+EPISODE_END key=('RouteStick', 'xhard', 131) status=fail steps=159 elapsed=55.7s rss_kib=26440860
+EPISODE_START key=('VideoRepick', 'easy', 171) attempt=1 pid=1413143
+DEMO_CHECK key=('VideoRepick', 'easy', 171) tasks=6 frames=314
+EPISODE_END key=('VideoRepick', 'easy', 171) status=success steps=532 elapsed=100.5s rss_kib=26440860
+EPISODE_START key=('VideoRepick', 'medium', 169) attempt=1 pid=1413143
+DEMO_CHECK key=('VideoRepick', 'medium', 169) tasks=6 frames=322
+EPISODE_END key=('VideoRepick', 'medium', 169) status=success steps=230 elapsed=49.1s rss_kib=26440860
+EPISODE_START key=('VideoRepick', 'xhard', 169) attempt=1 pid=1413143
+DEMO_CHECK key=('VideoRepick', 'xhard', 169) tasks=8 frames=431
+EPISODE_END key=('VideoRepick', 'xhard', 169) status=fail steps=94 elapsed=29.5s rss_kib=26440860
+EPISODE_START key=('VideoUnmaskSwap', 'easy', 131) attempt=1 pid=1413143
+EPISODE_START key=('BinFill', 'easy', 184) attempt=1 pid=1424107
+DEMO_CHECK key=('BinFill', 'easy', 184) tasks=0 frames=0
+DEMO_CHECK key=('VideoUnmaskSwap', 'easy', 131) tasks=1 frames=168
+EPISODE_END key=('VideoUnmaskSwap', 'easy', 131) status=success steps=108 elapsed=49.7s rss_kib=26440860
+EPISODE_START key=('VideoUnmaskSwap', 'hard', 131) attempt=1 pid=1413143
+EPISODE_END key=('BinFill', 'easy', 184) status=success steps=330 elapsed=51.9s rss_kib=26415340
+EPISODE_START key=('BinFill', 'hard', 182) attempt=1 pid=1424107
+DEMO_CHECK key=('BinFill', 'hard', 182) tasks=0 frames=0
+DEMO_CHECK key=('VideoUnmaskSwap', 'hard', 131) tasks=1 frames=216
+EPISODE_END key=('BinFill', 'hard', 182) status=success steps=936 elapsed=142.4s rss_kib=26415340
+EPISODE_START key=('BinFill', 'medium', 182) attempt=1 pid=1424107
+DEMO_CHECK key=('BinFill', 'medium', 182) tasks=0 frames=0
+EPISODE_END key=('VideoUnmaskSwap', 'hard', 131) status=fail steps=431 elapsed=178.3s rss_kib=26440860
+EPISODE_START key=('VideoUnmaskSwap', 'medium', 131) attempt=1 pid=1413143
+DEMO_CHECK key=('VideoUnmaskSwap', 'medium', 131) tasks=1 frames=114
+EPISODE_END key=('VideoUnmaskSwap', 'medium', 131) status=success steps=105 elapsed=30.4s rss_kib=26440860
+EPISODE_START key=('VideoUnmaskSwap', 'xhard', 131) attempt=1 pid=1413143
+DEMO_CHECK key=('VideoUnmaskSwap', 'xhard', 131) tasks=1 frames=264
+EPISODE_END key=('BinFill', 'medium', 182) status=fail steps=910 elapsed=136.5s rss_kib=26415340
+EPISODE_START key=('RouteStick', 'easy', 144) attempt=1 pid=1424107
+EPISODE_END key=('VideoUnmaskSwap', 'xhard', 131) status=fail steps=100 elapsed=99.7s rss_kib=26440860
+DEMO_CHECK key=('RouteStick', 'easy', 144) tasks=6 frames=150
+BATCH_EXIT lane=hold01 code=0 new_attempts=14
+BATCH_DONE lane=hold01 plan=batch-08.json episodes=14 errors=0 peak_rss_kib=26440860 cgroup={'limit_bytes': 25769803776, 'peak_bytes': 22243323904, 'oom_kill': 0, 'oom': 0}
+BATCH_START lane=hold01 plan=batch-09.json pending=14
+EPISODE_END key=('RouteStick', 'easy', 144) status=success steps=157 elapsed=36.9s rss_kib=26415340
+EPISODE_START key=('RouteStick', 'hard', 144) attempt=1 pid=1424107
+DEMO_CHECK key=('RouteStick', 'hard', 144) tasks=10 frames=350
+EPISODE_END key=('RouteStick', 'hard', 144) status=success steps=373 elapsed=83.0s rss_kib=26415340
+EPISODE_START key=('RouteStick', 'medium', 144) attempt=1 pid=1424107
+DEMO_CHECK key=('RouteStick', 'medium', 144) tasks=8 frames=250
+EPISODE_END key=('RouteStick', 'medium', 144) status=success steps=264 elapsed=58.7s rss_kib=26415340
+EPISODE_START key=('RouteStick', 'xhard', 144) attempt=1 pid=1424107
+DEMO_CHECK key=('RouteStick', 'xhard', 144) tasks=12 frames=450
+EPISODE_END key=('RouteStick', 'xhard', 144) status=fail steps=73 elapsed=32.8s rss_kib=26415340
+EPISODE_START key=('VideoRepick', 'easy', 184) attempt=1 pid=1424107
+DEMO_CHECK key=('VideoRepick', 'easy', 184) tasks=5 frames=254
+EPISODE_START key=('BinFill', 'easy', 173) attempt=1 pid=1429407
+DEMO_CHECK key=('BinFill', 'easy', 173) tasks=0 frames=0
+EPISODE_END key=('VideoRepick', 'easy', 184) status=success steps=366 elapsed=61.3s rss_kib=26415340
+EPISODE_START key=('VideoRepick', 'medium', 182) attempt=1 pid=1424107
+DEMO_CHECK key=('VideoRepick', 'medium', 182) tasks=6 frames=317
+EPISODE_END key=('BinFill', 'easy', 173) status=success steps=444 elapsed=75.2s rss_kib=26440556
+EPISODE_START key=('BinFill', 'hard', 171) attempt=1 pid=1429407
+DEMO_CHECK key=('BinFill', 'hard', 171) tasks=0 frames=0
+EPISODE_END key=('VideoRepick', 'medium', 182) status=success steps=377 elapsed=65.6s rss_kib=26415340
+EPISODE_START key=('VideoRepick', 'xhard', 182) attempt=1 pid=1424107
+DEMO_CHECK key=('VideoRepick', 'xhard', 182) tasks=8 frames=416
+EPISODE_END key=('VideoRepick', 'xhard', 182) status=fail steps=177 elapsed=40.9s rss_kib=26415340
+EPISODE_START key=('VideoUnmaskSwap', 'easy', 144) attempt=1 pid=1424107
+DEMO_CHECK key=('VideoUnmaskSwap', 'easy', 144) tasks=1 frames=114
+EPISODE_END key=('VideoUnmaskSwap', 'easy', 144) status=success steps=103 elapsed=21.8s rss_kib=26415340
+EPISODE_START key=('VideoUnmaskSwap', 'hard', 144) attempt=1 pid=1424107
+DEMO_CHECK key=('VideoUnmaskSwap', 'hard', 144) tasks=1 frames=168
+EPISODE_END key=('BinFill', 'hard', 171) status=success steps=812 elapsed=136.9s rss_kib=26440556
+EPISODE_START key=('BinFill', 'medium', 171) attempt=1 pid=1429407
+DEMO_CHECK key=('BinFill', 'medium', 171) tasks=0 frames=0
+EPISODE_END key=('VideoUnmaskSwap', 'hard', 144) status=fail steps=335 elapsed=79.2s rss_kib=26415340
+EPISODE_START key=('VideoUnmaskSwap', 'medium', 144) attempt=1 pid=1424107
+DEMO_CHECK key=('VideoUnmaskSwap', 'medium', 144) tasks=1 frames=114
+EPISODE_END key=('VideoUnmaskSwap', 'medium', 144) status=success steps=104 elapsed=22.4s rss_kib=26415340
+EPISODE_START key=('VideoUnmaskSwap', 'xhard', 144) attempt=1 pid=1424107
+DEMO_CHECK key=('VideoUnmaskSwap', 'xhard', 144) tasks=1 frames=264
+EPISODE_END key=('BinFill', 'medium', 171) status=success steps=566 elapsed=92.7s rss_kib=26440556
+EPISODE_START key=('RouteStick', 'easy', 133) attempt=1 pid=1429407
+DEMO_CHECK key=('RouteStick', 'easy', 133) tasks=5 frames=100
+EPISODE_END key=('VideoUnmaskSwap', 'xhard', 144) status=fail steps=100 elapsed=62.3s rss_kib=26415340
+BATCH_EXIT lane=hold02 code=0 new_attempts=14
+BATCH_DONE lane=hold02 plan=batch-14.json episodes=14 errors=0 peak_rss_kib=26415340 cgroup={'limit_bytes': 25769803776, 'peak_bytes': 20916318208, 'oom_kill': 0, 'oom': 0}
+BATCH_START lane=hold02 plan=batch-15.json pending=14
+EPISODE_END key=('RouteStick', 'easy', 133) status=success steps=102 elapsed=30.8s rss_kib=26440556
+EPISODE_START key=('RouteStick', 'hard', 133) attempt=1 pid=1429407
+DEMO_CHECK key=('RouteStick', 'hard', 133) tasks=8 frames=250
+EPISODE_END key=('RouteStick', 'hard', 133) status=success steps=258 elapsed=68.4s rss_kib=26440556
+EPISODE_START key=('RouteStick', 'medium', 133) attempt=1 pid=1429407
+DEMO_CHECK key=('RouteStick', 'medium', 133) tasks=8 frames=250
+EPISODE_END key=('RouteStick', 'medium', 133) status=success steps=271 elapsed=68.2s rss_kib=26440556
+EPISODE_START key=('RouteStick', 'xhard', 133) attempt=1 pid=1429407
+DEMO_CHECK key=('RouteStick', 'xhard', 133) tasks=13 frames=500
+EPISODE_START key=('BinFill', 'easy', 186) attempt=1 pid=1437075
+DEMO_CHECK key=('BinFill', 'easy', 186) tasks=0 frames=0
+EPISODE_END key=('RouteStick', 'xhard', 133) status=success steps=549 elapsed=140.3s rss_kib=26440556
+EPISODE_START key=('VideoRepick', 'easy', 173) attempt=1 pid=1429407
+DEMO_CHECK key=('VideoRepick', 'easy', 173) tasks=6 frames=330
+EPISODE_END key=('BinFill', 'easy', 186) status=success steps=526 elapsed=80.2s rss_kib=26416540
+EPISODE_START key=('BinFill', 'hard', 184) attempt=1 pid=1437075
+DEMO_CHECK key=('BinFill', 'hard', 184) tasks=0 frames=0
+EPISODE_END key=('VideoRepick', 'easy', 173) status=success steps=241 elapsed=51.6s rss_kib=26440556
+EPISODE_START key=('VideoRepick', 'medium', 171) attempt=1 pid=1429407
+DEMO_CHECK key=('VideoRepick', 'medium', 171) tasks=6 frames=341
+EPISODE_END key=('BinFill', 'hard', 184) status=success steps=611 elapsed=91.4s rss_kib=26416540
+EPISODE_START key=('BinFill', 'medium', 184) attempt=1 pid=1437075
+DEMO_CHECK key=('BinFill', 'medium', 184) tasks=0 frames=0
+EPISODE_END key=('VideoRepick', 'medium', 171) status=success steps=380 elapsed=74.1s rss_kib=26440556
+EPISODE_START key=('VideoRepick', 'xhard', 171) attempt=1 pid=1429407
+DEMO_CHECK key=('VideoRepick', 'xhard', 171) tasks=9 frames=478
+EPISODE_END key=('VideoRepick', 'xhard', 171) status=fail steps=94 elapsed=31.1s rss_kib=26440556
+EPISODE_START key=('VideoUnmaskSwap', 'easy', 133) attempt=1 pid=1429407
+DEMO_CHECK key=('VideoUnmaskSwap', 'easy', 133) tasks=1 frames=168
+EPISODE_END key=('VideoUnmaskSwap', 'easy', 133) status=success steps=101 elapsed=47.6s rss_kib=26440556
+EPISODE_START key=('VideoUnmaskSwap', 'hard', 133) attempt=1 pid=1429407
+EPISODE_END key=('BinFill', 'medium', 184) status=success steps=677 elapsed=100.5s rss_kib=26416540
+EPISODE_START key=('RouteStick', 'easy', 146) attempt=1 pid=1437075
+DEMO_CHECK key=('RouteStick', 'easy', 146) tasks=5 frames=100
+EPISODE_END key=('RouteStick', 'easy', 146) status=success steps=102 elapsed=27.0s rss_kib=26416540
+EPISODE_START key=('RouteStick', 'hard', 146) attempt=1 pid=1437075
+DEMO_CHECK key=('RouteStick', 'hard', 146) tasks=10 frames=350
+DEMO_CHECK key=('VideoUnmaskSwap', 'hard', 133) tasks=1 frames=168
+EPISODE_END key=('VideoUnmaskSwap', 'hard', 133) status=success steps=266 elapsed=108.5s rss_kib=26440556
+EPISODE_START key=('VideoUnmaskSwap', 'medium', 133) attempt=1 pid=1429407
+EPISODE_END key=('RouteStick', 'hard', 146) status=success steps=360 elapsed=79.9s rss_kib=26416540
+EPISODE_START key=('RouteStick', 'medium', 146) attempt=1 pid=1437075
+DEMO_CHECK key=('RouteStick', 'medium', 146) tasks=7 frames=200
+DEMO_CHECK key=('VideoUnmaskSwap', 'medium', 133) tasks=1 frames=114
+EPISODE_END key=('VideoUnmaskSwap', 'medium', 133) status=success steps=103 elapsed=40.0s rss_kib=26440556
+EPISODE_START key=('VideoUnmaskSwap', 'xhard', 133) attempt=1 pid=1429407
+EPISODE_END key=('RouteStick', 'medium', 146) status=success steps=214 elapsed=48.9s rss_kib=26416540
+EPISODE_START key=('RouteStick', 'xhard', 146) attempt=1 pid=1437075
+DEMO_CHECK key=('RouteStick', 'xhard', 146) tasks=11 frames=400
+EPISODE_END key=('RouteStick', 'xhard', 146) status=fail steps=272 elapsed=65.1s rss_kib=26416540
+EPISODE_START key=('VideoRepick', 'easy', 186) attempt=1 pid=1437075
+DEMO_CHECK key=('VideoUnmaskSwap', 'xhard', 133) tasks=1 frames=318
+DEMO_CHECK key=('VideoRepick', 'easy', 186) tasks=6 frames=310
+EPISODE_END key=('VideoRepick', 'easy', 186) status=success steps=354 elapsed=62.2s rss_kib=26416540
+EPISODE_START key=('VideoRepick', 'medium', 184) attempt=1 pid=1437075
+EPISODE_END key=('VideoUnmaskSwap', 'xhard', 133) status=success steps=347 elapsed=151.1s rss_kib=26440556
+BATCH_EXIT lane=hold01 code=0 new_attempts=14
+BATCH_DONE lane=hold01 plan=batch-09.json episodes=14 errors=0 peak_rss_kib=26440556 cgroup={'limit_bytes': 25769803776, 'peak_bytes': 22243323904, 'oom_kill': 0, 'oom': 0}
+BATCH_START lane=hold01 plan=batch-10.json pending=14
+DEMO_CHECK key=('VideoRepick', 'medium', 184) tasks=7 frames=373
+EPISODE_END key=('VideoRepick', 'medium', 184) status=fail steps=96 elapsed=25.2s rss_kib=26416540
+EPISODE_START key=('VideoRepick', 'xhard', 184) attempt=1 pid=1437075
+DEMO_CHECK key=('VideoRepick', 'xhard', 184) tasks=8 frames=425
+EPISODE_END key=('VideoRepick', 'xhard', 184) status=success steps=569 elapsed=99.5s rss_kib=26416540
+EPISODE_START key=('VideoUnmaskSwap', 'easy', 146) attempt=1 pid=1437075
+DEMO_CHECK key=('VideoUnmaskSwap', 'easy', 146) tasks=1 frames=168
+EPISODE_END key=('VideoUnmaskSwap', 'easy', 146) status=success steps=101 elapsed=29.5s rss_kib=26416540
+EPISODE_START key=('VideoUnmaskSwap', 'hard', 146) attempt=1 pid=1437075
+DEMO_CHECK key=('VideoUnmaskSwap', 'hard', 146) tasks=1 frames=168
+EPISODE_END key=('VideoUnmaskSwap', 'hard', 146) status=success steps=285 elapsed=55.8s rss_kib=26416540
+EPISODE_START key=('VideoUnmaskSwap', 'medium', 146) attempt=1 pid=1437075
+DEMO_CHECK key=('VideoUnmaskSwap', 'medium', 146) tasks=1 frames=114
+EPISODE_END key=('VideoUnmaskSwap', 'medium', 146) status=success steps=112 elapsed=31.5s rss_kib=26416540
+EPISODE_START key=('VideoUnmaskSwap', 'xhard', 146) attempt=1 pid=1437075
+EPISODE_START key=('BinFill', 'easy', 175) attempt=1 pid=1448134
+DEMO_CHECK key=('BinFill', 'easy', 175) tasks=0 frames=0
+DEMO_CHECK key=('VideoUnmaskSwap', 'xhard', 146) tasks=1 frames=318
+EPISODE_END key=('BinFill', 'easy', 175) status=success steps=238 elapsed=42.4s rss_kib=26441260
+EPISODE_START key=('BinFill', 'hard', 173) attempt=1 pid=1448134
+DEMO_CHECK key=('BinFill', 'hard', 173) tasks=0 frames=0
+EPISODE_END key=('VideoUnmaskSwap', 'xhard', 146) status=success steps=272 elapsed=80.6s rss_kib=26416540
+BATCH_EXIT lane=hold02 code=0 new_attempts=14
+BATCH_DONE lane=hold02 plan=batch-15.json episodes=14 errors=0 peak_rss_kib=26416540 cgroup={'limit_bytes': 25769803776, 'peak_bytes': 20931969024, 'oom_kill': 0, 'oom': 0}
+BATCH_START lane=hold02 plan=batch-16.json pending=14
+EPISODE_END key=('BinFill', 'hard', 173) status=fail steps=1024 elapsed=178.3s rss_kib=26441260
+EPISODE_START key=('BinFill', 'medium', 173) attempt=1 pid=1448134
+DEMO_CHECK key=('BinFill', 'medium', 173) tasks=0 frames=0
+EPISODE_START key=('BinFill', 'easy', 188) attempt=1 pid=1452133
+DEMO_CHECK key=('BinFill', 'easy', 188) tasks=0 frames=0
+EPISODE_END key=('BinFill', 'medium', 173) status=success steps=614 elapsed=103.0s rss_kib=26441260
+EPISODE_START key=('RouteStick', 'easy', 135) attempt=1 pid=1448134
+DEMO_CHECK key=('RouteStick', 'easy', 135) tasks=5 frames=100
+EPISODE_END key=('RouteStick', 'easy', 135) status=success steps=101 elapsed=30.7s rss_kib=26441260
+EPISODE_START key=('RouteStick', 'hard', 135) attempt=1 pid=1448134
+DEMO_CHECK key=('RouteStick', 'hard', 135) tasks=9 frames=300
+EPISODE_END key=('BinFill', 'easy', 188) status=success steps=691 elapsed=106.5s rss_kib=26441272
+EPISODE_START key=('BinFill', 'hard', 186) attempt=1 pid=1452133
+DEMO_CHECK key=('BinFill', 'hard', 186) tasks=0 frames=0
+EPISODE_END key=('RouteStick', 'hard', 135) status=success steps=316 elapsed=80.0s rss_kib=26441260
+EPISODE_START key=('RouteStick', 'medium', 135) attempt=1 pid=1448134
+DEMO_CHECK key=('RouteStick', 'medium', 135) tasks=8 frames=250
+EPISODE_END key=('RouteStick', 'medium', 135) status=success steps=266 elapsed=68.6s rss_kib=26441260
+EPISODE_START key=('RouteStick', 'xhard', 135) attempt=1 pid=1448134
+DEMO_CHECK key=('RouteStick', 'xhard', 135) tasks=11 frames=400
+EPISODE_END key=('RouteStick', 'xhard', 135) status=fail steps=59 elapsed=31.8s rss_kib=26441260
+EPISODE_START key=('VideoRepick', 'easy', 175) attempt=1 pid=1448134
+DEMO_CHECK key=('VideoRepick', 'easy', 175) tasks=5 frames=271
+EPISODE_END key=('BinFill', 'hard', 186) status=success steps=1052 elapsed=161.6s rss_kib=26441272
+EPISODE_START key=('BinFill', 'medium', 186) attempt=1 pid=1452133
+DEMO_CHECK key=('BinFill', 'medium', 186) tasks=0 frames=0
+EPISODE_END key=('VideoRepick', 'easy', 175) status=success steps=362 elapsed=69.1s rss_kib=26441260
+EPISODE_START key=('VideoRepick', 'medium', 173) attempt=1 pid=1448134
+DEMO_CHECK key=('VideoRepick', 'medium', 173) tasks=6 frames=331
+EPISODE_END key=('VideoRepick', 'medium', 173) status=success steps=384 elapsed=74.0s rss_kib=26441260
+EPISODE_START key=('VideoRepick', 'xhard', 173) attempt=1 pid=1448134
+DEMO_CHECK key=('VideoRepick', 'xhard', 173) tasks=9 frames=493
+EPISODE_END key=('BinFill', 'medium', 186) status=success steps=842 elapsed=125.9s rss_kib=26441272
+EPISODE_START key=('RouteStick', 'easy', 148) attempt=1 pid=1452133
+EPISODE_END key=('VideoRepick', 'xhard', 173) status=fail steps=97 elapsed=34.7s rss_kib=26441260
+EPISODE_START key=('VideoUnmaskSwap', 'easy', 135) attempt=1 pid=1448134
+DEMO_CHECK key=('RouteStick', 'easy', 148) tasks=5 frames=100
+DEMO_CHECK key=('VideoUnmaskSwap', 'easy', 135) tasks=1 frames=114
+EPISODE_END key=('RouteStick', 'easy', 148) status=success steps=96 elapsed=24.7s rss_kib=26441272
+EPISODE_START key=('RouteStick', 'hard', 148) attempt=1 pid=1452133
+DEMO_CHECK key=('RouteStick', 'hard', 148) tasks=8 frames=250
+EPISODE_END key=('VideoUnmaskSwap', 'easy', 135) status=success steps=104 elapsed=38.4s rss_kib=26441260
+EPISODE_START key=('VideoUnmaskSwap', 'hard', 135) attempt=1 pid=1448134
+DEMO_CHECK key=('VideoUnmaskSwap', 'hard', 135) tasks=1 frames=216
+EPISODE_END key=('RouteStick', 'hard', 148) status=success steps=269 elapsed=59.8s rss_kib=26441272
+EPISODE_START key=('RouteStick', 'medium', 148) attempt=1 pid=1452133
+DEMO_CHECK key=('RouteStick', 'medium', 148) tasks=7 frames=200
+EPISODE_END key=('VideoUnmaskSwap', 'hard', 135) status=success steps=255 elapsed=68.5s rss_kib=26441260
+EPISODE_START key=('VideoUnmaskSwap', 'medium', 135) attempt=1 pid=1448134
+EPISODE_END key=('RouteStick', 'medium', 148) status=success steps=212 elapsed=49.8s rss_kib=26441272
+EPISODE_START key=('RouteStick', 'xhard', 148) attempt=1 pid=1452133
+DEMO_CHECK key=('VideoUnmaskSwap', 'medium', 135) tasks=1 frames=114
+DEMO_CHECK key=('RouteStick', 'xhard', 148) tasks=11 frames=400
+EPISODE_END key=('VideoUnmaskSwap', 'medium', 135) status=success steps=113 elapsed=47.5s rss_kib=26441260
+EPISODE_START key=('VideoUnmaskSwap', 'xhard', 135) attempt=1 pid=1448134
+DEMO_CHECK key=('VideoUnmaskSwap', 'xhard', 135) tasks=1 frames=264
+EPISODE_END key=('RouteStick', 'xhard', 148) status=fail steps=220 elapsed=56.4s rss_kib=26441272
+EPISODE_START key=('VideoRepick', 'easy', 188) attempt=1 pid=1452133
+DEMO_CHECK key=('VideoRepick', 'easy', 188) tasks=6 frames=324
+EPISODE_END key=('VideoUnmaskSwap', 'xhard', 135) status=fail steps=192 elapsed=52.2s rss_kib=26441260
+BATCH_EXIT lane=hold01 code=0 new_attempts=14
+BATCH_DONE lane=hold01 plan=batch-10.json episodes=14 errors=0 peak_rss_kib=26441260 cgroup={'limit_bytes': 25769803776, 'peak_bytes': 22243323904, 'oom_kill': 0, 'oom': 0}
+BATCH_START lane=hold01 plan=batch-11.json pending=14
+EPISODE_END key=('VideoRepick', 'easy', 188) status=success steps=374 elapsed=65.8s rss_kib=26441272
+EPISODE_START key=('VideoRepick', 'medium', 186) attempt=1 pid=1452133
+DEMO_CHECK key=('VideoRepick', 'medium', 186) tasks=7 frames=382
+EPISODE_END key=('VideoRepick', 'medium', 186) status=success steps=262 elapsed=50.2s rss_kib=26441272
+EPISODE_START key=('VideoRepick', 'xhard', 186) attempt=1 pid=1452133
+DEMO_CHECK key=('VideoRepick', 'xhard', 186) tasks=8 frames=422
+EPISODE_END key=('VideoRepick', 'xhard', 186) status=fail steps=90 elapsed=25.9s rss_kib=26441272
+EPISODE_START key=('VideoUnmaskSwap', 'easy', 148) attempt=1 pid=1452133
+DEMO_CHECK key=('VideoUnmaskSwap', 'easy', 148) tasks=1 frames=114
+EPISODE_END key=('VideoUnmaskSwap', 'easy', 148) status=success steps=373 elapsed=67.6s rss_kib=26441272
+EPISODE_START key=('VideoUnmaskSwap', 'hard', 148) attempt=1 pid=1452133
+DEMO_CHECK key=('VideoUnmaskSwap', 'hard', 148) tasks=1 frames=216
+EPISODE_START key=('BinFill', 'easy', 177) attempt=1 pid=1463199
+DEMO_CHECK key=('BinFill', 'easy', 177) tasks=0 frames=0
+EPISODE_END key=('VideoUnmaskSwap', 'hard', 148) status=success steps=274 elapsed=64.1s rss_kib=26441272
+EPISODE_START key=('VideoUnmaskSwap', 'medium', 148) attempt=1 pid=1452133
+DEMO_CHECK key=('VideoUnmaskSwap', 'medium', 148) tasks=1 frames=114
+EPISODE_END key=('VideoUnmaskSwap', 'medium', 148) status=success steps=97 elapsed=25.4s rss_kib=26441272
+EPISODE_START key=('VideoUnmaskSwap', 'xhard', 148) attempt=1 pid=1452133
+DEMO_CHECK key=('VideoUnmaskSwap', 'xhard', 148) tasks=1 frames=318
+EPISODE_END key=('BinFill', 'easy', 177) status=success steps=726 elapsed=124.0s rss_kib=26441188
+EPISODE_START key=('BinFill', 'hard', 175) attempt=1 pid=1463199
+DEMO_CHECK key=('BinFill', 'hard', 175) tasks=0 frames=0
+EPISODE_END key=('VideoUnmaskSwap', 'xhard', 148) status=fail steps=97 elapsed=104.3s rss_kib=26441272
+BATCH_EXIT lane=hold02 code=0 new_attempts=14
+BATCH_DONE lane=hold02 plan=batch-16.json episodes=14 errors=0 peak_rss_kib=26441272 cgroup={'limit_bytes': 25769803776, 'peak_bytes': 20972519424, 'oom_kill': 0, 'oom': 0}
+BATCH_START lane=hold02 plan=batch-17.json pending=14
+EPISODE_END key=('BinFill', 'hard', 175) status=fail steps=868 elapsed=148.0s rss_kib=26441188
+EPISODE_START key=('BinFill', 'medium', 175) attempt=1 pid=1463199
+DEMO_CHECK key=('BinFill', 'medium', 175) tasks=0 frames=0
+EPISODE_END key=('BinFill', 'medium', 175) status=fail steps=383 elapsed=64.9s rss_kib=26441188
+EPISODE_START key=('RouteStick', 'easy', 137) attempt=1 pid=1463199
+DEMO_CHECK key=('RouteStick', 'easy', 137) tasks=6 frames=150
+EPISODE_END key=('RouteStick', 'easy', 137) status=success steps=157 elapsed=42.1s rss_kib=26441188
+EPISODE_START key=('RouteStick', 'hard', 137) attempt=1 pid=1463199
+EPISODE_START key=('BinFill', 'easy', 190) attempt=1 pid=1467454
+DEMO_CHECK key=('BinFill', 'easy', 190) tasks=0 frames=0
+DEMO_CHECK key=('RouteStick', 'hard', 137) tasks=10 frames=350
+EPISODE_END key=('BinFill', 'easy', 190) status=success steps=240 elapsed=38.8s rss_kib=26416768
+EPISODE_START key=('BinFill', 'hard', 188) attempt=1 pid=1467454
+DEMO_CHECK key=('BinFill', 'hard', 188) tasks=0 frames=0
+EPISODE_END key=('RouteStick', 'hard', 137) status=fail steps=267 elapsed=72.0s rss_kib=26441188
+EPISODE_START key=('RouteStick', 'medium', 137) attempt=1 pid=1463199
+DEMO_CHECK key=('RouteStick', 'medium', 137) tasks=8 frames=250
+EPISODE_END key=('RouteStick', 'medium', 137) status=fail steps=269 elapsed=67.5s rss_kib=26441188
+EPISODE_START key=('RouteStick', 'xhard', 137) attempt=1 pid=1463199
+EPISODE_END key=('BinFill', 'hard', 188) status=success steps=734 elapsed=109.6s rss_kib=26416768
+EPISODE_START key=('BinFill', 'medium', 188) attempt=1 pid=1467454
+DEMO_CHECK key=('BinFill', 'medium', 188) tasks=0 frames=0
+DEMO_CHECK key=('RouteStick', 'xhard', 137) tasks=12 frames=450
+EPISODE_END key=('RouteStick', 'xhard', 137) status=fail steps=320 elapsed=87.7s rss_kib=26441188
+EPISODE_START key=('VideoRepick', 'easy', 177) attempt=1 pid=1463199
+DEMO_CHECK key=('VideoRepick', 'easy', 177) tasks=5 frames=258
+EPISODE_END key=('VideoRepick', 'easy', 177) status=success steps=248 elapsed=49.9s rss_kib=26441188
+EPISODE_START key=('VideoRepick', 'medium', 175) attempt=1 pid=1463199
+EPISODE_END key=('BinFill', 'medium', 188) status=success steps=858 elapsed=127.1s rss_kib=26416768
+EPISODE_START key=('RouteStick', 'easy', 150) attempt=1 pid=1467454
+DEMO_CHECK key=('VideoRepick', 'medium', 175) tasks=6 frames=315
+DEMO_CHECK key=('RouteStick', 'easy', 150) tasks=5 frames=100
+EPISODE_END key=('RouteStick', 'easy', 150) status=success steps=100 elapsed=27.5s rss_kib=26416768
+EPISODE_START key=('RouteStick', 'hard', 150) attempt=1 pid=1467454
+DEMO_CHECK key=('RouteStick', 'hard', 150) tasks=8 frames=250
+EPISODE_END key=('RouteStick', 'hard', 150) status=success steps=271 elapsed=60.3s rss_kib=26416768
+EPISODE_START key=('RouteStick', 'medium', 150) attempt=1 pid=1467454
+EPISODE_END key=('VideoRepick', 'medium', 175) status=success steps=484 elapsed=93.2s rss_kib=26441188
+EPISODE_START key=('VideoRepick', 'xhard', 175) attempt=1 pid=1463199
+DEMO_CHECK key=('RouteStick', 'medium', 150) tasks=7 frames=200
+DEMO_CHECK key=('VideoRepick', 'xhard', 175) tasks=9 frames=469
+EPISODE_END key=('VideoRepick', 'xhard', 175) status=fail steps=93 elapsed=32.2s rss_kib=26441188
+EPISODE_START key=('VideoUnmaskSwap', 'easy', 137) attempt=1 pid=1463199
+DEMO_CHECK key=('VideoUnmaskSwap', 'easy', 137) tasks=1 frames=114
+EPISODE_END key=('RouteStick', 'medium', 150) status=success steps=217 elapsed=50.8s rss_kib=26416768
+EPISODE_START key=('RouteStick', 'xhard', 150) attempt=1 pid=1467454
+DEMO_CHECK key=('RouteStick', 'xhard', 150) tasks=12 frames=450
+EPISODE_END key=('RouteStick', 'xhard', 150) status=fail steps=47 elapsed=28.8s rss_kib=26416768
+EPISODE_START key=('VideoRepick', 'easy', 190) attempt=1 pid=1467454
+DEMO_CHECK key=('VideoRepick', 'easy', 190) tasks=6 frames=337
+EPISODE_END key=('VideoUnmaskSwap', 'easy', 137) status=success steps=253 elapsed=56.1s rss_kib=26441188
+EPISODE_START key=('VideoUnmaskSwap', 'hard', 137) attempt=1 pid=1463199
+DEMO_CHECK key=('VideoUnmaskSwap', 'hard', 137) tasks=1 frames=168
+EPISODE_END key=('VideoRepick', 'easy', 190) status=success steps=398 elapsed=70.5s rss_kib=26416768
+EPISODE_START key=('VideoRepick', 'medium', 188) attempt=1 pid=1467454
+DEMO_CHECK key=('VideoRepick', 'medium', 188) tasks=6 frames=334
+EPISODE_END key=('VideoUnmaskSwap', 'hard', 137) status=success steps=278 elapsed=97.7s rss_kib=26441188
+EPISODE_START key=('VideoUnmaskSwap', 'medium', 137) attempt=1 pid=1463199
+EPISODE_END key=('VideoRepick', 'medium', 188) status=success steps=382 elapsed=67.6s rss_kib=26416768
+EPISODE_START key=('VideoRepick', 'xhard', 188) attempt=1 pid=1467454
+DEMO_CHECK key=('VideoUnmaskSwap', 'medium', 137) tasks=1 frames=168
+DEMO_CHECK key=('VideoRepick', 'xhard', 188) tasks=9 frames=475
+EPISODE_END key=('VideoUnmaskSwap', 'medium', 137) status=success steps=109 elapsed=51.7s rss_kib=26441188
+EPISODE_START key=('VideoUnmaskSwap', 'xhard', 137) attempt=1 pid=1463199
+EPISODE_END key=('VideoRepick', 'xhard', 188) status=success steps=235 elapsed=52.1s rss_kib=26416768
+EPISODE_START key=('VideoUnmaskSwap', 'easy', 150) attempt=1 pid=1467454
+DEMO_CHECK key=('VideoUnmaskSwap', 'easy', 150) tasks=1 frames=168
+EPISODE_END key=('VideoUnmaskSwap', 'easy', 150) status=fail steps=106 elapsed=42.8s rss_kib=26416768
+EPISODE_START key=('VideoUnmaskSwap', 'hard', 150) attempt=1 pid=1467454
+DEMO_CHECK key=('VideoUnmaskSwap', 'xhard', 137) tasks=1 frames=318
+DEMO_CHECK key=('VideoUnmaskSwap', 'hard', 150) tasks=1 frames=216
+EPISODE_END key=('VideoUnmaskSwap', 'xhard', 137) status=success steps=266 elapsed=127.1s rss_kib=26441188
+BATCH_EXIT lane=hold01 code=0 new_attempts=14
+BATCH_DONE lane=hold01 plan=batch-11.json episodes=14 errors=0 peak_rss_kib=26441188 cgroup={'limit_bytes': 25769803776, 'peak_bytes': 22243323904, 'oom_kill': 0, 'oom': 0}
+BATCH_START lane=hold01 plan=batch-12.json pending=14
+EPISODE_END key=('VideoUnmaskSwap', 'hard', 150) status=fail steps=256 elapsed=70.3s rss_kib=26416768
+EPISODE_START key=('VideoUnmaskSwap', 'medium', 150) attempt=1 pid=1467454
+DEMO_CHECK key=('VideoUnmaskSwap', 'medium', 150) tasks=1 frames=114
+EPISODE_END key=('VideoUnmaskSwap', 'medium', 150) status=success steps=111 elapsed=33.9s rss_kib=26416768
+EPISODE_START key=('VideoUnmaskSwap', 'xhard', 150) attempt=1 pid=1467454
+DEMO_CHECK key=('VideoUnmaskSwap', 'xhard', 150) tasks=1 frames=318
+EPISODE_END key=('VideoUnmaskSwap', 'xhard', 150) status=fail steps=190 elapsed=46.9s rss_kib=26416768
+BATCH_EXIT lane=hold02 code=0 new_attempts=14
+BATCH_DONE lane=hold02 plan=batch-17.json episodes=14 errors=0 peak_rss_kib=26416768 cgroup={'limit_bytes': 25769803776, 'peak_bytes': 20972519424, 'oom_kill': 0, 'oom': 0}
+BATCH_START lane=hold02 plan=batch-18.json pending=14
+EPISODE_START key=('BinFill', 'easy', 179) attempt=1 pid=1479160
+DEMO_CHECK key=('BinFill', 'easy', 179) tasks=0 frames=0
+EPISODE_START key=('BinFill', 'easy', 192) attempt=1 pid=1482121
+DEMO_CHECK key=('BinFill', 'easy', 192) tasks=0 frames=0
+EPISODE_END key=('BinFill', 'easy', 179) status=success steps=728 elapsed=127.0s rss_kib=26440488
+EPISODE_START key=('BinFill', 'hard', 177) attempt=1 pid=1479160
+DEMO_CHECK key=('BinFill', 'hard', 177) tasks=0 frames=0
+EPISODE_END key=('BinFill', 'easy', 192) status=success steps=360 elapsed=59.5s rss_kib=26441000
+EPISODE_START key=('BinFill', 'hard', 190) attempt=1 pid=1482121
+DEMO_CHECK key=('BinFill', 'hard', 190) tasks=0 frames=0
+EPISODE_END key=('BinFill', 'hard', 177) status=fail steps=824 elapsed=143.4s rss_kib=26440488
+EPISODE_START key=('BinFill', 'medium', 177) attempt=1 pid=1479160
+DEMO_CHECK key=('BinFill', 'medium', 177) tasks=0 frames=0
+EPISODE_END key=('BinFill', 'hard', 190) status=fail steps=1029 elapsed=161.1s rss_kib=26441000
+EPISODE_START key=('BinFill', 'medium', 190) attempt=1 pid=1482121
+DEMO_CHECK key=('BinFill', 'medium', 190) tasks=0 frames=0
+EPISODE_END key=('BinFill', 'medium', 177) status=success steps=419 elapsed=69.3s rss_kib=26440488
+EPISODE_START key=('RouteStick', 'easy', 139) attempt=1 pid=1479160
+DEMO_CHECK key=('RouteStick', 'easy', 139) tasks=5 frames=100
+EPISODE_END key=('BinFill', 'medium', 190) status=success steps=431 elapsed=63.1s rss_kib=26441000
+EPISODE_START key=('RouteStick', 'easy', 152) attempt=1 pid=1482121
+EPISODE_END key=('RouteStick', 'easy', 139) status=fail steps=150 elapsed=41.1s rss_kib=26440488
+EPISODE_START key=('RouteStick', 'hard', 139) attempt=1 pid=1479160
+DEMO_CHECK key=('RouteStick', 'easy', 152) tasks=6 frames=150
+DEMO_CHECK key=('RouteStick', 'hard', 139) tasks=10 frames=350
+EPISODE_END key=('RouteStick', 'easy', 152) status=success steps=156 elapsed=37.7s rss_kib=26441000
+EPISODE_START key=('RouteStick', 'hard', 152) attempt=1 pid=1482121
+DEMO_CHECK key=('RouteStick', 'hard', 152) tasks=10 frames=350
+EPISODE_END key=('RouteStick', 'hard', 139) status=fail steps=157 elapsed=50.1s rss_kib=26440488
+EPISODE_START key=('RouteStick', 'medium', 139) attempt=1 pid=1479160
+DEMO_CHECK key=('RouteStick', 'medium', 139) tasks=7 frames=200
+EPISODE_END key=('RouteStick', 'medium', 139) status=success steps=204 elapsed=53.4s rss_kib=26440488
+EPISODE_START key=('RouteStick', 'xhard', 139) attempt=1 pid=1479160
+DEMO_CHECK key=('RouteStick', 'xhard', 139) tasks=11 frames=400
+EPISODE_END key=('RouteStick', 'hard', 152) status=success steps=383 elapsed=83.6s rss_kib=26441000
+EPISODE_START key=('RouteStick', 'medium', 152) attempt=1 pid=1482121
+DEMO_CHECK key=('RouteStick', 'medium', 152) tasks=7 frames=200
+EPISODE_END key=('RouteStick', 'xhard', 139) status=fail steps=51 elapsed=32.5s rss_kib=26440488
+EPISODE_START key=('VideoRepick', 'easy', 179) attempt=1 pid=1479160
+DEMO_CHECK key=('VideoRepick', 'easy', 179) tasks=6 frames=328
+EPISODE_END key=('VideoRepick', 'easy', 179) status=fail steps=95 elapsed=26.6s rss_kib=26440488
+EPISODE_START key=('VideoRepick', 'medium', 177) attempt=1 pid=1479160
+EPISODE_END key=('RouteStick', 'medium', 152) status=success steps=212 elapsed=49.6s rss_kib=26441000
+EPISODE_START key=('RouteStick', 'xhard', 152) attempt=1 pid=1482121
+DEMO_CHECK key=('VideoRepick', 'medium', 177) tasks=7 frames=384
+DEMO_CHECK key=('RouteStick', 'xhard', 152) tasks=11 frames=400
+EPISODE_END key=('VideoRepick', 'medium', 177) status=fail steps=89 elapsed=28.3s rss_kib=26440488
+EPISODE_START key=('VideoRepick', 'xhard', 177) attempt=1 pid=1479160
+EPISODE_END key=('RouteStick', 'xhard', 152) status=fail steps=54 elapsed=29.6s rss_kib=26441000
+EPISODE_START key=('VideoRepick', 'easy', 192) attempt=1 pid=1482121
+DEMO_CHECK key=('VideoRepick', 'xhard', 177) tasks=8 frames=450
+DEMO_CHECK key=('VideoRepick', 'easy', 192) tasks=5 frames=274
+EPISODE_END key=('VideoRepick', 'xhard', 177) status=fail steps=93 elapsed=30.2s rss_kib=26440488
+EPISODE_START key=('VideoUnmaskSwap', 'easy', 139) attempt=1 pid=1479160
+DEMO_CHECK key=('VideoUnmaskSwap', 'easy', 139) tasks=1 frames=114
+EPISODE_END key=('VideoRepick', 'easy', 192) status=success steps=238 elapsed=42.9s rss_kib=26441000
+EPISODE_START key=('VideoRepick', 'medium', 190) attempt=1 pid=1482121
+EPISODE_END key=('VideoUnmaskSwap', 'easy', 139) status=success steps=100 elapsed=24.9s rss_kib=26440488
+EPISODE_START key=('VideoUnmaskSwap', 'hard', 139) attempt=1 pid=1479160
+DEMO_CHECK key=('VideoRepick', 'medium', 190) tasks=7 frames=374
+DEMO_CHECK key=('VideoUnmaskSwap', 'hard', 139) tasks=1 frames=216
+EPISODE_END key=('VideoUnmaskSwap', 'hard', 139) status=success steps=255 elapsed=85.3s rss_kib=26440488
+EPISODE_START key=('VideoUnmaskSwap', 'medium', 139) attempt=1 pid=1479160
+EPISODE_END key=('VideoRepick', 'medium', 190) status=success steps=523 elapsed=90.1s rss_kib=26441000
+EPISODE_START key=('VideoRepick', 'xhard', 190) attempt=1 pid=1482121
+DEMO_CHECK key=('VideoRepick', 'xhard', 190) tasks=9 frames=476
+DEMO_CHECK key=('VideoUnmaskSwap', 'medium', 139) tasks=1 frames=168
+EPISODE_END key=('VideoUnmaskSwap', 'medium', 139) status=success steps=103 elapsed=52.6s rss_kib=26440488
+EPISODE_START key=('VideoUnmaskSwap', 'xhard', 139) attempt=1 pid=1479160
+EPISODE_END key=('VideoRepick', 'xhard', 190) status=fail steps=260 elapsed=55.4s rss_kib=26441000
+EPISODE_START key=('VideoUnmaskSwap', 'easy', 152) attempt=1 pid=1482121
+DEMO_CHECK key=('VideoUnmaskSwap', 'easy', 152) tasks=1 frames=168
+EPISODE_END key=('VideoUnmaskSwap', 'easy', 152) status=fail steps=111 elapsed=29.8s rss_kib=26441000
+EPISODE_START key=('VideoUnmaskSwap', 'hard', 152) attempt=1 pid=1482121
+DEMO_CHECK key=('VideoUnmaskSwap', 'hard', 152) tasks=1 frames=168
+EPISODE_END key=('VideoUnmaskSwap', 'hard', 152) status=success steps=262 elapsed=83.5s rss_kib=26441000
+EPISODE_START key=('VideoUnmaskSwap', 'medium', 152) attempt=1 pid=1482121
+DEMO_CHECK key=('VideoUnmaskSwap', 'medium', 152) tasks=1 frames=114
+EPISODE_END key=('VideoUnmaskSwap', 'medium', 152) status=success steps=100 elapsed=24.7s rss_kib=26441000
+EPISODE_START key=('VideoUnmaskSwap', 'xhard', 152) attempt=1 pid=1482121
+DEMO_CHECK key=('VideoUnmaskSwap', 'xhard', 152) tasks=1 frames=264
+EPISODE_END key=('VideoUnmaskSwap', 'xhard', 152) status=success steps=249 elapsed=67.6s rss_kib=26441000
+BATCH_EXIT lane=hold02 code=0 new_attempts=14
+BATCH_DONE lane=hold02 plan=batch-18.json episodes=14 errors=0 peak_rss_kib=26441000 cgroup={'limit_bytes': 25769803776, 'peak_bytes': 21004566528, 'oom_kill': 0, 'oom': 0}
+BATCH_START lane=hold02 plan=batch-19.json pending=14
+EPISODE_START key=('BinFill', 'easy', 194) attempt=1 pid=1497192
+DEMO_CHECK key=('BinFill', 'easy', 194) tasks=0 frames=0
+EPISODE_END key=('BinFill', 'easy', 194) status=success steps=456 elapsed=70.4s rss_kib=26441924
+EPISODE_START key=('BinFill', 'hard', 192) attempt=1 pid=1497192
+DEMO_CHECK key=('BinFill', 'hard', 192) tasks=0 frames=0
+Traceback (most recent call last):
+  File "/nfs/turbo/coe-chaijy-unreplicated/hongzefu/SimpleMemVLA/robomme_sim/candidate_eval.py", line 71, in evaluate_candidates
+RuntimeError: reset 错误：{'ok': False, 'reason': 'reset_exc: '}
+EPISODE_END key=('VideoUnmaskSwap', 'xhard', 139) status=error steps=0 elapsed=600.0s rss_kib=26440488
+BATCH_EXIT lane=hold01 code=1 new_attempts=14
+BATCH_DONE lane=hold01 plan=batch-12.json episodes=14 errors=1 peak_rss_kib=26440488 cgroup={'limit_bytes': 25769803776, 'peak_bytes': 22243323904, 'oom_kill': 0, 'oom': 0}
+BATCH_START lane=hold01 plan=batch-13.json pending=14
+EPISODE_END key=('BinFill', 'hard', 192) status=success steps=674 elapsed=101.5s rss_kib=26441924
+EPISODE_START key=('BinFill', 'medium', 192) attempt=1 pid=1497192
+DEMO_CHECK key=('BinFill', 'medium', 192) tasks=0 frames=0
+EPISODE_END key=('BinFill', 'medium', 192) status=success steps=681 elapsed=101.0s rss_kib=26441924
+EPISODE_START key=('RouteStick', 'easy', 154) attempt=1 pid=1497192
+DEMO_CHECK key=('RouteStick', 'easy', 154) tasks=5 frames=100
+EPISODE_END key=('RouteStick', 'easy', 154) status=success steps=101 elapsed=27.8s rss_kib=26441924
+EPISODE_START key=('RouteStick', 'hard', 154) attempt=1 pid=1497192
+DEMO_CHECK key=('RouteStick', 'hard', 154) tasks=10 frames=350
+EPISODE_END key=('RouteStick', 'hard', 154) status=success steps=366 elapsed=81.3s rss_kib=26441924
+EPISODE_START key=('RouteStick', 'medium', 154) attempt=1 pid=1497192
+EPISODE_START key=('BinFill', 'easy', 181) attempt=1 pid=1500844
+DEMO_CHECK key=('RouteStick', 'medium', 154) tasks=8 frames=250
+DEMO_CHECK key=('BinFill', 'easy', 181) tasks=0 frames=0
+EPISODE_END key=('BinFill', 'easy', 181) status=success steps=252 elapsed=44.3s rss_kib=26416312
+EPISODE_START key=('BinFill', 'hard', 179) attempt=1 pid=1500844
+DEMO_CHECK key=('BinFill', 'hard', 179) tasks=0 frames=0
+EPISODE_END key=('RouteStick', 'medium', 154) status=success steps=270 elapsed=60.0s rss_kib=26441924
+EPISODE_START key=('RouteStick', 'xhard', 154) attempt=1 pid=1497192
+DEMO_CHECK key=('RouteStick', 'xhard', 154) tasks=12 frames=450
+EPISODE_END key=('RouteStick', 'xhard', 154) status=success steps=494 elapsed=108.4s rss_kib=26441924
+EPISODE_START key=('VideoRepick', 'easy', 194) attempt=1 pid=1497192
+DEMO_CHECK key=('VideoRepick', 'easy', 194) tasks=6 frames=307
+EPISODE_END key=('BinFill', 'hard', 179) status=fail steps=774 elapsed=132.3s rss_kib=26416312
+EPISODE_START key=('BinFill', 'medium', 179) attempt=1 pid=1500844
+DEMO_CHECK key=('BinFill', 'medium', 179) tasks=0 frames=0
+EPISODE_END key=('VideoRepick', 'easy', 194) status=success steps=505 elapsed=85.6s rss_kib=26441924
+EPISODE_START key=('VideoRepick', 'medium', 192) attempt=1 pid=1497192
+DEMO_CHECK key=('VideoRepick', 'medium', 192) tasks=7 frames=380
+EPISODE_END key=('VideoRepick', 'medium', 192) status=success steps=226 elapsed=45.3s rss_kib=26441924
+EPISODE_START key=('VideoRepick', 'xhard', 192) attempt=1 pid=1497192
+DEMO_CHECK key=('VideoRepick', 'xhard', 192) tasks=8 frames=417
+EPISODE_END key=('BinFill', 'medium', 179) status=fail steps=736 elapsed=124.6s rss_kib=26416312
+EPISODE_START key=('RouteStick', 'easy', 141) attempt=1 pid=1500844
+DEMO_CHECK key=('RouteStick', 'easy', 141) tasks=5 frames=100
+EPISODE_END key=('VideoRepick', 'xhard', 192) status=fail steps=190 elapsed=40.8s rss_kib=26441924
+EPISODE_START key=('VideoUnmaskSwap', 'easy', 154) attempt=1 pid=1497192
+EPISODE_END key=('RouteStick', 'easy', 141) status=success steps=104 elapsed=30.9s rss_kib=26416312
+EPISODE_START key=('RouteStick', 'hard', 141) attempt=1 pid=1500844
+DEMO_CHECK key=('RouteStick', 'hard', 141) tasks=8 frames=250
+DEMO_CHECK key=('VideoUnmaskSwap', 'easy', 154) tasks=1 frames=114
+EPISODE_END key=('VideoUnmaskSwap', 'easy', 154) status=success steps=269 elapsed=54.6s rss_kib=26441924
+EPISODE_START key=('VideoUnmaskSwap', 'hard', 154) attempt=1 pid=1497192
+DEMO_CHECK key=('VideoUnmaskSwap', 'hard', 154) tasks=1 frames=168
+EPISODE_END key=('RouteStick', 'hard', 141) status=success steps=255 elapsed=65.2s rss_kib=26416312
+EPISODE_START key=('RouteStick', 'medium', 141) attempt=1 pid=1500844
+DEMO_CHECK key=('RouteStick', 'medium', 141) tasks=8 frames=250
+EPISODE_END key=('VideoUnmaskSwap', 'hard', 154) status=success steps=276 elapsed=51.1s rss_kib=26441924
+EPISODE_START key=('VideoUnmaskSwap', 'medium', 154) attempt=1 pid=1497192
+DEMO_CHECK key=('VideoUnmaskSwap', 'medium', 154) tasks=1 frames=168
+EPISODE_END key=('VideoUnmaskSwap', 'medium', 154) status=success steps=100 elapsed=27.7s rss_kib=26441924
+EPISODE_START key=('VideoUnmaskSwap', 'xhard', 154) attempt=1 pid=1497192
+EPISODE_END key=('RouteStick', 'medium', 141) status=fail steps=278 elapsed=71.0s rss_kib=26416312
+EPISODE_START key=('RouteStick', 'xhard', 141) attempt=1 pid=1500844
+DEMO_CHECK key=('VideoUnmaskSwap', 'xhard', 154) tasks=1 frames=264
+DEMO_CHECK key=('RouteStick', 'xhard', 141) tasks=13 frames=500
+EPISODE_END key=('VideoUnmaskSwap', 'xhard', 154) status=fail steps=104 elapsed=30.3s rss_kib=26441924
+BATCH_EXIT lane=hold02 code=0 new_attempts=14
+BATCH_DONE lane=hold02 plan=batch-19.json episodes=14 errors=0 peak_rss_kib=26441924 cgroup={'limit_bytes': 25769803776, 'peak_bytes': 21019480064, 'oom_kill': 0, 'oom': 0}
+BATCH_START lane=hold02 plan=batch-20.json pending=14
+EPISODE_END key=('RouteStick', 'xhard', 141) status=fail steps=140 elapsed=53.4s rss_kib=26416312
+EPISODE_START key=('VideoRepick', 'easy', 181) attempt=1 pid=1500844
+DEMO_CHECK key=('VideoRepick', 'easy', 181) tasks=5 frames=266
+EPISODE_END key=('VideoRepick', 'easy', 181) status=success steps=513 elapsed=96.5s rss_kib=26416312
+EPISODE_START key=('VideoRepick', 'medium', 179) attempt=1 pid=1500844
+DEMO_CHECK key=('VideoRepick', 'medium', 179) tasks=7 frames=382
+EPISODE_END key=('VideoRepick', 'medium', 179) status=fail steps=93 elapsed=28.3s rss_kib=26416312
+EPISODE_START key=('VideoRepick', 'xhard', 179) attempt=1 pid=1500844
+DEMO_CHECK key=('VideoRepick', 'xhard', 179) tasks=9 frames=474
+EPISODE_END key=('VideoRepick', 'xhard', 179) status=fail steps=170 elapsed=45.7s rss_kib=26416312
+EPISODE_START key=('VideoUnmaskSwap', 'easy', 141) attempt=1 pid=1500844
+DEMO_CHECK key=('VideoUnmaskSwap', 'easy', 141) tasks=1 frames=114
+EPISODE_START key=('BinFill', 'easy', 196) attempt=1 pid=1508980
+DEMO_CHECK key=('BinFill', 'easy', 196) tasks=0 frames=0
+EPISODE_END key=('VideoUnmaskSwap', 'easy', 141) status=success steps=270 elapsed=67.7s rss_kib=26416312
+EPISODE_START key=('VideoUnmaskSwap', 'hard', 141) attempt=1 pid=1500844
+DEMO_CHECK key=('VideoUnmaskSwap', 'hard', 141) tasks=1 frames=168
+EPISODE_END key=('BinFill', 'easy', 196) status=success steps=431 elapsed=65.9s rss_kib=26441592
+EPISODE_START key=('BinFill', 'hard', 194) attempt=1 pid=1508980
+DEMO_CHECK key=('BinFill', 'hard', 194) tasks=0 frames=0
+EPISODE_END key=('BinFill', 'hard', 194) status=fail steps=80 elapsed=14.6s rss_kib=26441592
+EPISODE_START key=('BinFill', 'medium', 194) attempt=1 pid=1508980
+DEMO_CHECK key=('BinFill', 'medium', 194) tasks=0 frames=0
+EPISODE_END key=('VideoUnmaskSwap', 'hard', 141) status=success steps=245 elapsed=83.2s rss_kib=26416312
+EPISODE_START key=('VideoUnmaskSwap', 'medium', 141) attempt=1 pid=1500844
+DEMO_CHECK key=('VideoUnmaskSwap', 'medium', 141) tasks=1 frames=114
+EPISODE_END key=('VideoUnmaskSwap', 'medium', 141) status=success steps=101 elapsed=52.5s rss_kib=26416312
+EPISODE_START key=('VideoUnmaskSwap', 'xhard', 141) attempt=1 pid=1500844
+EPISODE_END key=('BinFill', 'medium', 194) status=fail steps=684 elapsed=103.8s rss_kib=26441592
+EPISODE_START key=('RouteStick', 'easy', 156) attempt=1 pid=1508980
+DEMO_CHECK key=('RouteStick', 'easy', 156) tasks=6 frames=150
+EPISODE_END key=('RouteStick', 'easy', 156) status=success steps=160 elapsed=37.2s rss_kib=26441592
+EPISODE_START key=('RouteStick', 'hard', 156) attempt=1 pid=1508980
+DEMO_CHECK key=('RouteStick', 'hard', 156) tasks=7 frames=200
+EPISODE_END key=('RouteStick', 'hard', 156) status=success steps=205 elapsed=47.3s rss_kib=26441592
+EPISODE_START key=('RouteStick', 'medium', 156) attempt=1 pid=1508980
+DEMO_CHECK key=('RouteStick', 'medium', 156) tasks=7 frames=200
+DEMO_CHECK key=('VideoUnmaskSwap', 'xhard', 141) tasks=1 frames=264
+EPISODE_END key=('RouteStick', 'medium', 156) status=success steps=213 elapsed=49.8s rss_kib=26441592
+EPISODE_START key=('RouteStick', 'xhard', 156) attempt=1 pid=1508980
+DEMO_CHECK key=('RouteStick', 'xhard', 156) tasks=11 frames=400
+EPISODE_END key=('VideoUnmaskSwap', 'xhard', 141) status=success steps=355 elapsed=201.0s rss_kib=26416312
+BATCH_EXIT lane=hold01 code=0 new_attempts=14
+BATCH_DONE lane=hold01 plan=batch-13.json episodes=14 errors=0 peak_rss_kib=26416312 cgroup={'limit_bytes': 25769803776, 'peak_bytes': 22243323904, 'oom_kill': 0, 'oom': 0}
+BATCH_START lane=hold01 plan=batch-14.json pending=14
+EPISODE_END key=('RouteStick', 'xhard', 156) status=success steps=424 elapsed=95.7s rss_kib=26441592
+EPISODE_START key=('VideoRepick', 'easy', 196) attempt=1 pid=1508980
+DEMO_CHECK key=('VideoRepick', 'easy', 196) tasks=5 frames=269
+EPISODE_END key=('VideoRepick', 'easy', 196) status=success steps=383 elapsed=65.2s rss_kib=26441592
+EPISODE_START key=('VideoRepick', 'medium', 194) attempt=1 pid=1508980
+DEMO_CHECK key=('VideoRepick', 'medium', 194) tasks=6 frames=317
+EPISODE_END key=('VideoRepick', 'medium', 194) status=success steps=364 elapsed=63.3s rss_kib=26441592
+EPISODE_START key=('VideoRepick', 'xhard', 194) attempt=1 pid=1508980
+DEMO_CHECK key=('VideoRepick', 'xhard', 194) tasks=8 frames=427
+EPISODE_END key=('VideoRepick', 'xhard', 194) status=fail steps=97 elapsed=28.6s rss_kib=26441592
+EPISODE_START key=('VideoUnmaskSwap', 'easy', 156) attempt=1 pid=1508980
+DEMO_CHECK key=('VideoUnmaskSwap', 'easy', 156) tasks=1 frames=114
+EPISODE_END key=('VideoUnmaskSwap', 'easy', 156) status=success steps=100 elapsed=28.6s rss_kib=26441592
+EPISODE_START key=('VideoUnmaskSwap', 'hard', 156) attempt=1 pid=1508980
+EPISODE_START key=('BinFill', 'easy', 183) attempt=1 pid=1516563
+DEMO_CHECK key=('BinFill', 'easy', 183) tasks=0 frames=0
+DEMO_CHECK key=('VideoUnmaskSwap', 'hard', 156) tasks=1 frames=216
+EPISODE_END key=('VideoUnmaskSwap', 'hard', 156) status=success steps=262 elapsed=83.6s rss_kib=26441592
+EPISODE_START key=('VideoUnmaskSwap', 'medium', 156) attempt=1 pid=1508980
+EPISODE_END key=('BinFill', 'easy', 183) status=success steps=544 elapsed=91.9s rss_kib=26415052
+EPISODE_START key=('BinFill', 'hard', 181) attempt=1 pid=1516563
+DEMO_CHECK key=('BinFill', 'hard', 181) tasks=0 frames=0
+DEMO_CHECK key=('VideoUnmaskSwap', 'medium', 156) tasks=1 frames=168
+EPISODE_END key=('VideoUnmaskSwap', 'medium', 156) status=success steps=98 elapsed=40.3s rss_kib=26441592
+EPISODE_START key=('VideoUnmaskSwap', 'xhard', 156) attempt=1 pid=1508980
+DEMO_CHECK key=('VideoUnmaskSwap', 'xhard', 156) tasks=1 frames=318
+EPISODE_END key=('VideoUnmaskSwap', 'xhard', 156) status=fail steps=686 elapsed=177.1s rss_kib=26441592
+BATCH_EXIT lane=hold02 code=0 new_attempts=14
+BATCH_DONE lane=hold02 plan=batch-20.json episodes=14 errors=0 peak_rss_kib=26441592 cgroup={'limit_bytes': 25769803776, 'peak_bytes': 21035786240, 'oom_kill': 0, 'oom': 0}
+BATCH_START lane=hold02 plan=batch-21.json pending=14
+EPISODE_END key=('BinFill', 'hard', 181) status=success steps=1257 elapsed=218.4s rss_kib=26415052
+EPISODE_START key=('BinFill', 'medium', 181) attempt=1 pid=1516563
+DEMO_CHECK key=('BinFill', 'medium', 181) tasks=0 frames=0
+EPISODE_END key=('BinFill', 'medium', 181) status=success steps=703 elapsed=116.2s rss_kib=26415052
+EPISODE_START key=('RouteStick', 'easy', 143) attempt=1 pid=1516563
+DEMO_CHECK key=('RouteStick', 'easy', 143) tasks=6 frames=150
+EPISODE_END key=('RouteStick', 'easy', 143) status=success steps=168 elapsed=45.7s rss_kib=26415052
+EPISODE_START key=('RouteStick', 'hard', 143) attempt=1 pid=1516563
+DEMO_CHECK key=('RouteStick', 'hard', 143) tasks=7 frames=200
+EPISODE_END key=('RouteStick', 'hard', 143) status=success steps=214 elapsed=56.0s rss_kib=26415052
+EPISODE_START key=('RouteStick', 'medium', 143) attempt=1 pid=1516563
+DEMO_CHECK key=('RouteStick', 'medium', 143) tasks=8 frames=250
+EPISODE_START key=('BinFill', 'easy', 198) attempt=1 pid=1523828
+DEMO_CHECK key=('BinFill', 'easy', 198) tasks=0 frames=0
+EPISODE_END key=('RouteStick', 'medium', 143) status=success steps=260 elapsed=68.8s rss_kib=26415052
+EPISODE_START key=('RouteStick', 'xhard', 143) attempt=1 pid=1516563
+DEMO_CHECK key=('RouteStick', 'xhard', 143) tasks=12 frames=450
+EPISODE_END key=('BinFill', 'easy', 198) status=fail steps=544 elapsed=82.2s rss_kib=26440112
+EPISODE_START key=('BinFill', 'hard', 196) attempt=1 pid=1523828
+DEMO_CHECK key=('BinFill', 'hard', 196) tasks=0 frames=0
+EPISODE_END key=('BinFill', 'hard', 196) status=success steps=791 elapsed=118.4s rss_kib=26440112
+EPISODE_START key=('BinFill', 'medium', 196) attempt=1 pid=1523828
+DEMO_CHECK key=('BinFill', 'medium', 196) tasks=0 frames=0
+EPISODE_END key=('BinFill', 'medium', 196) status=success steps=414 elapsed=60.1s rss_kib=26440112
+EPISODE_START key=('RouteStick', 'easy', 158) attempt=1 pid=1523828
+DEMO_CHECK key=('RouteStick', 'easy', 158) tasks=5 frames=100
+EPISODE_END key=('RouteStick', 'easy', 158) status=success steps=103 elapsed=27.2s rss_kib=26440112
+EPISODE_START key=('RouteStick', 'hard', 158) attempt=1 pid=1523828
+DEMO_CHECK key=('RouteStick', 'hard', 158) tasks=8 frames=250
+EPISODE_END key=('RouteStick', 'xhard', 143) status=fail steps=1046 elapsed=248.1s rss_kib=26415052
+EPISODE_START key=('VideoRepick', 'easy', 183) attempt=1 pid=1516563
+DEMO_CHECK key=('VideoRepick', 'easy', 183) tasks=5 frames=263
+EPISODE_END key=('RouteStick', 'hard', 158) status=success steps=270 elapsed=59.6s rss_kib=26440112
+EPISODE_START key=('RouteStick', 'medium', 158) attempt=1 pid=1523828
+EPISODE_END key=('VideoRepick', 'easy', 183) status=success steps=233 elapsed=47.1s rss_kib=26415052
+EPISODE_START key=('VideoRepick', 'medium', 181) attempt=1 pid=1516563
+DEMO_CHECK key=('RouteStick', 'medium', 158) tasks=7 frames=200
+DEMO_CHECK key=('VideoRepick', 'medium', 181) tasks=6 frames=317
+EPISODE_END key=('RouteStick', 'medium', 158) status=fail steps=97 elapsed=30.3s rss_kib=26440112
+EPISODE_START key=('RouteStick', 'xhard', 158) attempt=1 pid=1523828
+DEMO_CHECK key=('RouteStick', 'xhard', 158) tasks=12 frames=450
+EPISODE_END key=('VideoRepick', 'medium', 181) status=fail steps=177 elapsed=43.4s rss_kib=26415052
+EPISODE_START key=('VideoRepick', 'xhard', 181) attempt=1 pid=1516563
+DEMO_CHECK key=('VideoRepick', 'xhard', 181) tasks=9 frames=478
+EPISODE_END key=('VideoRepick', 'xhard', 181) status=fail steps=91 elapsed=31.1s rss_kib=26415052
+EPISODE_START key=('VideoUnmaskSwap', 'easy', 143) attempt=1 pid=1516563
+DEMO_CHECK key=('VideoUnmaskSwap', 'easy', 143) tasks=1 frames=168
+EPISODE_END key=('RouteStick', 'xhard', 158) status=fail steps=281 elapsed=69.7s rss_kib=26440112
+EPISODE_START key=('VideoRepick', 'easy', 198) attempt=1 pid=1523828
+DEMO_CHECK key=('VideoRepick', 'easy', 198) tasks=6 frames=319
+EPISODE_END key=('VideoUnmaskSwap', 'easy', 143) status=success steps=102 elapsed=33.9s rss_kib=26415052
+EPISODE_START key=('VideoUnmaskSwap', 'hard', 143) attempt=1 pid=1516563
+DEMO_CHECK key=('VideoUnmaskSwap', 'hard', 143) tasks=1 frames=216
+EPISODE_END key=('VideoRepick', 'easy', 198) status=success steps=509 elapsed=85.1s rss_kib=26440112
+EPISODE_START key=('VideoRepick', 'medium', 196) attempt=1 pid=1523828
+DEMO_CHECK key=('VideoRepick', 'medium', 196) tasks=6 frames=311
+EPISODE_END key=('VideoUnmaskSwap', 'hard', 143) status=fail steps=477 elapsed=103.4s rss_kib=26415052
+EPISODE_START key=('VideoUnmaskSwap', 'medium', 143) attempt=1 pid=1516563
+DEMO_CHECK key=('VideoUnmaskSwap', 'medium', 143) tasks=1 frames=168
+EPISODE_END key=('VideoUnmaskSwap', 'medium', 143) status=success steps=110 elapsed=35.8s rss_kib=26415052
+EPISODE_START key=('VideoUnmaskSwap', 'xhard', 143) attempt=1 pid=1516563
+EPISODE_END key=('VideoRepick', 'medium', 196) status=success steps=500 elapsed=84.8s rss_kib=26440112
+EPISODE_START key=('VideoRepick', 'xhard', 196) attempt=1 pid=1523828
+DEMO_CHECK key=('VideoRepick', 'xhard', 196) tasks=9 frames=482
+DEMO_CHECK key=('VideoUnmaskSwap', 'xhard', 143) tasks=1 frames=318
+EPISODE_END key=('VideoRepick', 'xhard', 196) status=fail steps=87 elapsed=27.3s rss_kib=26440112
+EPISODE_START key=('VideoUnmaskSwap', 'easy', 158) attempt=1 pid=1523828
+DEMO_CHECK key=('VideoUnmaskSwap', 'easy', 158) tasks=1 frames=114
+EPISODE_END key=('VideoUnmaskSwap', 'xhard', 143) status=fail steps=97 elapsed=66.8s rss_kib=26415052
+BATCH_EXIT lane=hold01 code=0 new_attempts=14
+BATCH_DONE lane=hold01 plan=batch-14.json episodes=14 errors=0 peak_rss_kib=26415052 cgroup={'limit_bytes': 25769803776, 'peak_bytes': 22243323904, 'oom_kill': 0, 'oom': 0}
+BATCH_START lane=hold01 plan=batch-15.json pending=14
+EPISODE_END key=('VideoUnmaskSwap', 'easy', 158) status=success steps=366 elapsed=73.3s rss_kib=26440112
+EPISODE_START key=('VideoUnmaskSwap', 'hard', 158) attempt=1 pid=1523828
+DEMO_CHECK key=('VideoUnmaskSwap', 'hard', 158) tasks=1 frames=216
+EPISODE_END key=('VideoUnmaskSwap', 'hard', 158) status=success steps=348 elapsed=76.2s rss_kib=26440112
+EPISODE_START key=('VideoUnmaskSwap', 'medium', 158) attempt=1 pid=1523828
+DEMO_CHECK key=('VideoUnmaskSwap', 'medium', 158) tasks=1 frames=114
+EPISODE_END key=('VideoUnmaskSwap', 'medium', 158) status=success steps=99 elapsed=26.1s rss_kib=26440112
+EPISODE_START key=('VideoUnmaskSwap', 'xhard', 158) attempt=1 pid=1523828
+DEMO_CHECK key=('VideoUnmaskSwap', 'xhard', 158) tasks=1 frames=318
+EPISODE_START key=('BinFill', 'easy', 185) attempt=1 pid=1535600
+DEMO_CHECK key=('BinFill', 'easy', 185) tasks=0 frames=0
+EPISODE_END key=('VideoUnmaskSwap', 'xhard', 158) status=success steps=258 elapsed=103.2s rss_kib=26440112
+BATCH_EXIT lane=hold02 code=0 new_attempts=14
+BATCH_DONE lane=hold02 plan=batch-21.json episodes=14 errors=0 peak_rss_kib=26440112 cgroup={'limit_bytes': 25769803776, 'peak_bytes': 21050241024, 'oom_kill': 0, 'oom': 0}
+BATCH_START lane=hold02 plan=batch-22.json pending=14
+EPISODE_END key=('BinFill', 'easy', 185) status=success steps=255 elapsed=45.0s rss_kib=26441816
+EPISODE_START key=('BinFill', 'hard', 183) attempt=1 pid=1535600
+DEMO_CHECK key=('BinFill', 'hard', 183) tasks=0 frames=0
+EPISODE_END key=('BinFill', 'hard', 183) status=success steps=700 elapsed=116.4s rss_kib=26441816
+EPISODE_START key=('BinFill', 'medium', 183) attempt=1 pid=1535600
+DEMO_CHECK key=('BinFill', 'medium', 183) tasks=0 frames=0
+EPISODE_END key=('BinFill', 'medium', 183) status=success steps=441 elapsed=72.6s rss_kib=26441816
+EPISODE_START key=('RouteStick', 'easy', 145) attempt=1 pid=1535600
+DEMO_CHECK key=('RouteStick', 'easy', 145) tasks=6 frames=150
+EPISODE_START key=('BinFill', 'easy', 200) attempt=1 pid=1539216
+DEMO_CHECK key=('BinFill', 'easy', 200) tasks=0 frames=0
+EPISODE_END key=('RouteStick', 'easy', 145) status=success steps=146 elapsed=42.8s rss_kib=26441816
+EPISODE_START key=('RouteStick', 'hard', 145) attempt=1 pid=1535600
+DEMO_CHECK key=('RouteStick', 'hard', 145) tasks=9 frames=300
+EPISODE_END key=('BinFill', 'easy', 200) status=success steps=519 elapsed=79.5s rss_kib=26416112
+EPISODE_START key=('BinFill', 'hard', 198) attempt=1 pid=1539216
+DEMO_CHECK key=('BinFill', 'hard', 198) tasks=0 frames=0
+EPISODE_END key=('RouteStick', 'hard', 145) status=success steps=325 elapsed=83.1s rss_kib=26441816
+EPISODE_START key=('RouteStick', 'medium', 145) attempt=1 pid=1535600
+DEMO_CHECK key=('RouteStick', 'medium', 145) tasks=7 frames=200
+EPISODE_END key=('RouteStick', 'medium', 145) status=fail steps=159 elapsed=42.9s rss_kib=26441816
+EPISODE_START key=('RouteStick', 'xhard', 145) attempt=1 pid=1535600
+DEMO_CHECK key=('RouteStick', 'xhard', 145) tasks=12 frames=450
+EPISODE_END key=('BinFill', 'hard', 198) status=success steps=808 elapsed=120.3s rss_kib=26416112
+EPISODE_START key=('BinFill', 'medium', 198) attempt=1 pid=1539216
+DEMO_CHECK key=('BinFill', 'medium', 198) tasks=0 frames=0
+EPISODE_END key=('RouteStick', 'xhard', 145) status=fail steps=228 elapsed=68.3s rss_kib=26441816
+EPISODE_START key=('VideoRepick', 'easy', 185) attempt=1 pid=1535600
+DEMO_CHECK key=('VideoRepick', 'easy', 185) tasks=6 frames=314
+EPISODE_END key=('VideoRepick', 'easy', 185) status=success steps=504 elapsed=94.8s rss_kib=26441816
+EPISODE_START key=('VideoRepick', 'medium', 183) attempt=1 pid=1535600
+DEMO_CHECK key=('VideoRepick', 'medium', 183) tasks=6 frames=323
+EPISODE_END key=('BinFill', 'medium', 198) status=fail steps=968 elapsed=148.0s rss_kib=26416112
+EPISODE_START key=('RouteStick', 'easy', 160) attempt=1 pid=1539216
+DEMO_CHECK key=('RouteStick', 'easy', 160) tasks=6 frames=150
+EPISODE_END key=('VideoRepick', 'medium', 183) status=success steps=234 elapsed=49.1s rss_kib=26441816
+EPISODE_START key=('VideoRepick', 'xhard', 183) attempt=1 pid=1535600
+DEMO_CHECK key=('VideoRepick', 'xhard', 183) tasks=8 frames=420
+EPISODE_END key=('VideoRepick', 'xhard', 183) status=fail steps=88 elapsed=29.0s rss_kib=26441816
+EPISODE_START key=('VideoUnmaskSwap', 'easy', 145) attempt=1 pid=1535600
+EPISODE_END key=('RouteStick', 'easy', 160) status=success steps=164 elapsed=40.0s rss_kib=26416112
+EPISODE_START key=('RouteStick', 'hard', 160) attempt=1 pid=1539216
+DEMO_CHECK key=('VideoUnmaskSwap', 'easy', 145) tasks=1 frames=114
+DEMO_CHECK key=('RouteStick', 'hard', 160) tasks=8 frames=250
+EPISODE_END key=('VideoUnmaskSwap', 'easy', 145) status=success steps=249 elapsed=48.1s rss_kib=26441816
+EPISODE_START key=('VideoUnmaskSwap', 'hard', 145) attempt=1 pid=1535600
+DEMO_CHECK key=('VideoUnmaskSwap', 'hard', 145) tasks=1 frames=168
+EPISODE_END key=('RouteStick', 'hard', 160) status=success steps=261 elapsed=59.9s rss_kib=26416112
+EPISODE_START key=('RouteStick', 'medium', 160) attempt=1 pid=1539216
+DEMO_CHECK key=('RouteStick', 'medium', 160) tasks=8 frames=250
+EPISODE_END key=('VideoUnmaskSwap', 'hard', 145) status=fail steps=276 elapsed=58.5s rss_kib=26441816
+EPISODE_START key=('VideoUnmaskSwap', 'medium', 145) attempt=1 pid=1535600
+DEMO_CHECK key=('VideoUnmaskSwap', 'medium', 145) tasks=1 frames=114
+EPISODE_END key=('RouteStick', 'medium', 160) status=success steps=275 elapsed=63.5s rss_kib=26416112
+EPISODE_START key=('RouteStick', 'xhard', 160) attempt=1 pid=1539216
+EPISODE_END key=('VideoUnmaskSwap', 'medium', 145) status=success steps=97 elapsed=25.3s rss_kib=26441816
+EPISODE_START key=('VideoUnmaskSwap', 'xhard', 145) attempt=1 pid=1535600
+DEMO_CHECK key=('RouteStick', 'xhard', 160) tasks=11 frames=400
+EPISODE_END key=('RouteStick', 'xhard', 160) status=fail steps=207 elapsed=54.6s rss_kib=26416112
+EPISODE_START key=('VideoRepick', 'easy', 200) attempt=1 pid=1539216
+DEMO_CHECK key=('VideoUnmaskSwap', 'xhard', 145) tasks=1 frames=264
+DEMO_CHECK key=('VideoRepick', 'easy', 200) tasks=5 frames=264
+EPISODE_END key=('VideoUnmaskSwap', 'xhard', 145) status=fail steps=101 elapsed=70.7s rss_kib=26441816
+BATCH_EXIT lane=hold01 code=0 new_attempts=14
+BATCH_DONE lane=hold01 plan=batch-15.json episodes=14 errors=0 peak_rss_kib=26441816 cgroup={'limit_bytes': 25769803776, 'peak_bytes': 22249660416, 'oom_kill': 0, 'oom': 0}
+BATCH_START lane=hold01 plan=batch-16.json pending=14
+EPISODE_END key=('VideoRepick', 'easy', 200) status=success steps=348 elapsed=58.7s rss_kib=26416112
+EPISODE_START key=('VideoRepick', 'medium', 198) attempt=1 pid=1539216
+DEMO_CHECK key=('VideoRepick', 'medium', 198) tasks=6 frames=318
+EPISODE_END key=('VideoRepick', 'medium', 198) status=success steps=240 elapsed=44.0s rss_kib=26416112
+EPISODE_START key=('VideoRepick', 'xhard', 198) attempt=1 pid=1539216
+DEMO_CHECK key=('VideoRepick', 'xhard', 198) tasks=8 frames=448
+EPISODE_END key=('VideoRepick', 'xhard', 198) status=fail steps=91 elapsed=26.3s rss_kib=26416112
+EPISODE_START key=('VideoUnmaskSwap', 'easy', 160) attempt=1 pid=1539216
+DEMO_CHECK key=('VideoUnmaskSwap', 'easy', 160) tasks=1 frames=168
+EPISODE_END key=('VideoUnmaskSwap', 'easy', 160) status=success steps=108 elapsed=31.0s rss_kib=26416112
+EPISODE_START key=('VideoUnmaskSwap', 'hard', 160) attempt=1 pid=1539216
+DEMO_CHECK key=('VideoUnmaskSwap', 'hard', 160) tasks=1 frames=168
+EPISODE_END key=('VideoUnmaskSwap', 'hard', 160) status=success steps=265 elapsed=54.2s rss_kib=26416112
+EPISODE_START key=('VideoUnmaskSwap', 'medium', 160) attempt=1 pid=1539216
+DEMO_CHECK key=('VideoUnmaskSwap', 'medium', 160) tasks=1 frames=114
+EPISODE_END key=('VideoUnmaskSwap', 'medium', 160) status=success steps=98 elapsed=22.3s rss_kib=26416112
+EPISODE_START key=('VideoUnmaskSwap', 'xhard', 160) attempt=1 pid=1539216
+EPISODE_START key=('BinFill', 'easy', 187) attempt=1 pid=1550585
+DEMO_CHECK key=('BinFill', 'easy', 187) tasks=0 frames=0
+DEMO_CHECK key=('VideoUnmaskSwap', 'xhard', 160) tasks=1 frames=318
+EPISODE_END key=('BinFill', 'easy', 187) status=success steps=465 elapsed=80.2s rss_kib=26440012
+EPISODE_START key=('BinFill', 'hard', 185) attempt=1 pid=1550585
+DEMO_CHECK key=('BinFill', 'hard', 185) tasks=0 frames=0
+EPISODE_END key=('VideoUnmaskSwap', 'xhard', 160) status=fail steps=327 elapsed=130.3s rss_kib=26416112
+BATCH_EXIT lane=hold02 code=0 new_attempts=14
+BATCH_DONE lane=hold02 plan=batch-22.json episodes=14 errors=0 peak_rss_kib=26416112 cgroup={'limit_bytes': 25769803776, 'peak_bytes': 21050241024, 'oom_kill': 0, 'oom': 0}
+BATCH_START lane=hold02 plan=batch-23.json pending=14
+EPISODE_END key=('BinFill', 'hard', 185) status=success steps=705 elapsed=118.9s rss_kib=26440012
+EPISODE_START key=('BinFill', 'medium', 185) attempt=1 pid=1550585
+DEMO_CHECK key=('BinFill', 'medium', 185) tasks=0 frames=0
+EPISODE_END key=('BinFill', 'medium', 185) status=success steps=536 elapsed=87.6s rss_kib=26440012
+EPISODE_START key=('RouteStick', 'easy', 147) attempt=1 pid=1550585
+DEMO_CHECK key=('RouteStick', 'easy', 147) tasks=6 frames=150
+EPISODE_END key=('RouteStick', 'easy', 147) status=fail steps=101 elapsed=31.7s rss_kib=26440012
+EPISODE_START key=('RouteStick', 'hard', 147) attempt=1 pid=1550585
+DEMO_CHECK key=('RouteStick', 'hard', 147) tasks=8 frames=250
+EPISODE_START key=('BinFill', 'easy', 202) attempt=1 pid=1554428
+DEMO_CHECK key=('BinFill', 'easy', 202) tasks=0 frames=0
+EPISODE_END key=('BinFill', 'easy', 202) status=success steps=244 elapsed=40.5s rss_kib=26441696
+EPISODE_START key=('BinFill', 'hard', 200) attempt=1 pid=1554428
+DEMO_CHECK key=('BinFill', 'hard', 200) tasks=0 frames=0
+EPISODE_END key=('RouteStick', 'hard', 147) status=success steps=271 elapsed=68.1s rss_kib=26440012
+EPISODE_START key=('RouteStick', 'medium', 147) attempt=1 pid=1550585
+DEMO_CHECK key=('RouteStick', 'medium', 147) tasks=7 frames=200
+EPISODE_END key=('RouteStick', 'medium', 147) status=success steps=223 elapsed=56.3s rss_kib=26440012
+EPISODE_START key=('RouteStick', 'xhard', 147) attempt=1 pid=1550585
+DEMO_CHECK key=('RouteStick', 'xhard', 147) tasks=13 frames=500
+EPISODE_END key=('RouteStick', 'xhard', 147) status=fail steps=49 elapsed=34.2s rss_kib=26440012
+EPISODE_START key=('VideoRepick', 'easy', 187) attempt=1 pid=1550585
+DEMO_CHECK key=('VideoRepick', 'easy', 187) tasks=5 frames=255
+EPISODE_END key=('VideoRepick', 'easy', 187) status=success steps=379 elapsed=70.6s rss_kib=26440012
+EPISODE_START key=('VideoRepick', 'medium', 185) attempt=1 pid=1550585
+DEMO_CHECK key=('VideoRepick', 'medium', 185) tasks=6 frames=320
+EPISODE_END key=('BinFill', 'hard', 200) status=fail steps=1382 elapsed=219.3s rss_kib=26441696
+EPISODE_START key=('BinFill', 'medium', 200) attempt=1 pid=1554428
+DEMO_CHECK key=('BinFill', 'medium', 200) tasks=0 frames=0
+EPISODE_END key=('VideoRepick', 'medium', 185) status=success steps=525 elapsed=97.4s rss_kib=26440012
+EPISODE_START key=('VideoRepick', 'xhard', 185) attempt=1 pid=1550585
+DEMO_CHECK key=('VideoRepick', 'xhard', 185) tasks=9 frames=479
+EPISODE_END key=('VideoRepick', 'xhard', 185) status=fail steps=94 elapsed=30.7s rss_kib=26440012
+EPISODE_START key=('VideoUnmaskSwap', 'easy', 147) attempt=1 pid=1550585
+EPISODE_END key=('BinFill', 'medium', 200) status=success steps=546 elapsed=81.3s rss_kib=26441696
+EPISODE_START key=('RouteStick', 'easy', 162) attempt=1 pid=1554428
+DEMO_CHECK key=('VideoUnmaskSwap', 'easy', 147) tasks=1 frames=168
+DEMO_CHECK key=('RouteStick', 'easy', 162) tasks=5 frames=100
+EPISODE_END key=('RouteStick', 'easy', 162) status=success steps=102 elapsed=26.8s rss_kib=26441696
+EPISODE_START key=('RouteStick', 'hard', 162) attempt=1 pid=1554428
+DEMO_CHECK key=('RouteStick', 'hard', 162) tasks=7 frames=200
+EPISODE_END key=('RouteStick', 'hard', 162) status=fail steps=147 elapsed=38.4s rss_kib=26441696
+EPISODE_START key=('RouteStick', 'medium', 162) attempt=1 pid=1554428
+EPISODE_END key=('VideoUnmaskSwap', 'easy', 147) status=success steps=364 elapsed=74.9s rss_kib=26440012
+EPISODE_START key=('VideoUnmaskSwap', 'hard', 147) attempt=1 pid=1550585
+DEMO_CHECK key=('RouteStick', 'medium', 162) tasks=7 frames=200
+DEMO_CHECK key=('VideoUnmaskSwap', 'hard', 147) tasks=1 frames=216
+EPISODE_END key=('RouteStick', 'medium', 162) status=success steps=209 elapsed=49.5s rss_kib=26441696
+EPISODE_START key=('RouteStick', 'xhard', 162) attempt=1 pid=1554428
+DEMO_CHECK key=('RouteStick', 'xhard', 162) tasks=11 frames=400
+EPISODE_END key=('RouteStick', 'xhard', 162) status=fail steps=55 elapsed=28.9s rss_kib=26441696
+EPISODE_START key=('VideoRepick', 'easy', 202) attempt=1 pid=1554428
+DEMO_CHECK key=('VideoRepick', 'easy', 202) tasks=5 frames=286
+EPISODE_END key=('VideoUnmaskSwap', 'hard', 147) status=success steps=261 elapsed=86.7s rss_kib=26440012
+EPISODE_START key=('VideoUnmaskSwap', 'medium', 147) attempt=1 pid=1550585
+DEMO_CHECK key=('VideoUnmaskSwap', 'medium', 147) tasks=1 frames=168
+EPISODE_END key=('VideoRepick', 'easy', 202) status=success steps=244 elapsed=45.1s rss_kib=26441696
+EPISODE_START key=('VideoRepick', 'medium', 200) attempt=1 pid=1554428
+DEMO_CHECK key=('VideoRepick', 'medium', 200) tasks=6 frames=317
+EPISODE_END key=('VideoUnmaskSwap', 'medium', 147) status=success steps=99 elapsed=52.2s rss_kib=26440012
+EPISODE_START key=('VideoUnmaskSwap', 'xhard', 147) attempt=1 pid=1550585
+EPISODE_END key=('VideoRepick', 'medium', 200) status=success steps=382 elapsed=65.5s rss_kib=26441696
+EPISODE_START key=('VideoRepick', 'xhard', 200) attempt=1 pid=1554428
+DEMO_CHECK key=('VideoRepick', 'xhard', 200) tasks=9 frames=482
+DEMO_CHECK key=('VideoUnmaskSwap', 'xhard', 147) tasks=1 frames=318
+EPISODE_END key=('VideoUnmaskSwap', 'xhard', 147) status=fail steps=102 elapsed=104.0s rss_kib=26440012
+BATCH_EXIT lane=hold01 code=0 new_attempts=14
+BATCH_DONE lane=hold01 plan=batch-16.json episodes=14 errors=0 peak_rss_kib=26440012 cgroup={'limit_bytes': 25769803776, 'peak_bytes': 22263541760, 'oom_kill': 0, 'oom': 0}
+BATCH_START lane=hold01 plan=batch-17.json pending=14
+EPISODE_END key=('VideoRepick', 'xhard', 200) status=success steps=476 elapsed=86.1s rss_kib=26441696
+EPISODE_START key=('VideoUnmaskSwap', 'easy', 162) attempt=1 pid=1554428
+DEMO_CHECK key=('VideoUnmaskSwap', 'easy', 162) tasks=1 frames=168
+EPISODE_END key=('VideoUnmaskSwap', 'easy', 162) status=fail steps=103 elapsed=30.1s rss_kib=26441696
+EPISODE_START key=('VideoUnmaskSwap', 'hard', 162) attempt=1 pid=1554428
+DEMO_CHECK key=('VideoUnmaskSwap', 'hard', 162) tasks=1 frames=168
+EPISODE_END key=('VideoUnmaskSwap', 'hard', 162) status=success steps=371 elapsed=88.6s rss_kib=26441696
+EPISODE_START key=('VideoUnmaskSwap', 'medium', 162) attempt=1 pid=1554428
+DEMO_CHECK key=('VideoUnmaskSwap', 'medium', 162) tasks=1 frames=168
+EPISODE_END key=('VideoUnmaskSwap', 'medium', 162) status=success steps=105 elapsed=29.3s rss_kib=26441696
+EPISODE_START key=('VideoUnmaskSwap', 'xhard', 162) attempt=1 pid=1554428
+DEMO_CHECK key=('VideoUnmaskSwap', 'xhard', 162) tasks=1 frames=264
+EPISODE_START key=('BinFill', 'easy', 189) attempt=1 pid=1565753
+EPISODE_END key=('VideoUnmaskSwap', 'xhard', 162) status=fail steps=99 elapsed=70.6s rss_kib=26441696
+DEMO_CHECK key=('BinFill', 'easy', 189) tasks=0 frames=0
+BATCH_EXIT lane=hold02 code=0 new_attempts=14
+BATCH_DONE lane=hold02 plan=batch-23.json episodes=14 errors=0 peak_rss_kib=26441696 cgroup={'limit_bytes': 25769803776, 'peak_bytes': 21085044736, 'oom_kill': 0, 'oom': 0}
+BATCH_START lane=hold02 plan=batch-24.json pending=14
+EPISODE_END key=('BinFill', 'easy', 189) status=success steps=775 elapsed=128.4s rss_kib=26442008
+EPISODE_START key=('BinFill', 'hard', 187) attempt=1 pid=1565753
+DEMO_CHECK key=('BinFill', 'hard', 187) tasks=0 frames=0
+EPISODE_START key=('BinFill', 'easy', 204) attempt=1 pid=1569230
+DEMO_CHECK key=('BinFill', 'easy', 204) tasks=0 frames=0
+EPISODE_END key=('BinFill', 'hard', 187) status=fail steps=1234 elapsed=215.0s rss_kib=26442008
+EPISODE_START key=('BinFill', 'medium', 187) attempt=1 pid=1565753
+DEMO_CHECK key=('BinFill', 'medium', 187) tasks=0 frames=0
+EPISODE_END key=('BinFill', 'easy', 204) status=success steps=780 elapsed=118.4s rss_kib=26440268
+EPISODE_START key=('BinFill', 'hard', 202) attempt=1 pid=1569230
+DEMO_CHECK key=('BinFill', 'hard', 202) tasks=0 frames=0
+EPISODE_END key=('BinFill', 'medium', 187) status=success steps=417 elapsed=68.6s rss_kib=26442008
+EPISODE_START key=('RouteStick', 'easy', 149) attempt=1 pid=1565753
+DEMO_CHECK key=('RouteStick', 'easy', 149) tasks=6 frames=150
+EPISODE_END key=('RouteStick', 'easy', 149) status=success steps=155 elapsed=41.9s rss_kib=26442008
+EPISODE_START key=('RouteStick', 'hard', 149) attempt=1 pid=1565753
+DEMO_CHECK key=('RouteStick', 'hard', 149) tasks=10 frames=350
+EPISODE_END key=('RouteStick', 'hard', 149) status=fail steps=204 elapsed=58.1s rss_kib=26442008
+EPISODE_START key=('RouteStick', 'medium', 149) attempt=1 pid=1565753
+DEMO_CHECK key=('RouteStick', 'medium', 149) tasks=8 frames=250
+EPISODE_END key=('BinFill', 'hard', 202) status=fail steps=1213 elapsed=186.3s rss_kib=26440268
+EPISODE_START key=('BinFill', 'medium', 202) attempt=1 pid=1569230
+DEMO_CHECK key=('BinFill', 'medium', 202) tasks=0 frames=0
+EPISODE_END key=('RouteStick', 'medium', 149) status=success steps=263 elapsed=67.9s rss_kib=26442008
+EPISODE_START key=('RouteStick', 'xhard', 149) attempt=1 pid=1565753
+DEMO_CHECK key=('RouteStick', 'xhard', 149) tasks=11 frames=400
+EPISODE_END key=('BinFill', 'medium', 202) status=fail steps=376 elapsed=57.6s rss_kib=26440268
+EPISODE_START key=('RouteStick', 'easy', 164) attempt=1 pid=1569230
+DEMO_CHECK key=('RouteStick', 'easy', 164) tasks=5 frames=100
+EPISODE_END key=('RouteStick', 'easy', 164) status=success steps=108 elapsed=27.1s rss_kib=26440268
+EPISODE_START key=('RouteStick', 'hard', 164) attempt=1 pid=1569230
+EPISODE_END key=('RouteStick', 'xhard', 149) status=fail steps=213 elapsed=64.0s rss_kib=26442008
+EPISODE_START key=('VideoRepick', 'easy', 189) attempt=1 pid=1565753
+DEMO_CHECK key=('RouteStick', 'hard', 164) tasks=8 frames=250
+EPISODE_END key=('RouteStick', 'hard', 164) status=success steps=262 elapsed=59.9s rss_kib=26440268
+EPISODE_START key=('RouteStick', 'medium', 164) attempt=1 pid=1569230
+DEMO_CHECK key=('RouteStick', 'medium', 164) tasks=7 frames=200
+EPISODE_END key=('RouteStick', 'medium', 164) status=success steps=221 elapsed=49.5s rss_kib=26440268
+EPISODE_START key=('RouteStick', 'xhard', 164) attempt=1 pid=1569230
+DEMO_CHECK key=('RouteStick', 'xhard', 164) tasks=13 frames=500
+EPISODE_END key=('RouteStick', 'xhard', 164) status=fail steps=134 elapsed=45.4s rss_kib=26440268
+EPISODE_START key=('VideoRepick', 'easy', 204) attempt=1 pid=1569230
+DEMO_CHECK key=('VideoRepick', 'easy', 204) tasks=5 frames=277
+EPISODE_END key=('VideoRepick', 'easy', 204) status=success steps=230 elapsed=42.3s rss_kib=26440268
+EPISODE_START key=('VideoRepick', 'medium', 202) attempt=1 pid=1569230
+DEMO_CHECK key=('VideoRepick', 'medium', 202) tasks=6 frames=344
+EPISODE_END key=('VideoRepick', 'medium', 202) status=success steps=504 elapsed=85.5s rss_kib=26440268
+EPISODE_START key=('VideoRepick', 'xhard', 202) attempt=1 pid=1569230
+DEMO_CHECK key=('VideoRepick', 'xhard', 202) tasks=9 frames=469
+EPISODE_END key=('VideoRepick', 'xhard', 202) status=fail steps=90 elapsed=27.1s rss_kib=26440268
+EPISODE_START key=('VideoUnmaskSwap', 'easy', 164) attempt=1 pid=1569230
+DEMO_CHECK key=('VideoUnmaskSwap', 'easy', 164) tasks=1 frames=168
+EPISODE_END key=('VideoUnmaskSwap', 'easy', 164) status=success steps=354 elapsed=82.6s rss_kib=26440268
+EPISODE_START key=('VideoUnmaskSwap', 'hard', 164) attempt=1 pid=1569230
+DEMO_CHECK key=('VideoUnmaskSwap', 'hard', 164) tasks=1 frames=168
+EPISODE_END key=('VideoUnmaskSwap', 'hard', 164) status=success steps=454 elapsed=86.5s rss_kib=26440268
+EPISODE_START key=('VideoUnmaskSwap', 'medium', 164) attempt=1 pid=1569230
+DEMO_CHECK key=('VideoUnmaskSwap', 'medium', 164) tasks=1 frames=114
+EPISODE_END key=('VideoUnmaskSwap', 'medium', 164) status=success steps=109 elapsed=33.1s rss_kib=26440268
+EPISODE_START key=('VideoUnmaskSwap', 'xhard', 164) attempt=1 pid=1569230
+Traceback (most recent call last):
+  File "/nfs/turbo/coe-chaijy-unreplicated/hongzefu/SimpleMemVLA/robomme_sim/candidate_eval.py", line 71, in evaluate_candidates
+RuntimeError: reset 错误：{'ok': False, 'reason': 'reset_exc: '}
+EPISODE_END key=('VideoRepick', 'easy', 189) status=error steps=0 elapsed=600.0s rss_kib=26442008
+BATCH_EXIT lane=hold01 code=1 new_attempts=8
+BATCH_START lane=hold01 plan=batch-17.json pending=6
+EPISODE_START key=('VideoRepick', 'medium', 187) attempt=1 pid=1583664
+DEMO_CHECK key=('VideoRepick', 'medium', 187) tasks=7 frames=367
+EPISODE_END key=('VideoRepick', 'medium', 187) status=fail steps=95 elapsed=31.7s rss_kib=26416308
+EPISODE_START key=('VideoRepick', 'xhard', 187) attempt=1 pid=1583664
+DEMO_CHECK key=('VideoRepick', 'xhard', 187) tasks=8 frames=449
+EPISODE_END key=('VideoRepick', 'xhard', 187) status=success steps=376 elapsed=76.7s rss_kib=26416308
+EPISODE_START key=('VideoUnmaskSwap', 'easy', 149) attempt=1 pid=1583664
+DEMO_CHECK key=('VideoUnmaskSwap', 'easy', 149) tasks=1 frames=114
+EPISODE_END key=('VideoUnmaskSwap', 'easy', 149) status=success steps=256 elapsed=58.9s rss_kib=26416308
+EPISODE_START key=('VideoUnmaskSwap', 'hard', 149) attempt=1 pid=1583664
+DEMO_CHECK key=('VideoUnmaskSwap', 'hard', 149) tasks=1 frames=168
+EPISODE_END key=('VideoUnmaskSwap', 'hard', 149) status=success steps=250 elapsed=58.2s rss_kib=26416308
+EPISODE_START key=('VideoUnmaskSwap', 'medium', 149) attempt=1 pid=1583664
+Traceback (most recent call last):
+  File "/nfs/turbo/coe-chaijy-unreplicated/hongzefu/SimpleMemVLA/robomme_sim/candidate_eval.py", line 71, in evaluate_candidates
+RuntimeError: reset 错误：{'ok': False, 'reason': 'reset_exc: '}
+EPISODE_END key=('VideoUnmaskSwap', 'xhard', 164) status=error steps=0 elapsed=600.0s rss_kib=26440268
+BATCH_EXIT lane=hold02 code=1 new_attempts=14
+BATCH_DONE lane=hold02 plan=batch-24.json episodes=14 errors=1 peak_rss_kib=26440268 cgroup={'limit_bytes': 25769803776, 'peak_bytes': 21099880448, 'oom_kill': 0, 'oom': 0}
+DEMO_CHECK key=('VideoUnmaskSwap', 'medium', 149) tasks=1 frames=168
+EPISODE_END key=('VideoUnmaskSwap', 'medium', 149) status=success steps=101 elapsed=65.9s rss_kib=26416308
+EPISODE_START key=('VideoUnmaskSwap', 'xhard', 149) attempt=1 pid=1583664
+COVERAGE_PASS planned=350 success=243 errors=3 missing=0
+EXIT_CODE=0
+DEMO_CHECK key=('VideoUnmaskSwap', 'xhard', 149) tasks=1 frames=318
+EPISODE_END key=('VideoUnmaskSwap', 'xhard', 149) status=fail steps=97 elapsed=92.7s rss_kib=26416308
+BATCH_EXIT lane=hold01 code=0 new_attempts=6
+BATCH_DONE lane=hold01 plan=batch-17.json episodes=14 errors=1 peak_rss_kib=26442008 cgroup={'limit_bytes': 25769803776, 'peak_bytes': 22277898240, 'oom_kill': 0, 'oom': 0}
+BATCH_START lane=hold01 plan=batch-18.json pending=14
+EPISODE_START key=('BinFill', 'easy', 191) attempt=1 pid=1590768
+DEMO_CHECK key=('BinFill', 'easy', 191) tasks=0 frames=0
+EPISODE_END key=('BinFill', 'easy', 191) status=success steps=270 elapsed=47.9s rss_kib=26441716
+EPISODE_START key=('BinFill', 'hard', 189) attempt=1 pid=1590768
+DEMO_CHECK key=('BinFill', 'hard', 189) tasks=0 frames=0
+EPISODE_END key=('BinFill', 'hard', 189) status=fail steps=763 elapsed=129.6s rss_kib=26441716
+EPISODE_START key=('BinFill', 'medium', 189) attempt=1 pid=1590768
+DEMO_CHECK key=('BinFill', 'medium', 189) tasks=0 frames=0
+EPISODE_END key=('BinFill', 'medium', 189) status=fail steps=557 elapsed=93.5s rss_kib=26441716
+EPISODE_START key=('RouteStick', 'easy', 151) attempt=1 pid=1590768
+DEMO_CHECK key=('RouteStick', 'easy', 151) tasks=5 frames=100
+EPISODE_END key=('RouteStick', 'easy', 151) status=success steps=108 elapsed=30.5s rss_kib=26441716
+EPISODE_START key=('RouteStick', 'hard', 151) attempt=1 pid=1590768
+DEMO_CHECK key=('RouteStick', 'hard', 151) tasks=7 frames=200
+EPISODE_END key=('RouteStick', 'hard', 151) status=success steps=207 elapsed=54.3s rss_kib=26441716
+EPISODE_START key=('RouteStick', 'medium', 151) attempt=1 pid=1590768
+DEMO_CHECK key=('RouteStick', 'medium', 151) tasks=8 frames=250
+EPISODE_END key=('RouteStick', 'medium', 151) status=success steps=272 elapsed=69.0s rss_kib=26441716
+EPISODE_START key=('RouteStick', 'xhard', 151) attempt=1 pid=1590768
+DEMO_CHECK key=('RouteStick', 'xhard', 151) tasks=13 frames=500
+EPISODE_END key=('RouteStick', 'xhard', 151) status=fail steps=52 elapsed=36.1s rss_kib=26441716
+EPISODE_START key=('VideoRepick', 'easy', 191) attempt=1 pid=1590768
+DEMO_CHECK key=('VideoRepick', 'easy', 191) tasks=6 frames=313
+EPISODE_END key=('VideoRepick', 'easy', 191) status=success steps=479 elapsed=89.4s rss_kib=26441716
+EPISODE_START key=('VideoRepick', 'medium', 189) attempt=1 pid=1590768
+DEMO_CHECK key=('VideoRepick', 'medium', 189) tasks=7 frames=371
+EPISODE_END key=('VideoRepick', 'medium', 189) status=success steps=551 elapsed=106.6s rss_kib=26441716
+EPISODE_START key=('VideoRepick', 'xhard', 189) attempt=1 pid=1590768
+DEMO_CHECK key=('VideoRepick', 'xhard', 189) tasks=9 frames=502
+EPISODE_END key=('VideoRepick', 'xhard', 189) status=success steps=313 elapsed=69.7s rss_kib=26441716
+EPISODE_START key=('VideoUnmaskSwap', 'easy', 151) attempt=1 pid=1590768
+DEMO_CHECK key=('VideoUnmaskSwap', 'easy', 151) tasks=1 frames=114
+EPISODE_END key=('VideoUnmaskSwap', 'easy', 151) status=success steps=116 elapsed=38.0s rss_kib=26441716
+EPISODE_START key=('VideoUnmaskSwap', 'hard', 151) attempt=1 pid=1590768
+DEMO_CHECK key=('VideoUnmaskSwap', 'hard', 151) tasks=1 frames=168
+EPISODE_END key=('VideoUnmaskSwap', 'hard', 151) status=success steps=256 elapsed=120.1s rss_kib=26441716
+EPISODE_START key=('VideoUnmaskSwap', 'medium', 151) attempt=1 pid=1590768
+DEMO_CHECK key=('VideoUnmaskSwap', 'medium', 151) tasks=1 frames=168
+EPISODE_END key=('VideoUnmaskSwap', 'medium', 151) status=success steps=106 elapsed=55.1s rss_kib=26441716
+EPISODE_START key=('VideoUnmaskSwap', 'xhard', 151) attempt=1 pid=1590768
+DEMO_CHECK key=('VideoUnmaskSwap', 'xhard', 151) tasks=1 frames=264
+EPISODE_END key=('VideoUnmaskSwap', 'xhard', 151) status=fail steps=106 elapsed=50.9s rss_kib=26441716
+BATCH_EXIT lane=hold01 code=0 new_attempts=14
+BATCH_DONE lane=hold01 plan=batch-18.json episodes=14 errors=0 peak_rss_kib=26441716 cgroup={'limit_bytes': 25769803776, 'peak_bytes': 22292701184, 'oom_kill': 0, 'oom': 0}
+BATCH_START lane=hold01 plan=batch-19.json pending=14
+EPISODE_START key=('BinFill', 'easy', 193) attempt=1 pid=1605189
+DEMO_CHECK key=('BinFill', 'easy', 193) tasks=0 frames=0
+EPISODE_END key=('BinFill', 'easy', 193) status=success steps=821 elapsed=139.5s rss_kib=26415528
+EPISODE_START key=('BinFill', 'hard', 191) attempt=1 pid=1605189
+DEMO_CHECK key=('BinFill', 'hard', 191) tasks=0 frames=0
+EPISODE_END key=('BinFill', 'hard', 191) status=success steps=1195 elapsed=207.8s rss_kib=26415528
+EPISODE_START key=('BinFill', 'medium', 191) attempt=1 pid=1605189
+DEMO_CHECK key=('BinFill', 'medium', 191) tasks=0 frames=0
+EPISODE_END key=('BinFill', 'medium', 191) status=fail steps=546 elapsed=94.0s rss_kib=26415528
+EPISODE_START key=('RouteStick', 'easy', 153) attempt=1 pid=1605189
+DEMO_CHECK key=('RouteStick', 'easy', 153) tasks=6 frames=150
+EPISODE_END key=('RouteStick', 'easy', 153) status=success steps=167 elapsed=44.6s rss_kib=26415528
+EPISODE_START key=('RouteStick', 'hard', 153) attempt=1 pid=1605189
+DEMO_CHECK key=('RouteStick', 'hard', 153) tasks=9 frames=300
+EPISODE_END key=('RouteStick', 'hard', 153) status=fail steps=197 elapsed=56.7s rss_kib=26415528
+EPISODE_START key=('RouteStick', 'medium', 153) attempt=1 pid=1605189
+DEMO_CHECK key=('RouteStick', 'medium', 153) tasks=7 frames=200
+EPISODE_END key=('RouteStick', 'medium', 153) status=success steps=209 elapsed=55.8s rss_kib=26415528
+EPISODE_START key=('RouteStick', 'xhard', 153) attempt=1 pid=1605189
+DEMO_CHECK key=('RouteStick', 'xhard', 153) tasks=12 frames=450
+EPISODE_END key=('RouteStick', 'xhard', 153) status=fail steps=649 elapsed=157.7s rss_kib=26415528
+EPISODE_START key=('VideoRepick', 'easy', 193) attempt=1 pid=1605189
+DEMO_CHECK key=('VideoRepick', 'easy', 193) tasks=5 frames=255
+EPISODE_END key=('VideoRepick', 'easy', 193) status=fail steps=192 elapsed=41.2s rss_kib=26415528
+EPISODE_START key=('VideoRepick', 'medium', 191) attempt=1 pid=1605189
+DEMO_CHECK key=('VideoRepick', 'medium', 191) tasks=7 frames=366
+EPISODE_END key=('VideoRepick', 'medium', 191) status=success steps=385 elapsed=77.3s rss_kib=26415528
+EPISODE_START key=('VideoRepick', 'xhard', 191) attempt=1 pid=1605189
+DEMO_CHECK key=('VideoRepick', 'xhard', 191) tasks=8 frames=437
+EPISODE_END key=('VideoRepick', 'xhard', 191) status=fail steps=100 elapsed=32.0s rss_kib=26415528
+EPISODE_START key=('VideoUnmaskSwap', 'easy', 153) attempt=1 pid=1605189
+DEMO_CHECK key=('VideoUnmaskSwap', 'easy', 153) tasks=1 frames=168
+EPISODE_END key=('VideoUnmaskSwap', 'easy', 153) status=success steps=272 elapsed=79.3s rss_kib=26415528
+EPISODE_START key=('VideoUnmaskSwap', 'hard', 153) attempt=1 pid=1605189
+DEMO_CHECK key=('VideoUnmaskSwap', 'hard', 153) tasks=1 frames=168
+EPISODE_END key=('VideoUnmaskSwap', 'hard', 153) status=success steps=256 elapsed=62.2s rss_kib=26415528
+EPISODE_START key=('VideoUnmaskSwap', 'medium', 153) attempt=1 pid=1605189
+DEMO_CHECK key=('VideoUnmaskSwap', 'medium', 153) tasks=1 frames=114
+EPISODE_END key=('VideoUnmaskSwap', 'medium', 153) status=fail steps=111 elapsed=48.9s rss_kib=26415528
+EPISODE_START key=('VideoUnmaskSwap', 'xhard', 153) attempt=1 pid=1605189
+DEMO_CHECK key=('VideoUnmaskSwap', 'xhard', 153) tasks=1 frames=264
+EPISODE_END key=('VideoUnmaskSwap', 'xhard', 153) status=fail steps=353 elapsed=130.0s rss_kib=26415528
+BATCH_EXIT lane=hold01 code=0 new_attempts=14
+BATCH_DONE lane=hold01 plan=batch-19.json episodes=14 errors=0 peak_rss_kib=26415528 cgroup={'limit_bytes': 25769803776, 'peak_bytes': 22292701184, 'oom_kill': 0, 'oom': 0}
+BATCH_START lane=hold01 plan=batch-20.json pending=14
+EPISODE_START key=('BinFill', 'easy', 195) attempt=1 pid=1622559
+DEMO_CHECK key=('BinFill', 'easy', 195) tasks=0 frames=0
+EPISODE_END key=('BinFill', 'easy', 195) status=success steps=446 elapsed=74.8s rss_kib=26441224
+EPISODE_START key=('BinFill', 'hard', 193) attempt=1 pid=1622559
+DEMO_CHECK key=('BinFill', 'hard', 193) tasks=0 frames=0
+EPISODE_END key=('BinFill', 'hard', 193) status=fail steps=1380 elapsed=248.8s rss_kib=26441224
+EPISODE_START key=('BinFill', 'medium', 193) attempt=1 pid=1622559
+DEMO_CHECK key=('BinFill', 'medium', 193) tasks=0 frames=0
+EPISODE_END key=('BinFill', 'medium', 193) status=success steps=830 elapsed=137.0s rss_kib=26441224
+EPISODE_START key=('RouteStick', 'easy', 155) attempt=1 pid=1622559
+DEMO_CHECK key=('RouteStick', 'easy', 155) tasks=5 frames=100
+EPISODE_END key=('RouteStick', 'easy', 155) status=fail steps=148 elapsed=41.2s rss_kib=26441224
+EPISODE_START key=('RouteStick', 'hard', 155) attempt=1 pid=1622559
+DEMO_CHECK key=('RouteStick', 'hard', 155) tasks=9 frames=300
+EPISODE_END key=('RouteStick', 'hard', 155) status=fail steps=306 elapsed=79.4s rss_kib=26441224
+EPISODE_START key=('RouteStick', 'medium', 155) attempt=1 pid=1622559
+DEMO_CHECK key=('RouteStick', 'medium', 155) tasks=8 frames=250
+EPISODE_END key=('RouteStick', 'medium', 155) status=success steps=277 elapsed=71.3s rss_kib=26441224
+EPISODE_START key=('RouteStick', 'xhard', 155) attempt=1 pid=1622559
+DEMO_CHECK key=('RouteStick', 'xhard', 155) tasks=13 frames=500
+EPISODE_END key=('RouteStick', 'xhard', 155) status=success steps=558 elapsed=137.4s rss_kib=26441224
+EPISODE_START key=('VideoRepick', 'easy', 195) attempt=1 pid=1622559
+DEMO_CHECK key=('VideoRepick', 'easy', 195) tasks=6 frames=325
+EPISODE_END key=('VideoRepick', 'easy', 195) status=fail steps=100 elapsed=28.9s rss_kib=26441224
+EPISODE_START key=('VideoRepick', 'medium', 193) attempt=1 pid=1622559
+DEMO_CHECK key=('VideoRepick', 'medium', 193) tasks=6 frames=339
+EPISODE_END key=('VideoRepick', 'medium', 193) status=success steps=526 elapsed=98.0s rss_kib=26441224
+EPISODE_START key=('VideoRepick', 'xhard', 193) attempt=1 pid=1622559
+DEMO_CHECK key=('VideoRepick', 'xhard', 193) tasks=9 frames=476
+EPISODE_END key=('VideoRepick', 'xhard', 193) status=fail steps=90 elapsed=30.8s rss_kib=26441224
+EPISODE_START key=('VideoUnmaskSwap', 'easy', 155) attempt=1 pid=1622559
+DEMO_CHECK key=('VideoUnmaskSwap', 'easy', 155) tasks=1 frames=168
+EPISODE_END key=('VideoUnmaskSwap', 'easy', 155) status=timeout steps=2000 elapsed=377.0s rss_kib=26441224
+EPISODE_START key=('VideoUnmaskSwap', 'hard', 155) attempt=1 pid=1622559
+DEMO_CHECK key=('VideoUnmaskSwap', 'hard', 155) tasks=1 frames=216
+EPISODE_END key=('VideoUnmaskSwap', 'hard', 155) status=success steps=265 elapsed=70.6s rss_kib=26441224
+EPISODE_START key=('VideoUnmaskSwap', 'medium', 155) attempt=1 pid=1622559
+DEMO_CHECK key=('VideoUnmaskSwap', 'medium', 155) tasks=1 frames=168
+EPISODE_END key=('VideoUnmaskSwap', 'medium', 155) status=success steps=108 elapsed=75.1s rss_kib=26441224
+EPISODE_START key=('VideoUnmaskSwap', 'xhard', 155) attempt=1 pid=1622559
+DEMO_CHECK key=('VideoUnmaskSwap', 'xhard', 155) tasks=1 frames=318
+EPISODE_END key=('VideoUnmaskSwap', 'xhard', 155) status=fail steps=98 elapsed=72.9s rss_kib=26441224
+BATCH_EXIT lane=hold01 code=0 new_attempts=14
+BATCH_DONE lane=hold01 plan=batch-20.json episodes=14 errors=0 peak_rss_kib=26441224 cgroup={'limit_bytes': 25769803776, 'peak_bytes': 22324400128, 'oom_kill': 0, 'oom': 0}
+BATCH_START lane=hold01 plan=batch-21.json pending=14
+EPISODE_START key=('BinFill', 'easy', 197) attempt=1 pid=1643541
+DEMO_CHECK key=('BinFill', 'easy', 197) tasks=0 frames=0
+EPISODE_END key=('BinFill', 'easy', 197) status=fail steps=654 elapsed=112.1s rss_kib=26441916
+EPISODE_START key=('BinFill', 'hard', 195) attempt=1 pid=1643541
+DEMO_CHECK key=('BinFill', 'hard', 195) tasks=0 frames=0
+EPISODE_END key=('BinFill', 'hard', 195) status=fail steps=953 elapsed=160.9s rss_kib=26441916
+EPISODE_START key=('BinFill', 'medium', 195) attempt=1 pid=1643541
+DEMO_CHECK key=('BinFill', 'medium', 195) tasks=0 frames=0
+EPISODE_END key=('BinFill', 'medium', 195) status=fail steps=1038 elapsed=177.9s rss_kib=26441916
+EPISODE_START key=('RouteStick', 'easy', 157) attempt=1 pid=1643541
+DEMO_CHECK key=('RouteStick', 'easy', 157) tasks=6 frames=150
+EPISODE_END key=('RouteStick', 'easy', 157) status=success steps=159 elapsed=42.2s rss_kib=26441916
+EPISODE_START key=('RouteStick', 'hard', 157) attempt=1 pid=1643541
+DEMO_CHECK key=('RouteStick', 'hard', 157) tasks=7 frames=200
+EPISODE_END key=('RouteStick', 'hard', 157) status=success steps=205 elapsed=54.5s rss_kib=26441916
+EPISODE_START key=('RouteStick', 'medium', 157) attempt=1 pid=1643541
+DEMO_CHECK key=('RouteStick', 'medium', 157) tasks=8 frames=250
+EPISODE_END key=('RouteStick', 'medium', 157) status=success steps=268 elapsed=67.9s rss_kib=26441916
+EPISODE_START key=('RouteStick', 'xhard', 157) attempt=1 pid=1643541
+DEMO_CHECK key=('RouteStick', 'xhard', 157) tasks=13 frames=500
+EPISODE_END key=('RouteStick', 'xhard', 157) status=fail steps=52 elapsed=35.7s rss_kib=26441916
+EPISODE_START key=('VideoRepick', 'easy', 197) attempt=1 pid=1643541
+DEMO_CHECK key=('VideoRepick', 'easy', 197) tasks=5 frames=267
+EPISODE_END key=('VideoRepick', 'easy', 197) status=success steps=239 elapsed=47.8s rss_kib=26441916
+EPISODE_START key=('VideoRepick', 'medium', 195) attempt=1 pid=1643541
+DEMO_CHECK key=('VideoRepick', 'medium', 195) tasks=6 frames=307
+EPISODE_END key=('VideoRepick', 'medium', 195) status=success steps=230 elapsed=48.9s rss_kib=26441916
+EPISODE_START key=('VideoRepick', 'xhard', 195) attempt=1 pid=1643541
+DEMO_CHECK key=('VideoRepick', 'xhard', 195) tasks=9 frames=502
+EPISODE_END key=('VideoRepick', 'xhard', 195) status=fail steps=99 elapsed=34.1s rss_kib=26441916
+EPISODE_START key=('VideoUnmaskSwap', 'easy', 157) attempt=1 pid=1643541
+DEMO_CHECK key=('VideoUnmaskSwap', 'easy', 157) tasks=1 frames=114
+EPISODE_END key=('VideoUnmaskSwap', 'easy', 157) status=success steps=99 elapsed=38.5s rss_kib=26441916
+EPISODE_START key=('VideoUnmaskSwap', 'hard', 157) attempt=1 pid=1643541
+DEMO_CHECK key=('VideoUnmaskSwap', 'hard', 157) tasks=1 frames=216
+EPISODE_END key=('VideoUnmaskSwap', 'hard', 157) status=success steps=252 elapsed=90.4s rss_kib=26441916
+EPISODE_START key=('VideoUnmaskSwap', 'medium', 157) attempt=1 pid=1643541
+DEMO_CHECK key=('VideoUnmaskSwap', 'medium', 157) tasks=1 frames=168
+EPISODE_END key=('VideoUnmaskSwap', 'medium', 157) status=success steps=108 elapsed=37.1s rss_kib=26441916
+EPISODE_START key=('VideoUnmaskSwap', 'xhard', 157) attempt=1 pid=1643541
+DEMO_CHECK key=('VideoUnmaskSwap', 'xhard', 157) tasks=1 frames=264
+EPISODE_END key=('VideoUnmaskSwap', 'xhard', 157) status=fail steps=104 elapsed=94.3s rss_kib=26441916
+BATCH_EXIT lane=hold01 code=0 new_attempts=14
+BATCH_DONE lane=hold01 plan=batch-21.json episodes=14 errors=0 peak_rss_kib=26441916 cgroup={'limit_bytes': 25769803776, 'peak_bytes': 22346031104, 'oom_kill': 0, 'oom': 0}
+BATCH_START lane=hold01 plan=batch-22.json pending=14
+EPISODE_START key=('BinFill', 'easy', 199) attempt=1 pid=1657705
+DEMO_CHECK key=('BinFill', 'easy', 199) tasks=0 frames=0
+EPISODE_END key=('BinFill', 'easy', 199) status=success steps=259 elapsed=46.5s rss_kib=26440556
+EPISODE_START key=('BinFill', 'hard', 197) attempt=1 pid=1657705
+DEMO_CHECK key=('BinFill', 'hard', 197) tasks=0 frames=0
+EPISODE_END key=('BinFill', 'hard', 197) status=fail steps=1202 elapsed=213.6s rss_kib=26440556
+EPISODE_START key=('BinFill', 'medium', 197) attempt=1 pid=1657705
+DEMO_CHECK key=('BinFill', 'medium', 197) tasks=0 frames=0
+EPISODE_END key=('BinFill', 'medium', 197) status=success steps=987 elapsed=164.8s rss_kib=26440556
+EPISODE_START key=('RouteStick', 'easy', 159) attempt=1 pid=1657705
+DEMO_CHECK key=('RouteStick', 'easy', 159) tasks=6 frames=150
+EPISODE_END key=('RouteStick', 'easy', 159) status=success steps=155 elapsed=41.3s rss_kib=26440556
+EPISODE_START key=('RouteStick', 'hard', 159) attempt=1 pid=1657705
+DEMO_CHECK key=('RouteStick', 'hard', 159) tasks=9 frames=300
+EPISODE_END key=('RouteStick', 'hard', 159) status=success steps=317 elapsed=79.6s rss_kib=26440556
+EPISODE_START key=('RouteStick', 'medium', 159) attempt=1 pid=1657705
+DEMO_CHECK key=('RouteStick', 'medium', 159) tasks=8 frames=250
+EPISODE_END key=('RouteStick', 'medium', 159) status=success steps=268 elapsed=68.5s rss_kib=26440556
+EPISODE_START key=('RouteStick', 'xhard', 159) attempt=1 pid=1657705
+DEMO_CHECK key=('RouteStick', 'xhard', 159) tasks=13 frames=500
+EPISODE_END key=('RouteStick', 'xhard', 159) status=fail steps=154 elapsed=55.6s rss_kib=26440556
+EPISODE_START key=('VideoRepick', 'easy', 199) attempt=1 pid=1657705
+DEMO_CHECK key=('VideoRepick', 'easy', 199) tasks=5 frames=283
+EPISODE_END key=('VideoRepick', 'easy', 199) status=success steps=373 elapsed=71.1s rss_kib=26440556
+EPISODE_START key=('VideoRepick', 'medium', 197) attempt=1 pid=1657705
+DEMO_CHECK key=('VideoRepick', 'medium', 197) tasks=7 frames=376
+EPISODE_END key=('VideoRepick', 'medium', 197) status=fail steps=100 elapsed=30.5s rss_kib=26440556
+EPISODE_START key=('VideoRepick', 'xhard', 197) attempt=1 pid=1657705
+Traceback (most recent call last):
+  File "/nfs/turbo/coe-chaijy-unreplicated/hongzefu/SimpleMemVLA/robomme_sim/candidate_eval.py", line 71, in evaluate_candidates
+RuntimeError: reset 错误：{'ok': False, 'reason': 'reset_exc: '}
+EPISODE_END key=('VideoRepick', 'xhard', 197) status=error steps=0 elapsed=600.0s rss_kib=26440556
+BATCH_EXIT lane=hold01 code=1 new_attempts=10
+BATCH_START lane=hold01 plan=batch-22.json pending=4
+EPISODE_START key=('VideoUnmaskSwap', 'easy', 159) attempt=1 pid=1677740
+DEMO_CHECK key=('VideoUnmaskSwap', 'easy', 159) tasks=1 frames=168
+EPISODE_END key=('VideoUnmaskSwap', 'easy', 159) status=fail steps=259 elapsed=78.1s rss_kib=26439140
+EPISODE_START key=('VideoUnmaskSwap', 'hard', 159) attempt=1 pid=1677740
+DEMO_CHECK key=('VideoUnmaskSwap', 'hard', 159) tasks=1 frames=168
+EPISODE_END key=('VideoUnmaskSwap', 'hard', 159) status=timeout steps=2000 elapsed=405.1s rss_kib=26439140
+EPISODE_START key=('VideoUnmaskSwap', 'medium', 159) attempt=1 pid=1677740
+DEMO_CHECK key=('VideoUnmaskSwap', 'medium', 159) tasks=1 frames=114
+EPISODE_END key=('VideoUnmaskSwap', 'medium', 159) status=success steps=110 elapsed=28.3s rss_kib=26439140
+EPISODE_START key=('VideoUnmaskSwap', 'xhard', 159) attempt=1 pid=1677740
+DEMO_CHECK key=('VideoUnmaskSwap', 'xhard', 159) tasks=1 frames=318
+EPISODE_END key=('VideoUnmaskSwap', 'xhard', 159) status=fail steps=107 elapsed=79.6s rss_kib=26439140
+BATCH_EXIT lane=hold01 code=0 new_attempts=4
+BATCH_DONE lane=hold01 plan=batch-22.json episodes=14 errors=1 peak_rss_kib=26440556 cgroup={'limit_bytes': 25769803776, 'peak_bytes': 22375284736, 'oom_kill': 0, 'oom': 0}
+BATCH_START lane=hold01 plan=batch-23.json pending=14
+EPISODE_START key=('BinFill', 'easy', 201) attempt=1 pid=1685481
+DEMO_CHECK key=('BinFill', 'easy', 201) tasks=0 frames=0
+EPISODE_END key=('BinFill', 'easy', 201) status=success steps=764 elapsed=127.0s rss_kib=26417272
+EPISODE_START key=('BinFill', 'hard', 199) attempt=1 pid=1685481
+DEMO_CHECK key=('BinFill', 'hard', 199) tasks=0 frames=0
+EPISODE_END key=('BinFill', 'hard', 199) status=success steps=1086 elapsed=184.7s rss_kib=26417272
+EPISODE_START key=('BinFill', 'medium', 199) attempt=1 pid=1685481
+DEMO_CHECK key=('BinFill', 'medium', 199) tasks=0 frames=0
+EPISODE_END key=('BinFill', 'medium', 199) status=success steps=602 elapsed=99.6s rss_kib=26417272
+EPISODE_START key=('RouteStick', 'easy', 161) attempt=1 pid=1685481
+DEMO_CHECK key=('RouteStick', 'easy', 161) tasks=6 frames=150
+EPISODE_END key=('RouteStick', 'easy', 161) status=success steps=153 elapsed=42.3s rss_kib=26417272
+EPISODE_START key=('RouteStick', 'hard', 161) attempt=1 pid=1685481
+DEMO_CHECK key=('RouteStick', 'hard', 161) tasks=10 frames=350
+EPISODE_END key=('RouteStick', 'hard', 161) status=fail steps=216 elapsed=61.8s rss_kib=26417272
+EPISODE_START key=('RouteStick', 'medium', 161) attempt=1 pid=1685481
+DEMO_CHECK key=('RouteStick', 'medium', 161) tasks=7 frames=200
+EPISODE_END key=('RouteStick', 'medium', 161) status=success steps=209 elapsed=56.0s rss_kib=26417272
+EPISODE_START key=('RouteStick', 'xhard', 161) attempt=1 pid=1685481
+DEMO_CHECK key=('RouteStick', 'xhard', 161) tasks=12 frames=450
+EPISODE_END key=('RouteStick', 'xhard', 161) status=fail steps=495 elapsed=123.8s rss_kib=26417272
+EPISODE_START key=('VideoRepick', 'easy', 201) attempt=1 pid=1685481
+DEMO_CHECK key=('VideoRepick', 'easy', 201) tasks=6 frames=328
+EPISODE_END key=('VideoRepick', 'easy', 201) status=success steps=245 elapsed=51.5s rss_kib=26417272
+EPISODE_START key=('VideoRepick', 'medium', 199) attempt=1 pid=1685481
+DEMO_CHECK key=('VideoRepick', 'medium', 199) tasks=7 frames=367
+EPISODE_END key=('VideoRepick', 'medium', 199) status=success steps=362 elapsed=72.8s rss_kib=26417272
+EPISODE_START key=('VideoRepick', 'xhard', 199) attempt=1 pid=1685481
+DEMO_CHECK key=('VideoRepick', 'xhard', 199) tasks=9 frames=481
+EPISODE_END key=('VideoRepick', 'xhard', 199) status=fail steps=92 elapsed=31.0s rss_kib=26417272
+EPISODE_START key=('VideoUnmaskSwap', 'easy', 161) attempt=1 pid=1685481
+DEMO_CHECK key=('VideoUnmaskSwap', 'easy', 161) tasks=1 frames=114
+EPISODE_END key=('VideoUnmaskSwap', 'easy', 161) status=success steps=110 elapsed=34.6s rss_kib=26417272
+EPISODE_START key=('VideoUnmaskSwap', 'hard', 161) attempt=1 pid=1685481
+DEMO_CHECK key=('VideoUnmaskSwap', 'hard', 161) tasks=1 frames=168
+EPISODE_END key=('VideoUnmaskSwap', 'hard', 161) status=fail steps=102 elapsed=50.8s rss_kib=26417272
+EPISODE_START key=('VideoUnmaskSwap', 'medium', 161) attempt=1 pid=1685481
+DEMO_CHECK key=('VideoUnmaskSwap', 'medium', 161) tasks=1 frames=114
+EPISODE_END key=('VideoUnmaskSwap', 'medium', 161) status=success steps=98 elapsed=31.5s rss_kib=26417272
+EPISODE_START key=('VideoUnmaskSwap', 'xhard', 161) attempt=1 pid=1685481
+DEMO_CHECK key=('VideoUnmaskSwap', 'xhard', 161) tasks=1 frames=318
+EPISODE_END key=('VideoUnmaskSwap', 'xhard', 161) status=fail steps=99 elapsed=87.3s rss_kib=26417272
+BATCH_EXIT lane=hold01 code=0 new_attempts=14
+BATCH_DONE lane=hold01 plan=batch-23.json episodes=14 errors=0 peak_rss_kib=26417272 cgroup={'limit_bytes': 25769803776, 'peak_bytes': 22375284736, 'oom_kill': 0, 'oom': 0}
+BATCH_START lane=hold01 plan=batch-24.json pending=14
+EPISODE_START key=('BinFill', 'easy', 203) attempt=1 pid=1702383
+DEMO_CHECK key=('BinFill', 'easy', 203) tasks=0 frames=0
+EPISODE_END key=('BinFill', 'easy', 203) status=success steps=415 elapsed=70.0s rss_kib=26415584
+EPISODE_START key=('BinFill', 'hard', 201) attempt=1 pid=1702383
+DEMO_CHECK key=('BinFill', 'hard', 201) tasks=0 frames=0
+EPISODE_END key=('BinFill', 'hard', 201) status=success steps=1056 elapsed=181.4s rss_kib=26415584
+EPISODE_START key=('BinFill', 'medium', 201) attempt=1 pid=1702383
+DEMO_CHECK key=('BinFill', 'medium', 201) tasks=0 frames=0
+EPISODE_END key=('BinFill', 'medium', 201) status=success steps=651 elapsed=107.7s rss_kib=26415584
+EPISODE_START key=('RouteStick', 'easy', 163) attempt=1 pid=1702383
+DEMO_CHECK key=('RouteStick', 'easy', 163) tasks=5 frames=100
+EPISODE_END key=('RouteStick', 'easy', 163) status=success steps=101 elapsed=30.6s rss_kib=26415584
+EPISODE_START key=('RouteStick', 'hard', 163) attempt=1 pid=1702383
+DEMO_CHECK key=('RouteStick', 'hard', 163) tasks=9 frames=300
+EPISODE_END key=('RouteStick', 'hard', 163) status=fail steps=333 elapsed=83.2s rss_kib=26415584
+EPISODE_START key=('RouteStick', 'medium', 163) attempt=1 pid=1702383
+DEMO_CHECK key=('RouteStick', 'medium', 163) tasks=8 frames=250
+EPISODE_END key=('RouteStick', 'medium', 163) status=success steps=265 elapsed=67.8s rss_kib=26415584
+EPISODE_START key=('RouteStick', 'xhard', 163) attempt=1 pid=1702383
+DEMO_CHECK key=('RouteStick', 'xhard', 163) tasks=11 frames=400
+EPISODE_END key=('RouteStick', 'xhard', 163) status=success steps=448 elapsed=110.3s rss_kib=26415584
+EPISODE_START key=('VideoRepick', 'easy', 203) attempt=1 pid=1702383
+DEMO_CHECK key=('VideoRepick', 'easy', 203) tasks=6 frames=309
+EPISODE_END key=('VideoRepick', 'easy', 203) status=success steps=491 elapsed=92.6s rss_kib=26415584
+EPISODE_START key=('VideoRepick', 'medium', 201) attempt=1 pid=1702383
+DEMO_CHECK key=('VideoRepick', 'medium', 201) tasks=7 frames=375
+EPISODE_END key=('VideoRepick', 'medium', 201) status=fail steps=318 elapsed=65.2s rss_kib=26415584
+EPISODE_START key=('VideoRepick', 'xhard', 201) attempt=1 pid=1702383
+Traceback (most recent call last):
+  File "/nfs/turbo/coe-chaijy-unreplicated/hongzefu/SimpleMemVLA/robomme_sim/candidate_eval.py", line 71, in evaluate_candidates
+RuntimeError: reset 错误：{'ok': False, 'reason': 'reset_exc: '}
+EPISODE_END key=('VideoRepick', 'xhard', 201) status=error steps=0 elapsed=600.0s rss_kib=26415584
+BATCH_EXIT lane=hold01 code=1 new_attempts=10
+BATCH_START lane=hold01 plan=batch-24.json pending=4
+EPISODE_START key=('VideoUnmaskSwap', 'easy', 163) attempt=1 pid=1719952
+DEMO_CHECK key=('VideoUnmaskSwap', 'easy', 163) tasks=1 frames=114
+EPISODE_END key=('VideoUnmaskSwap', 'easy', 163) status=success steps=260 elapsed=57.7s rss_kib=26440396
+EPISODE_START key=('VideoUnmaskSwap', 'hard', 163) attempt=1 pid=1719952
+DEMO_CHECK key=('VideoUnmaskSwap', 'hard', 163) tasks=1 frames=216
+EPISODE_END key=('VideoUnmaskSwap', 'hard', 163) status=fail steps=283 elapsed=116.0s rss_kib=26440396
+EPISODE_START key=('VideoUnmaskSwap', 'medium', 163) attempt=1 pid=1719952
+DEMO_CHECK key=('VideoUnmaskSwap', 'medium', 163) tasks=1 frames=114
+EPISODE_END key=('VideoUnmaskSwap', 'medium', 163) status=success steps=106 elapsed=39.9s rss_kib=26440396
+EPISODE_START key=('VideoUnmaskSwap', 'xhard', 163) attempt=1 pid=1719952
+DEMO_CHECK key=('VideoUnmaskSwap', 'xhard', 163) tasks=1 frames=264
+EPISODE_END key=('VideoUnmaskSwap', 'xhard', 163) status=fail steps=110 elapsed=57.0s rss_kib=26440396
+BATCH_EXIT lane=hold01 code=0 new_attempts=4
+BATCH_DONE lane=hold01 plan=batch-24.json episodes=14 errors=1 peak_rss_kib=26440396 cgroup={'limit_bytes': 25769803776, 'peak_bytes': 22417723392, 'oom_kill': 0, 'oom': 0}
+COVERAGE_PASS planned=350 success=212 errors=6 missing=0
+EXIT_CODE=0
+HOLD_EXIT hold01=0 hold02=0
+COVERAGE_PASS planned=700 success=455 errors=9 missing=0
+CAMPAIGN_COMPLETE total=700（环境error保留在结果中，不等于无错误通过）
+EXIT_CODE=0
