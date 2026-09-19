@@ -1,9 +1,72 @@
 # 实施和评估结果
 
-## 当前状态
+## 最终结论
 
-代码适配已完成，本机 14 条已通过完整性验收，正式 700 条尚未完成。
+**700/700 条均有最终结果：455 成功、228 失败、8 次策略执行超时、9 条环境 error。
+固定分母成功率为 455/700 = 65.0%，14 个任务/难度组的宏平均同为 65.0%。**
+这是注入候选自定义测试集，不能标为官方 RoboMME 16×50 成绩。
+
+按用户追加的「卡死直接 kill 并标记 error」口径，覆盖已经完成；`coverage_complete=true`，
+`error_free=false`、`complete=false`。9 条 reset 错误保留在 700 分母内，没有换 seed、补样本或删掉失败。
+691 条正常终态的视频全部完整解码，并在最终审计逐个复核 SHA256；共 383767 帧、772557897 字节。
+BinFill 的 150 条均验证 `demo_tasks=0, demo_frames=0`。
+
 benchmark 专用分支 `PolicyEvalThirdParty-simplememvla-0918` 已推送，子模块固定在 `b4e97f2`。
+实际运行经历 `170125f`、`871406a`、`986808c` 三个控制层版本；模型、环境、权重、候选和推理参数指纹一致。
+共 703 次尝试形成 700 个唯一结果，3 次重试均保留原始记录。两路分片各 350 条、交集为空、并集精确等于冻结清单。
+
+## 分片与完成时间
+
+| 分片 | 成功 | 失败 | 策略超时 | 环境 error | 最终恢复 step | 该 step 耗时 | 退出 |
+|---|---:|---:|---:|---:|---|---|---|
+| hold01 | 212 | 129 | 3 | 6 | 61495429.11 | 09:33:58 | COMPLETED 0:0 |
+| hold02 | 243 | 99 | 5 | 3 | 61495430.5 | 06:16:49 | COMPLETED 0:0 |
+| 合计 | 455 | 228 | 8 | 9 | — | — | 总编排退出码 0 |
+
+底特律时间：hold02 最后一条回合于 9 月 19 日 04:07:51 结束，hold01 于 07:25:02 结束；
+随后完成视频汇总验证，总结果文件于 07:29 写出。07:55 自动唤醒后再次核对完整性、视频 SHA 和来源/权重完整 SHA。
+最终两个评估 step 均已退出，用户的 hold01/hold02 分配仍保留，未取消分配。
+两路最终 cgroup 峰值分别为 22417723392 / 21099880448 字节，OOM 与 OOM kill 均为 0。
+
+## 14 组成绩
+
+| 任务 | 难度 | 成功/50 | 成功率 | 失败 | 策略超时 | error |
+|---|---|---:|---:|---:|---:|---:|
+| BinFill | easy | 43/50 | 86% | 7 | 0 | 0 |
+| BinFill | medium | 30/50 | 60% | 18 | 2 | 0 |
+| BinFill | hard | 25/50 | 50% | 24 | 1 | 0 |
+| RouteStick | easy | 45/50 | 90% | 5 | 0 | 0 |
+| RouteStick | medium | 42/50 | 84% | 8 | 0 | 0 |
+| RouteStick | hard | 31/50 | 62% | 19 | 0 | 0 |
+| RouteStick | xhard | 6/50 | 12% | 44 | 0 | 0 |
+| VideoRepick | easy | 43/50 | 86% | 6 | 0 | 1 |
+| VideoRepick | medium | 34/50 | 68% | 13 | 0 | 3 |
+| VideoRepick | xhard | 14/50 | 28% | 33 | 0 | 3 |
+| VideoUnmaskSwap | easy | 43/50 | 86% | 4 | 3 | 0 |
+| VideoUnmaskSwap | medium | 49/50 | 98% | 1 | 0 | 0 |
+| VideoUnmaskSwap | hard | 40/50 | 80% | 9 | 1 | 0 |
+| VideoUnmaskSwap | xhard | 10/50 | 20% | 37 | 1 | 2 |
+
+## 9 条环境错误
+
+以下均停在 reset 阶段，执行策略步数为 0；具体异常、seed、spec 指纹及每次尝试见
+[错误记录](records/final-errors.json)和[全部尝试](records/episode-attempts.jsonl)。
+
+| 任务/难度 | episode | 分片 | 最终尝试 | reset 耗时 |
+|---|---:|---|---:|---:|
+| VideoRepick/easy | 189 | hold01 | 1 | 约 600 秒 |
+| VideoRepick/medium | 155 | hold01 | 2 | 约 3600 秒，旧规则 |
+| VideoRepick/medium | 167 | hold01 | 1 | 约 600 秒 |
+| VideoRepick/medium | 172 | hold02 | 1 | 约 600 秒 |
+| VideoRepick/xhard | 168 | hold02 | 1 | 约 2900 秒，修改规则时主动终止 |
+| VideoRepick/xhard | 197 | hold01 | 1 | 约 600 秒 |
+| VideoRepick/xhard | 201 | hold01 | 1 | 约 600 秒 |
+| VideoUnmaskSwap/xhard | 139 | hold01 | 1 | 约 600 秒 |
+| VideoUnmaskSwap/xhard | 164 | hold02 | 1 | 约 600 秒 |
+
+新规则下 7 条 reset 超时均在约 600 秒记录 error，进程结束后继续后续样本，没有再次重试卡死键。
+另两条保留规则变更前的真实耗时，不把历史记录改写成 600 秒。此处只确认 reset 超时，
+不将未定位的原生仿真/规划根因写成已解决。
 
 ## 起跑前验证
 
@@ -15,9 +78,14 @@ benchmark 专用分支 `PolicyEvalThirdParty-simplememvla-0918` 已推送，子�
   `demo_tasks=0, demo_frames=0`；图像标准差大于 1，真实 step 1 步，状态 ongoing，无运行错误。
 - 上述真实探针没有加载模型，不替代随后 14 条完整闭环冒烟。
 
-## 待回填
+## 验收与产物
 
-GL 两路剩余回合和总 700 条的视频验收，待实跑后按原始记录回填。
+- [总结果](records/final-results.json)、[hold01](records/hold01-results.json)、[hold02](records/hold02-results.json)。
+- [最终审计](records/final-audit.json)：700 唯一键、703 次尝试、691 视频及帧/字节数、来源版本和权重指纹。
+- [运行日志摘要](records/campaign.summary.log)、[Slurm 最终状态](records/gl-final-status.txt)。
+- 完整日志和视频保留在 `logs/robomme_sim/smvla-injection700-nodemo-20260918/` 及 `logs/setup/`，不复制大产物进 Git。
+- 代码验证为 14 项定向测试通过，包含真实进程组强杀、UTF-8 错误持久化、错误不阻断后续、
+  来源兼容反例、身份与分母检查；最终只追加文档和实测证据，不改变已跑代码。
 
 ## 本机完整冒烟与首轮 GL
 

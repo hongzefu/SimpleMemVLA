@@ -1,0 +1,103 @@
+{
+  "keys": 700,
+  "unique_keys": 700,
+  "missing": 0,
+  "attempts": 703,
+  "final_counts": {
+    "success": 455,
+    "fail": 228,
+    "timeout": 8,
+    "error": 9
+  },
+  "videos": 691,
+  "video_frames": 383767,
+  "video_bytes": 772557897,
+  "video_validation": "运行器逐条、分片收尾、总汇总均完整解码；最终审计另复核全部正常视频SHA256",
+  "binfill_no_demo_checked": 150,
+  "source_assets_full_sha_verified": true,
+  "benchmark_commit": "b4e97f22fe007078e297205898c07c1acbc69165",
+  "candidates_sha256": "32bdbdb4931bf32ab5e37613da86ac9f68ab42eb7aec8d9a8d80103af9481809",
+  "identity_sha256": "3b4de03a0b4639181f9c68086aea11e9b51ffcb65bbed701a44f573e74e0beb7",
+  "source_versions": [
+    {
+      "manifest_sha256": "54b18ad08b1e19312522ef2f1f99359f8e44053612728fe4e4e92bbd94c508d0",
+      "source_commit": "986808c6e92053f3daf4a31dc0bde226e1e3395c",
+      "controller_policy": {
+        "reset_timeout_seconds": 600,
+        "operation_timeout_seconds": 300,
+        "retry_hung_episodes": false,
+        "continue_after_episode_error": true
+      }
+    },
+    {
+      "manifest_sha256": "ad717a69330382b21c69ac60a1805fbd97bd577b1de15b55e45bcbd32ed86f60",
+      "source_commit": "871406a927c11953b828b546226e6ed7c5e504c0",
+      "controller_policy": {
+        "reset_timeout_seconds": 3600,
+        "operation_timeout_seconds": 300,
+        "note": "原版控制器"
+      }
+    },
+    {
+      "manifest_sha256": "3129f6751ff2849eadefffee9f88731b99f455cd2b88ef822ab5ea77fb8450c9",
+      "source_commit": "170125fe3fc331fbaad0004f09751bc6f5cba37b",
+      "controller_policy": {
+        "reset_timeout_seconds": 3600,
+        "operation_timeout_seconds": 300,
+        "note": "原版控制器"
+      }
+    }
+  ],
+  "assets": {
+    ".DS_Store": {
+      "sha256": "d65165279105ca6773180500688df4bdc69a2c7b771752f0a46ef120b7fd8ec3",
+      "size": 6148,
+      "edges_sha256": "3d3547482ac45193e7eb2e4de5daf8801a8f339d86cea77d26f8d47cccf4f804"
+    },
+    ".gitattributes": {
+      "sha256": "34448b82c17d60fec9b65b1f093c115ddbaadc04beb1b0140b6bfed2e012a930",
+      "size": 1570,
+      "edges_sha256": "91097a7dfd1963821c6dc6410b7350fdf07ca5b3222fe26b0c8945552fec0f4e"
+    },
+    "README.md": {
+      "sha256": "da4ab3a70aa687346e4e1cb9aa795480183b1fb5c90d644f26078c9a2ecd47b2",
+      "size": 914,
+      "edges_sha256": "421951b68324de1ad29c34877f393900b3d4f5ad0e2740addde6b93032c421bd"
+    },
+    "chat_template.jinja": {
+      "sha256": "a4aee8afcf2e0711942cf848899be66016f8d14a889ff9ede07bca099c28f715",
+      "size": 7756,
+      "edges_sha256": "ebf2e03b4b806064ec0cf3863ec1c905e20bcafa28edb1fe6b1caa1cb3350693"
+    },
+    "config.json": {
+      "sha256": "5c5c1506cd7b6120c2e82a456b509e0ff92ab02862f188b22317b5aa8719bc5d",
+      "size": 5373,
+      "edges_sha256": "45f560f2e391fd47e25dd346a190e5e79347968130b1f8cc65c1533594fbef6f"
+    },
+    "model.safetensors": {
+      "sha256": "3d0fa9de73353cbd3e0e6c9b798b3747b7126931d42ce3a8cd510be767ffce69",
+      "size": 12688542952,
+      "edges_sha256": "eea6df65ac323ff49806b287283244207c269da790dc742eda4cf45c97785724"
+    },
+    "processor_config.json": {
+      "sha256": "d89ef49ce9cd37fbf510158e13c1ef063d9286411c1ec9049932dbe0487143b1",
+      "size": 1191,
+      "edges_sha256": "309c2443566a610622ad1bbea796d1b15897b159f1587597a5b161a3c9fb85c4"
+    },
+    "stats.json": {
+      "sha256": "73563430bc89cb03836ccfedc159902b0fb603564bd6fd1b553940ce8badbae5",
+      "size": 17260,
+      "edges_sha256": "493992ff1e694d691cc270348e9094a3d98edc0383187625fef6c36640d1b977"
+    },
+    "tokenizer.json": {
+      "sha256": "06b9509352d2af50381ab2247e083b80d32d5c0aba91c272ca9ff729b6a0e523",
+      "size": 19989325,
+      "edges_sha256": "2cf7e389eaae6da8f61e26f982b9e1831885e1a98041c5177ed9f86526ae443e"
+    },
+    "tokenizer_config.json": {
+      "sha256": "94c938abfb77f093f4d914c1215b777e9d1ca91e6a06e4f7ef4b2dc142689c47",
+      "size": 1189,
+      "edges_sha256": "a362ced225813666dfcaae67a08dc6932cb22ea7a6fb200926dbc8c9bb531021"
+    }
+  }
+}

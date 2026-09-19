@@ -1,0 +1,154 @@
+{
+  "complete": false,
+  "coverage_complete": true,
+  "error_free": false,
+  "attempted": 700,
+  "planned": 700,
+  "successes": 455,
+  "micro_avg": 0.65,
+  "macro_avg": 0.65,
+  "groups": {
+    "BinFill/easy": {
+      "planned": 50,
+      "success": 43,
+      "fail": 7,
+      "success_rate": 0.86
+    },
+    "BinFill/hard": {
+      "planned": 50,
+      "fail": 24,
+      "success": 25,
+      "timeout": 1,
+      "success_rate": 0.5
+    },
+    "BinFill/medium": {
+      "planned": 50,
+      "fail": 18,
+      "success": 30,
+      "timeout": 2,
+      "success_rate": 0.6
+    },
+    "RouteStick/easy": {
+      "planned": 50,
+      "success": 45,
+      "fail": 5,
+      "success_rate": 0.9
+    },
+    "RouteStick/hard": {
+      "planned": 50,
+      "fail": 19,
+      "success": 31,
+      "success_rate": 0.62
+    },
+    "RouteStick/medium": {
+      "planned": 50,
+      "success": 42,
+      "fail": 8,
+      "success_rate": 0.84
+    },
+    "RouteStick/xhard": {
+      "planned": 50,
+      "fail": 44,
+      "success": 6,
+      "success_rate": 0.12
+    },
+    "VideoRepick/easy": {
+      "planned": 50,
+      "success": 43,
+      "fail": 6,
+      "error": 1,
+      "success_rate": 0.86
+    },
+    "VideoRepick/medium": {
+      "planned": 50,
+      "success": 34,
+      "error": 3,
+      "fail": 13,
+      "success_rate": 0.68
+    },
+    "VideoRepick/xhard": {
+      "planned": 50,
+      "fail": 33,
+      "success": 14,
+      "error": 3,
+      "success_rate": 0.28
+    },
+    "VideoUnmaskSwap/easy": {
+      "planned": 50,
+      "success": 43,
+      "timeout": 3,
+      "fail": 4,
+      "success_rate": 0.86
+    },
+    "VideoUnmaskSwap/hard": {
+      "planned": 50,
+      "fail": 9,
+      "success": 40,
+      "timeout": 1,
+      "success_rate": 0.8
+    },
+    "VideoUnmaskSwap/medium": {
+      "planned": 50,
+      "success": 49,
+      "fail": 1,
+      "success_rate": 0.98
+    },
+    "VideoUnmaskSwap/xhard": {
+      "planned": 50,
+      "fail": 37,
+      "success": 10,
+      "error": 2,
+      "timeout": 1,
+      "success_rate": 0.2
+    }
+  },
+  "errors": [
+    [
+      "VideoRepick",
+      "medium",
+      155
+    ],
+    [
+      "VideoRepick",
+      "medium",
+      167
+    ],
+    [
+      "VideoUnmaskSwap",
+      "xhard",
+      139
+    ],
+    [
+      "VideoRepick",
+      "easy",
+      189
+    ],
+    [
+      "VideoRepick",
+      "xhard",
+      197
+    ],
+    [
+      "VideoRepick",
+      "xhard",
+      201
+    ],
+    [
+      "VideoRepick",
+      "xhard",
+      168
+    ],
+    [
+      "VideoRepick",
+      "medium",
+      172
+    ],
+    [
+      "VideoUnmaskSwap",
+      "xhard",
+      164
+    ]
+  ],
+  "missing": [],
+  "manifest_sha256": "54b18ad08b1e19312522ef2f1f99359f8e44053612728fe4e4e92bbd94c508d0"
+}
