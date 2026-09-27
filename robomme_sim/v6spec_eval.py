@@ -35,11 +35,25 @@ def _own_args():
     ap.add_argument("--per_task", type=int, default=20, help="每个 task 取前 N 个 selected 身份")
     ap.add_argument("--limit", type=int, default=0, help="本片只跑前 N 条（smoke 用）")
     ap.add_argument("--only_tasks", default="", help="逗号分隔，只评这些 task（补抽快照按 task 分开评）")
+    ap.add_argument("--max_steps_override", type=int, default=0,
+                    help="非 0 时覆盖按档取的步数上限（timeout 格加长步数重测，结果须单独报告）")
+    ap.add_argument("--exclude_specs", default="",
+                    help="另一份快照：其 selected 行的 seed 一律排除（补抽快照与本体快照去重）")
     ap.add_argument("--max_attempts", type=int, default=3, help="基础设施 error 的最多尝试次数；fail/timeout 不重跑")
     return ap.parse_known_args()
 
 
-def _identities(specs_path: str, per_task: int):
+def _selected_seeds(specs_path: str) -> set:
+    seeds = set()
+    for line in Path(specs_path).read_text(encoding="utf-8").splitlines():
+        if line.strip():
+            rec = json.loads(line)
+            if rec.get("record") != "header" and rec.get("selected"):
+                seeds.add(int(rec["seed"]))
+    return seeds
+
+
+def _identities(specs_path: str, per_task: int, exclude: set = frozenset()):
     header, rows = None, []
     for line in Path(specs_path).read_text(encoding="utf-8").splitlines():
         if not line.strip():
@@ -47,7 +61,7 @@ def _identities(specs_path: str, per_task: int):
         rec = json.loads(line)
         if rec.get("record") == "header":
             header = rec
-        elif rec.get("selected"):
+        elif rec.get("selected") and int(rec["seed"]) not in exclude:
             rows.append(rec)
     by_task: dict[str, list] = {}
     for r in sorted(rows, key=lambda r: (r["task"], int(r["episode"]))):
@@ -64,12 +78,13 @@ def main() -> int:
     if not args.benchmark_root:
         raise ValueError("必须提供 --benchmark_root（specs 生成时的 benchmark 源码根）")
 
-    header, picked = _identities(own.specs, own.per_task)
+    exclude = _selected_seeds(own.exclude_specs) if own.exclude_specs else set()
+    header, picked = _identities(own.specs, own.per_task, exclude)
     if own.only_tasks:
         keep = set(own.only_tasks.split(","))
         picked = [r for r in picked if r["task"] in keep]
     difficulty = header["difficulty"]
-    max_steps = NEWVALUE_MAX_STEPS.get(difficulty, args.max_steps)
+    max_steps = own.max_steps_override or NEWVALUE_MAX_STEPS.get(difficulty, args.max_steps)
     args.max_steps = max_steps
     i, n = (int(x) for x in own.shard.split("/"))
     mine = picked[i::n]
