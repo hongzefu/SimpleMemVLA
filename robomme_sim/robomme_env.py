@@ -102,6 +102,7 @@ class RoboMMESimEnv:
         max_steps: int = 1300,
         action_space: str = "joint_angle",
         benchmark_root: str | None = None,
+        v6_specs: str | None = None,
     ):
         _setup_robomme_path(benchmark_root)
         import robomme.robomme_env
@@ -111,6 +112,24 @@ class RoboMMESimEnv:
         self.dataset_split = dataset_split
         self.max_steps = int(max_steps)
         self.benchmark_root = benchmark_root
+        self.v6_specs = v6_specs
+        if v6_specs:
+            # V6 冻结快照：seed / difficulty / sampling_config / 规格全部取自 specs.jsonl
+            if not benchmark_root:
+                raise ValueError("V6 快照模式必须提供 benchmark_root")
+            if str(Path(benchmark_root).resolve()) not in sys.path:
+                sys.path.insert(0, str(Path(benchmark_root).resolve()))
+            from scripts.parity.v4_specs import load_specs
+            header, _, specs_by_identity = load_specs(v6_specs)
+            self.builder = BenchmarkEnvBuilder.from_v4_specs(
+                task_name, header, specs_by_identity,
+                action_space=action_space, max_steps=self.max_steps,
+            )
+            self.num_episodes = len(self.builder.v4_episodes())
+            self.env = None
+            self._status = "ongoing"
+            self._done = False
+            return
         self.builder = None if benchmark_root else BenchmarkEnvBuilder(
             env_id=task_name,
             dataset=dataset_split,
@@ -130,7 +149,9 @@ class RoboMMESimEnv:
 
     def reset(self, episode_idx: int, candidate=None, sampling=None) -> tuple[dict, dict]:
         self.close()
-        if self.benchmark_root:
+        if self.v6_specs:
+            self.env = self.builder.make_env_for_episode(int(episode_idx))
+        elif self.benchmark_root:
             from robomme.env_record_wrapper import make_env_for_spec
             if candidate is None or sampling is None or candidate["task"] != self.task_name:
                 raise ValueError("候选环境缺少匹配的规格或采样快照")
@@ -147,6 +168,11 @@ class RoboMMESimEnv:
             if str(info.get("status")) == "error":
                 raise RuntimeError(f"候选 reset 失败：{info.get('error_message')}")
             info = dict(info, **candidate_demo_info(self.task_name, self.env, obs, candidate))
+        elif self.v6_specs:
+            if str(info.get("status")) == "error":
+                raise RuntimeError(f"V6 reset 失败：{info.get('error_message')}")
+            info = dict(info, demo_frames=max(0, len(obs["front_rgb_list"]) - 1),
+                        demo_tasks=sum(bool(t.get("demonstration", False)) for t in self.env.unwrapped.task_list))
         self._status = str(info.get("status", "ongoing")) if isinstance(info, dict) else "ongoing"
         self._done = False
         return obs, info
@@ -189,11 +215,13 @@ class RoboMMESimEnv:
 class SimEnvService:
 
     def __init__(self, dataset_split: str = "test", max_steps: int = 1300,
-                 reset_retries: int = 2, benchmark_root: str | None = None):
+                 reset_retries: int = 2, benchmark_root: str | None = None,
+                 v6_specs: str | None = None):
         self.dataset_split = dataset_split
         self.max_steps = int(max_steps)
         self.reset_retries = 0 if benchmark_root else int(reset_retries)
         self.benchmark_root = benchmark_root
+        self.v6_specs = v6_specs
         self.env: RoboMMESimEnv | None = None
         self.task_name: str | None = None
 
@@ -203,7 +231,7 @@ class SimEnvService:
                 self.env.close()
             self.env = RoboMMESimEnv(
                 task_name, dataset_split=self.dataset_split, max_steps=self.max_steps,
-                benchmark_root=self.benchmark_root,
+                benchmark_root=self.benchmark_root, v6_specs=self.v6_specs,
             )
             self.task_name = task_name
 
