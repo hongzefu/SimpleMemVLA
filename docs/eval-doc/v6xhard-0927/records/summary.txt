@@ -1,0 +1,164 @@
+## 本体 xhard1
+xhard1 BinFill            n=20 success=6 fail=7 timeout=7 error=0
+xhard1 ButtonUnmask       n=20 success=15 fail=5 timeout=0 error=0
+xhard1 ButtonUnmaskSwap   n=20 success=8 fail=12 timeout=0 error=0
+xhard1 PatternLock        n=20 success=9 fail=9 timeout=2 error=0
+xhard1 PickHighlight      n=20 success=0 fail=1 timeout=19 error=0
+xhard1 PickXtimes         n=20 success=0 fail=20 timeout=0 error=0
+xhard1 RouteStick         n=20 success=7 fail=13 timeout=0 error=0
+xhard1 SwingXtimes        n=20 success=16 fail=4 timeout=0 error=0
+xhard1 VideoPlaceButton   n=20 success=8 fail=12 timeout=0 error=0
+xhard1 VideoPlaceOrder    n=20 success=1 fail=19 timeout=0 error=0
+xhard1 VideoRepick        n=20 success=4 fail=16 timeout=0 error=0
+xhard1 VideoUnmask        n=20 success=16 fail=3 timeout=1 error=0
+xhard1 VideoUnmaskSwap    n=20 success=1 fail=19 timeout=0 error=0
+TOTAL n=260 success=91 (35.0%) error=0
+
+## 本体 xhard2
+xhard2 BinFill            n=20 success=0 fail=10 timeout=10 error=0
+xhard2 ButtonUnmask       n=20 success=7 fail=9 timeout=4 error=0
+xhard2 ButtonUnmaskSwap   n=20 success=0 fail=20 timeout=0 error=0
+xhard2 PatternLock        n=20 success=3 fail=15 timeout=2 error=0
+xhard2 PickHighlight      n=20 success=0 fail=7 timeout=13 error=0
+xhard2 PickXtimes         n=20 success=0 fail=20 timeout=0 error=0
+xhard2 RouteStick         n=20 success=7 fail=13 timeout=0 error=0
+xhard2 SwingXtimes        n=20 success=0 fail=20 timeout=0 error=0
+xhard2 VideoPlaceButton   n=20 success=8 fail=12 timeout=0 error=0
+xhard2 VideoPlaceOrder    n=20 success=1 fail=19 timeout=0 error=0
+xhard2 VideoRepick        n=20 success=10 fail=10 timeout=0 error=0
+xhard2 VideoUnmask        n=20 success=11 fail=8 timeout=1 error=0
+xhard2 VideoUnmaskSwap    n=20 success=0 fail=20 timeout=0 error=0
+TOTAL n=260 success=47 (18.1%) error=0
+
+## 本体 xhard3
+xhard3 BinFill            n=20 success=0 fail=12 timeout=8 error=0
+xhard3 ButtonUnmask       n=20 success=10 fail=6 timeout=4 error=0
+xhard3 ButtonUnmaskSwap   n=20 success=0 fail=20 timeout=0 error=0
+xhard3 PatternLock        n=20 success=0 fail=19 timeout=1 error=0
+xhard3 PickHighlight      n=20 success=0 fail=9 timeout=11 error=0
+xhard3 PickXtimes         n=20 success=0 fail=20 timeout=0 error=0
+xhard3 RouteStick         n=20 success=0 fail=20 timeout=0 error=0
+xhard3 SwingXtimes        n=20 success=0 fail=20 timeout=0 error=0
+xhard3 VideoPlaceButton   n=20 success=6 fail=14 timeout=0 error=0
+xhard3 VideoPlaceOrder    n=20 success=4 fail=15 timeout=1 error=0
+xhard3 VideoRepick        n=20 success=0 fail=20 timeout=0 error=0
+xhard3 VideoUnmask        n=20 success=6 fail=11 timeout=3 error=0
+xhard3 VideoUnmaskSwap    n=20 success=4 fail=16 timeout=0 error=0
+TOTAL n=260 success=30 (11.5%) error=0
+
+## 本体 xhard4
+xhard4 BinFill            n=20 success=0 fail=17 timeout=3 error=0
+xhard4 ButtonUnmask       n=20 success=10 fail=8 timeout=2 error=0
+xhard4 ButtonUnmaskSwap   n=20 success=2 fail=18 timeout=0 error=0
+xhard4 InsertPeg          n=20 success=9 fail=5 timeout=6 error=0
+xhard4 MoveCube           n=20 success=12 fail=0 timeout=8 error=0
+xhard4 PatternLock        n=20 success=1 fail=19 timeout=0 error=0
+xhard4 PickHighlight      n=20 success=0 fail=9 timeout=11 error=0
+xhard4 PickXtimes         n=20 success=0 fail=20 timeout=0 error=0
+xhard4 RouteStick         n=20 success=0 fail=20 timeout=0 error=0
+xhard4 StopCube           n=20 success=0 fail=20 timeout=0 error=0
+xhard4 SwingXtimes        n=20 success=0 fail=20 timeout=0 error=0
+xhard4 VideoPlaceButton   n=20 success=5 fail=15 timeout=0 error=0
+xhard4 VideoPlaceOrder    n=20 success=4 fail=16 timeout=0 error=0
+xhard4 VideoRepick        n=20 success=0 fail=20 timeout=0 error=0
+xhard4 VideoUnmask        n=20 success=9 fail=10 timeout=1 error=0
+xhard4 VideoUnmaskSwap    n=20 success=0 fail=19 timeout=1 error=0
+TOTAL n=320 success=52 (16.2%) error=0
+
+## 补测新seed xhard1
+xhard1 PickHighlight      n=20 success=0 fail=4 timeout=16 error=0
+xhard1 PickXtimes         n=20 success=0 fail=20 timeout=0 error=0
+xhard1 VideoPlaceOrder    n=20 success=6 fail=14 timeout=0 error=0
+xhard1 VideoRepick        n=20 success=4 fail=16 timeout=0 error=0
+xhard1 VideoUnmaskSwap    n=20 success=3 fail=16 timeout=1 error=0
+TOTAL n=100 success=13 (13.0%) error=0
+
+## 补测新seed xhard2
+xhard2 BinFill            n=20 success=2 fail=10 timeout=8 error=0
+xhard2 ButtonUnmaskSwap   n=20 success=0 fail=20 timeout=0 error=0
+xhard2 PatternLock        n=20 success=5 fail=13 timeout=2 error=0
+xhard2 PickHighlight      n=20 success=0 fail=4 timeout=16 error=0
+xhard2 PickXtimes         n=20 success=0 fail=20 timeout=0 error=0
+xhard2 SwingXtimes        n=20 success=0 fail=20 timeout=0 error=0
+xhard2 VideoPlaceOrder    n=20 success=6 fail=14 timeout=0 error=0
+xhard2 VideoUnmaskSwap    n=20 success=1 fail=19 timeout=0 error=0
+TOTAL n=160 success=14 (8.8%) error=0
+
+## 补测新seed xhard3
+xhard3 BinFill            n=20 success=0 fail=15 timeout=5 error=0
+xhard3 ButtonUnmaskSwap   n=20 success=1 fail=19 timeout=0 error=0
+xhard3 PatternLock        n=20 success=0 fail=19 timeout=1 error=0
+xhard3 PickHighlight      n=20 success=0 fail=8 timeout=12 error=0
+xhard3 PickXtimes         n=20 success=0 fail=20 timeout=0 error=0
+xhard3 RouteStick         n=20 success=0 fail=20 timeout=0 error=0
+xhard3 SwingXtimes        n=20 success=0 fail=20 timeout=0 error=0
+xhard3 VideoPlaceOrder    n=20 success=4 fail=15 timeout=1 error=0
+xhard3 VideoRepick        n=20 success=0 fail=20 timeout=0 error=0
+xhard3 VideoUnmaskSwap    n=20 success=4 fail=16 timeout=0 error=0
+TOTAL n=200 success=9 (4.5%) error=0
+
+## 补测新seed xhard4
+xhard4 BinFill            n=20 success=1 fail=18 timeout=1 error=0
+xhard4 ButtonUnmaskSwap   n=20 success=1 fail=19 timeout=0 error=0
+xhard4 PatternLock        n=20 success=1 fail=16 timeout=3 error=0
+xhard4 PickHighlight      n=20 success=0 fail=5 timeout=15 error=0
+xhard4 PickXtimes         n=20 success=0 fail=20 timeout=0 error=0
+xhard4 RouteStick         n=20 success=0 fail=20 timeout=0 error=0
+xhard4 StopCube           n=20 success=0 fail=20 timeout=0 error=0
+xhard4 SwingXtimes        n=20 success=0 fail=20 timeout=0 error=0
+xhard4 VideoPlaceOrder    n=20 success=4 fail=15 timeout=1 error=0
+xhard4 VideoRepick        n=20 success=0 fail=20 timeout=0 error=0
+xhard4 VideoUnmaskSwap    n=20 success=3 fail=16 timeout=1 error=0
+TOTAL n=220 success=10 (4.5%) error=0
+
+## 加长步数（步数上限翻倍）
+xhard1 BinFill            n=20 success=6 fail=14 timeout=0 error=0
+xhard1 PickHighlight      n=20 success=0 fail=8 timeout=12 error=0
+xhard2 BinFill            n=20 success=2 fail=17 timeout=1 error=0
+xhard2 PickHighlight      n=20 success=0 fail=12 timeout=8 error=0
+xhard3 BinFill            n=20 success=1 fail=18 timeout=1 error=0
+xhard3 PickHighlight      n=20 success=0 fail=13 timeout=7 error=0
+xhard4 InsertPeg          n=20 success=9 fail=5 timeout=6 error=0
+xhard4 MoveCube           n=20 success=12 fail=0 timeout=8 error=0
+xhard4 PickHighlight      n=20 success=0 fail=11 timeout=9 error=0
+TOTAL n=180 success=30 (16.7%) error=0
+
+## 本体+补测合并（40 条）
+xhard1 PickHighlight      n=40 success=0 (0.0%)
+xhard1 PickXtimes         n=40 success=0 (0.0%)
+xhard1 VideoPlaceOrder    n=40 success=7 (17.5%)
+xhard1 VideoRepick        n=40 success=8 (20.0%)
+xhard1 VideoUnmaskSwap    n=40 success=4 (10.0%)
+xhard2 BinFill            n=40 success=2 (5.0%)
+xhard2 ButtonUnmaskSwap   n=40 success=0 (0.0%)
+xhard2 PatternLock        n=40 success=8 (20.0%)
+xhard2 PickHighlight      n=40 success=0 (0.0%)
+xhard2 PickXtimes         n=40 success=0 (0.0%)
+xhard2 SwingXtimes        n=40 success=0 (0.0%)
+xhard2 VideoPlaceOrder    n=40 success=7 (17.5%)
+xhard2 VideoUnmaskSwap    n=40 success=1 (2.5%)
+xhard3 BinFill            n=40 success=0 (0.0%)
+xhard3 ButtonUnmaskSwap   n=40 success=1 (2.5%)
+xhard3 PatternLock        n=40 success=0 (0.0%)
+xhard3 PickHighlight      n=40 success=0 (0.0%)
+xhard3 PickXtimes         n=40 success=0 (0.0%)
+xhard3 RouteStick         n=40 success=0 (0.0%)
+xhard3 SwingXtimes        n=40 success=0 (0.0%)
+xhard3 VideoPlaceOrder    n=40 success=8 (20.0%)
+xhard3 VideoRepick        n=40 success=0 (0.0%)
+xhard3 VideoUnmaskSwap    n=40 success=8 (20.0%)
+xhard4 BinFill            n=40 success=1 (2.5%)
+xhard4 ButtonUnmaskSwap   n=40 success=3 (7.5%)
+xhard4 PatternLock        n=40 success=2 (5.0%)
+xhard4 PickHighlight      n=40 success=0 (0.0%)
+xhard4 PickXtimes         n=40 success=0 (0.0%)
+xhard4 RouteStick         n=40 success=0 (0.0%)
+xhard4 StopCube           n=40 success=0 (0.0%)
+xhard4 SwingXtimes        n=40 success=0 (0.0%)
+xhard4 VideoPlaceOrder    n=40 success=8 (20.0%)
+xhard4 VideoRepick        n=40 success=0 (0.0%)
+xhard4 VideoUnmaskSwap    n=40 success=3 (7.5%)
+xhard1 seed_overlap 0
+xhard2 seed_overlap 0
+xhard3 seed_overlap 0
+xhard4 seed_overlap 0

@@ -78,7 +78,9 @@ def main() -> int:
     if not args.benchmark_root:
         raise ValueError("必须提供 --benchmark_root（specs 生成时的 benchmark 源码根）")
 
-    exclude = _selected_seeds(own.exclude_specs) if own.exclude_specs else set()
+    exclude = set()
+    for path in filter(None, own.exclude_specs.split(",")):  # 逗号分隔多份快照
+        exclude |= _selected_seeds(path)
     header, picked = _identities(own.specs, own.per_task, exclude)
     if own.only_tasks:
         keep = set(own.only_tasks.split(","))
