@@ -3,6 +3,7 @@ from __future__ import annotations
 
 import os
 import sys
+from pathlib import Path
 from typing import Any
 
 import numpy as np
@@ -17,9 +18,13 @@ CAM_FRONT = "front"
 CAM_WRIST = "wrist"
 
 
-def _setup_robomme_path() -> None:
-    if VENDORED_SIM_DIR not in sys.path:
-        sys.path.insert(0, VENDORED_SIM_DIR)
+def _setup_robomme_path(benchmark_root: str | None = None) -> None:
+    source = Path(benchmark_root).resolve() / "src" if benchmark_root else Path(VENDORED_SIM_DIR)
+    loaded = sys.modules.get("robomme")
+    if loaded is not None and Path(loaded.__file__).resolve().parent != source / "robomme":
+        raise RuntimeError(f"robomme 已从另一来源导入：{loaded.__file__}，期望 {source}")
+    if str(source) not in sys.path:
+        sys.path.insert(0, str(source))
 
 
 def pin_worker_gpu(gpu_id: int) -> str:
@@ -83,10 +88,14 @@ class RoboMMESimEnv:
         dataset_split: str = "test",
         max_steps: int = 1300,
         action_space: str = "joint_angle",
+        benchmark_root: str | None = None,
     ):
-        _setup_robomme_path()
+        _setup_robomme_path(benchmark_root)
         import robomme.robomme_env
         from robomme.env_record_wrapper import BenchmarkEnvBuilder
+        if dataset_split == "test-hard":  # test-hard 只在 robomme_hard 里：同 id 环境由它接管
+            from robomme_hard.env_record_wrapper import BenchmarkEnvBuilder, TIER_MAX_STEPS, spec_binding
+            self._hard = (TIER_MAX_STEPS, spec_binding)
 
         self.task_name = task_name
         self.dataset_split = dataset_split
@@ -110,9 +119,19 @@ class RoboMMESimEnv:
 
     def reset(self, episode_idx: int) -> tuple[dict, dict]:
         self.close()
-        env = self.builder.make_env_for_episode(int(episode_idx))
+        hard = getattr(self, "_hard", None)
+        if hard is None:
+            env = self.builder.make_env_for_episode(int(episode_idx))
+        else:  # 按档步数上限逐局传入；reset 之后取回注绑定摘要
+            _seed, tier = self.builder.resolve_episode(int(episode_idx))
+            env = self.builder.make_env_for_episode(int(episode_idx), max_steps=hard[0][tier])
         obs, info = env.reset()
         self.env = env
+        if hard is not None:
+            info = dict(info, tier=tier, max_steps=hard[0][tier], spec_binding=hard[1](env),
+                        identity=self.builder.resolve_identity(int(episode_idx)),
+                        demo_frames=max(0, len(obs["front_rgb_list"]) - 1),
+                        demo_tasks=sum(bool(t.get("demonstration", False)) for t in env.unwrapped.task_list))
         self._status = str(info.get("status", "ongoing")) if isinstance(info, dict) else "ongoing"
         self._done = False
         return obs, info
@@ -155,7 +174,8 @@ class RoboMMESimEnv:
 class SimEnvService:
 
     def __init__(self, dataset_split: str = "test", max_steps: int = 1300,
-                 reset_retries: int = 2):
+                 reset_retries: int = 2, benchmark_root: str | None = None):
+        self.benchmark_root = benchmark_root
         self.dataset_split = dataset_split
         self.max_steps = int(max_steps)
         self.reset_retries = int(reset_retries)
@@ -167,7 +187,8 @@ class SimEnvService:
             if self.env is not None:
                 self.env.close()
             self.env = RoboMMESimEnv(
-                task_name, dataset_split=self.dataset_split, max_steps=self.max_steps
+                task_name, dataset_split=self.dataset_split, max_steps=self.max_steps,
+                benchmark_root=self.benchmark_root,
             )
             self.task_name = task_name
 
@@ -194,7 +215,8 @@ class SimEnvService:
                     "instruction": instruction,
                     "frames": frames,
                     "states": states,
-                    "max_steps": self.max_steps,
+                    "max_steps": info.get("max_steps", self.max_steps),
+                    **{k: info[k] for k in ("tier", "identity", "spec_binding", "demo_frames", "demo_tasks") if k in info},
                 }
             except Exception as e:
                 last_err = f"{type(e).__name__}: {e}"

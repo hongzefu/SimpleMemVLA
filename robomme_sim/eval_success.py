@@ -47,7 +47,8 @@ def parse_args() -> argparse.Namespace:
     ap.add_argument("--pretrained_checkpoint", default="./checkpoints/sft/simplememvla/robomme_baseline")
     ap.add_argument("--tasks", nargs="*", default=None,
                     help="Subset of tasks to evaluate (default: all 16 RoboMME tasks).")
-    ap.add_argument("--dataset_split", default="test", choices=["test", "val", "train"],
+    ap.add_argument("--benchmark_root", default=None, help="benchmark 源码根（test-hard 须指向含 robomme_hard 的检出）")
+    ap.add_argument("--dataset_split", default="test", choices=["test", "val", "train", "test-hard"],
                     help="Benchmark episode split (official frozen lists; test=50/task).")
     ap.add_argument("--episodes_per_task", type=int, default=50,
                     help="Episodes per task (capped at the split's episode count; test has 50).")

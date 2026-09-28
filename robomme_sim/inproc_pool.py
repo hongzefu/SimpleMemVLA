@@ -17,7 +17,10 @@ class InProcSimPool:
         max_steps: int = 1300,
         step_timeout: float = 300.0,
         reset_timeout: float = 3600.0,
+        benchmark_root: str | None = None,
+        reset_retries: int = 2,
     ):
+        self.benchmark_root, self.reset_retries = benchmark_root, int(reset_retries)
         self.num_envs = num_envs
         self.dataset_split = dataset_split
         self.max_steps = int(max_steps)
@@ -29,7 +32,8 @@ class InProcSimPool:
 
     def start(self):
         self.services = [
-            SimEnvService(dataset_split=self.dataset_split, max_steps=self.max_steps)
+            SimEnvService(dataset_split=self.dataset_split, max_steps=self.max_steps,
+                          reset_retries=self.reset_retries, benchmark_root=self.benchmark_root)
             for _ in range(self.num_envs)
         ]
         self.alive = [True] * self.num_envs

@@ -28,3 +28,10 @@ evaluation_benchmark/libero_fork/
 # cloned by their install scripts.
 third_party/*
 !third_party/MIKASA-Robo
+!third_party/robomme_benchmark
+
+# 评估产物与本地大文件（test-hard 评估分支）
+logs/
+checkpoints/
+.venv-robomme/
+*.egg-info/
