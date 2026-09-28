@@ -1,0 +1,10 @@
+EVAL_ROUND1=PASS policy=simplememvla episodes=550 normal=550 error_left=0 retries=0/55(max_per_shard=0) shards=10 per_shard=55-55 shape=55x10
+EVAL_ROUND2=PASS policy=simplememvla episodes=550 normal=550 error_left=0 retries=0/55(max_per_shard=0) shards=10 per_shard=55-55 shape=55x10
+EVAL_IDENTITY_SET=PASS policy=simplememvla rounds=2 shards=10 per_shard=55 episodes=1100 missing=0 extra=0 dup=0
+EVAL_BINDING=PASS policy=simplememvla episodes=1100 replay=1100 injected_mismatch=0 recorded_drift=62 max_abs=1.2e-07 unused=0
+EVAL_TIER_CAP=PASS policy=simplememvla episodes=1100 mismatch=0
+EVAL_DEMO_FRAMES=INFO policy=simplememvla episodes=1100 exact=1054 within_5=1096 max_diff=19
+EVAL_TIER_SUCCESS policy=simplememvla tier=xhard1 episodes=260 success=91 rate=0.350 fail=140 timeout=29 error=0
+EVAL_TIER_SUCCESS policy=simplememvla tier=xhard2 episodes=260 success=47 rate=0.181 fail=183 timeout=30 error=0
+EVAL_TIER_SUCCESS policy=simplememvla tier=xhard3 episodes=260 success=30 rate=0.115 fail=202 timeout=28 error=0
+EVAL_TIER_SUCCESS policy=simplememvla tier=xhard4 episodes=320 success=52 rate=0.163 fail=236 timeout=32 error=0

@@ -1,0 +1,219 @@
+{
+ "BinFill/xhard1": {
+  "fail": 7,
+  "timeout": 7,
+  "success": 6
+ },
+ "BinFill/xhard2": {
+  "fail": 10,
+  "timeout": 10
+ },
+ "BinFill/xhard3": {
+  "fail": 12,
+  "timeout": 8
+ },
+ "BinFill/xhard4": {
+  "fail": 17,
+  "timeout": 3
+ },
+ "ButtonUnmask/xhard1": {
+  "success": 15,
+  "fail": 5
+ },
+ "ButtonUnmask/xhard2": {
+  "fail": 9,
+  "success": 7,
+  "timeout": 4
+ },
+ "ButtonUnmask/xhard3": {
+  "success": 10,
+  "timeout": 4,
+  "fail": 6
+ },
+ "ButtonUnmask/xhard4": {
+  "success": 10,
+  "timeout": 2,
+  "fail": 8
+ },
+ "ButtonUnmaskSwap/xhard1": {
+  "success": 8,
+  "fail": 12
+ },
+ "ButtonUnmaskSwap/xhard2": {
+  "fail": 20
+ },
+ "ButtonUnmaskSwap/xhard3": {
+  "fail": 20
+ },
+ "ButtonUnmaskSwap/xhard4": {
+  "fail": 18,
+  "success": 2
+ },
+ "InsertPeg/xhard4": {
+  "timeout": 6,
+  "success": 9,
+  "fail": 5
+ },
+ "MoveCube/xhard4": {
+  "success": 12,
+  "timeout": 8
+ },
+ "PatternLock/xhard1": {
+  "success": 9,
+  "fail": 9,
+  "timeout": 2
+ },
+ "PatternLock/xhard2": {
+  "fail": 15,
+  "success": 3,
+  "timeout": 2
+ },
+ "PatternLock/xhard3": {
+  "fail": 19,
+  "timeout": 1
+ },
+ "PatternLock/xhard4": {
+  "success": 1,
+  "fail": 19
+ },
+ "PickHighlight/xhard1": {
+  "timeout": 19,
+  "fail": 1
+ },
+ "PickHighlight/xhard2": {
+  "timeout": 13,
+  "fail": 7
+ },
+ "PickHighlight/xhard3": {
+  "fail": 9,
+  "timeout": 11
+ },
+ "PickHighlight/xhard4": {
+  "timeout": 11,
+  "fail": 9
+ },
+ "PickXtimes/xhard1": {
+  "fail": 20
+ },
+ "PickXtimes/xhard2": {
+  "fail": 20
+ },
+ "PickXtimes/xhard3": {
+  "fail": 20
+ },
+ "PickXtimes/xhard4": {
+  "fail": 20
+ },
+ "RouteStick/xhard1": {
+  "fail": 13,
+  "success": 7
+ },
+ "RouteStick/xhard2": {
+  "success": 7,
+  "fail": 13
+ },
+ "RouteStick/xhard3": {
+  "fail": 20
+ },
+ "RouteStick/xhard4": {
+  "fail": 20
+ },
+ "StopCube/xhard4": {
+  "fail": 20
+ },
+ "SwingXtimes/xhard1": {
+  "success": 16,
+  "fail": 4
+ },
+ "SwingXtimes/xhard2": {
+  "fail": 20
+ },
+ "SwingXtimes/xhard3": {
+  "fail": 20
+ },
+ "SwingXtimes/xhard4": {
+  "fail": 20
+ },
+ "VideoPlaceButton/xhard1": {
+  "fail": 12,
+  "success": 8
+ },
+ "VideoPlaceButton/xhard2": {
+  "success": 8,
+  "fail": 12
+ },
+ "VideoPlaceButton/xhard3": {
+  "fail": 14,
+  "success": 6
+ },
+ "VideoPlaceButton/xhard4": {
+  "fail": 15,
+  "success": 5
+ },
+ "VideoPlaceOrder/xhard1": {
+  "fail": 19,
+  "success": 1
+ },
+ "VideoPlaceOrder/xhard2": {
+  "fail": 19,
+  "success": 1
+ },
+ "VideoPlaceOrder/xhard3": {
+  "timeout": 1,
+  "fail": 15,
+  "success": 4
+ },
+ "VideoPlaceOrder/xhard4": {
+  "fail": 16,
+  "success": 4
+ },
+ "VideoRepick/xhard1": {
+  "fail": 16,
+  "success": 4
+ },
+ "VideoRepick/xhard2": {
+  "success": 10,
+  "fail": 10
+ },
+ "VideoRepick/xhard3": {
+  "fail": 20
+ },
+ "VideoRepick/xhard4": {
+  "fail": 20
+ },
+ "VideoUnmask/xhard1": {
+  "success": 16,
+  "timeout": 1,
+  "fail": 3
+ },
+ "VideoUnmask/xhard2": {
+  "fail": 8,
+  "success": 11,
+  "timeout": 1
+ },
+ "VideoUnmask/xhard3": {
+  "fail": 11,
+  "timeout": 3,
+  "success": 6
+ },
+ "VideoUnmask/xhard4": {
+  "fail": 10,
+  "success": 9,
+  "timeout": 1
+ },
+ "VideoUnmaskSwap/xhard1": {
+  "fail": 19,
+  "success": 1
+ },
+ "VideoUnmaskSwap/xhard2": {
+  "fail": 20
+ },
+ "VideoUnmaskSwap/xhard3": {
+  "fail": 16,
+  "success": 4
+ },
+ "VideoUnmaskSwap/xhard4": {
+  "fail": 19,
+  "timeout": 1
+ }
+}
