@@ -44,6 +44,7 @@ def _own_args():
     ap.add_argument("--only", default="", help="逗号分隔的 task/episode，只评这些（smoke 用）")
     ap.add_argument("--max_attempts", type=int, default=3, help="单身份基础设施 error 的最多尝试次数")
     ap.add_argument("--retry_cap", type=int, default=55, help="本片本轮基础设施 error 重跑合计上限")
+    ap.add_argument("--resume", action="store_true", help="按结果文件里已有正常终态的身份续评（官方 parse_args 无此参数）")
     return ap.parse_known_args()
 
 
@@ -90,7 +91,7 @@ def main() -> int:
     results = out / f"results-r{own.round}-shard{i:02d}of{n:02d}.jsonl"
     done, tries, infra = set(), {}, 0
     if results.exists():
-        if not args.resume:
+        if not own.resume:
             raise FileExistsError(f"{results} 已存在，只能显式 --resume 恢复")
         for line in results.read_text(encoding="utf-8").splitlines():
             if line.strip():
