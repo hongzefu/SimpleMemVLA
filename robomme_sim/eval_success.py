@@ -96,6 +96,15 @@ def parse_args() -> argparse.Namespace:
                          "1 -> one success + one failure example per task; 0 disables.")
     ap.add_argument("--log_file", default=None,
                     help="If set, results.json is placed next to this log path (logs/ convention).")
+    # 以下为 xhard0 清单评估新增参数（给出 --episode_manifest 时生效，不改官方默认路线）
+    ap.add_argument("--episode_manifest", default=None,
+                    help="jsonl，每行 {task, source_episode, seed, shard}：只评这些官方 test 原局（组大小恒为 1）。")
+    ap.add_argument("--shard", default="0/1",
+                    help="i/n：只评清单里 shard==i 的行；n 须等于清单分片数（分片号恰为 0..n-1）。")
+    ap.add_argument("--episode_log", default=None,
+                    help="逐局 jsonl 日志 {task, source_episode, seed, status, task_success, steps, error, elapsed_s, ...}。")
+    ap.add_argument("--resume", action="store_true",
+                    help="清单模式：跳过 --episode_log 里已有终态（success/fail/timeout）的 (task, source_episode)。")
     return ap.parse_args()
 
 
@@ -175,8 +184,12 @@ def build_policy(args):
 
 
 def run_group(args, pool, batched, buffer_factory, normalize_state, task, specs,
-              video_dir=None, video_quota=None):
+              video_dir=None, video_quota=None, details=None, video_path_fn=None):
+    # details：若给出（长度 G 的 list），逐环境填 {status, steps, error, video, video_error}；
+    # video_path_fn：若给出，每局都录像并存到 video_path_fn(spec)，不受 video_quota 约束。两者都不给即官方原行为。
     G = len(specs)
+    if details is not None:
+        details[:] = [dict(status=None, steps=0, error=None, video=None, video_error=None) for _ in range(G)]
     image_keys = list(buffer_factory().image_keys)
     cam_map = {k.split(".")[-1]: k for k in image_keys}
 
@@ -191,6 +204,7 @@ def run_group(args, pool, batched, buffer_factory, normalize_state, task, specs,
 
     record = (video_dir is not None and video_quota is not None
               and (video_quota.get("succ", 0) > 0 or video_quota.get("fail", 0) > 0))
+    record = record or video_path_fn is not None
     recorders = [None] * G
     if record:
         from robomme_sim.video_writer import RolloutVideoRecorder
@@ -199,6 +213,24 @@ def run_group(args, pool, batched, buffer_factory, normalize_state, task, specs,
 
     def save_video(g, ok):
         rec = recorders[g]
+        if video_path_fn is not None:  # 清单模式：每局必存，失败只记 video_error
+            if rec is None or len(rec) == 0:
+                if details is not None:
+                    details[g]["video_error"] = "无帧可存"
+                return
+            out_path = os.path.abspath(video_path_fn(specs[g]))
+            nframes = len(rec)
+            try:
+                if rec.save(out_path):
+                    if details is not None:
+                        details[g]["video"] = out_path
+                    print(f"[eval] saved video: {out_path} ({nframes} frames)", flush=True)
+                elif details is not None:
+                    details[g]["video_error"] = "RolloutVideoRecorder.save 返回 False"
+            except Exception as e:
+                if details is not None:
+                    details[g]["video_error"] = f"{type(e).__name__}: {e}"
+            return
         if rec is None or len(rec) == 0:
             return
         bucket = "succ" if ok else "fail"
@@ -224,6 +256,9 @@ def run_group(args, pool, batched, buffer_factory, normalize_state, task, specs,
     for g in range(G):
         r = resets[g]
         if not (isinstance(r, dict) and r.get("ok")):
+            if details is not None:
+                details[g].update(status="error", error=f"reset 失败：{r}"[:2000])
+                save_video(g, ok=False)
             continue
         reset_ok[g] = True
         buffers[g].reset()
@@ -270,6 +305,8 @@ def run_group(args, pool, batched, buffer_factory, normalize_state, task, specs,
                 success[g] = False
                 if g in active:
                     active.remove(g)
+                    if details is not None:
+                        details[g].update(status="error", error=str(res.get("error") if isinstance(res, dict) else res))
                     save_video(g, ok=False)
                 continue
             for fr in res.get("frames", []):
@@ -279,11 +316,21 @@ def run_group(args, pool, batched, buffer_factory, normalize_state, task, specs,
             if res.get("states"):
                 cur_state[g] = np.asarray(res["states"][-1], dtype=np.float32)
             success[g] = bool(res.get("success", False))
+            if details is not None:
+                details[g]["steps"] += int(res.get("consumed", 0) or 0)
             if res.get("done", False) and g in active:
                 active.remove(g)
+                if details is not None:
+                    # 终态取环境 status；环境 step 出错时 status 为 error 并带 error_message
+                    details[g].update(status=str(res.get("status") or ("success" if success[g] else "fail")),
+                                      error=res.get("error_message"))
                 save_video(g, ok=success[g])
 
     for g in active:
+        if details is not None:
+            # 策略循环决策次数用尽而环境未报终态：按超时记
+            details[g].update(status="success" if success[g] else "timeout",
+                              error=None if success[g] else f"策略循环 hard_bound={hard_bound} 用尽，环境未报终态")
         save_video(g, ok=success[g])
 
     return _results()
@@ -388,6 +435,185 @@ def evaluate_tasks(args, tasks) -> dict:
     return {"per_task": per_task, "n": per_task_n, "oom": per_task_oom}
 
 
+FINAL_STATUSES = ("success", "fail", "timeout")
+MANIFEST_FIELDS = ("task", "source_episode", "seed", "shard")
+
+
+def parse_shard(text: str) -> tuple[int, int]:
+    """解析 ``i/n``，要求 0<=i<n。"""
+    i, n = (int(x) for x in str(text).split("/"))
+    if not (n > 0 and 0 <= i < n):
+        raise ValueError(f"--shard 非法：{text}")
+    return i, n
+
+
+def load_episode_manifest(path: str, shard: str) -> list[dict]:
+    """读 xhard0 清单并按分片取行：字段齐全、(task, source_episode) 不重复、分片号恰为 0..n-1；片内按 (task, source_episode) 排序。"""
+    i, n = parse_shard(shard)
+    rows, seen = [], set()
+    for lineno, line in enumerate(open(path, encoding="utf-8"), 1):
+        if not line.strip():
+            continue
+        row = json.loads(line)
+        missing = [k for k in MANIFEST_FIELDS if k not in row]
+        if missing:
+            raise ValueError(f"清单第 {lineno} 行缺字段 {missing}")
+        for k in ("source_episode", "seed", "shard"):
+            if not isinstance(row[k], int) or isinstance(row[k], bool):
+                raise ValueError(f"清单第 {lineno} 行 {k} 须为整数：{row[k]!r}")
+        if row["task"] not in DEFAULT_TASKS:
+            raise ValueError(f"清单第 {lineno} 行任务未知：{row['task']}")
+        key = (row["task"], row["source_episode"])
+        if key in seen:
+            raise ValueError(f"清单重复局：{key}")
+        seen.add(key)
+        rows.append(row)
+    shards = sorted({r["shard"] for r in rows})
+    if shards != list(range(n)):
+        raise ValueError(f"--shard 的 n={n} 与清单分片 {shards} 不符")
+    return sorted((r for r in rows if r["shard"] == i), key=lambda r: (r["task"], r["source_episode"]))
+
+
+def finished_in_log(path: str | None) -> set:
+    """逐局日志里已有终态（success/fail/timeout）的 (task, source_episode)。"""
+    done = set()
+    if path and os.path.exists(path):
+        for line in open(path, encoding="utf-8"):
+            if line.strip():
+                rec = json.loads(line)
+                if rec.get("status") in FINAL_STATUSES:
+                    done.add((rec["task"], int(rec["source_episode"])))
+    return done
+
+
+def xhard0_video_name(task: str, source_episode: int, seed: int) -> str:
+    return f"{task}_xhard0_{source_episode}_{seed}.mp4"
+
+
+def evaluate_manifest(args) -> int:
+    """清单模式：逐局（组大小恒为 1）跑官方 test 原局，逐局写 --episode_log，每局录像。返回退出码。"""
+    import gc
+    import time
+    import traceback
+
+    from robomme_sim.robomme_env import _setup_robomme_path
+
+    try:
+        rows = load_episode_manifest(args.episode_manifest, args.shard)
+    except ValueError as e:
+        print(f"[eval] MANIFEST_CONFIG_ERROR {e}", flush=True)
+        return 2
+    if not args.episode_log:
+        print("[eval] MANIFEST_CONFIG_ERROR 清单模式必须给 --episode_log", flush=True)
+        return 2
+    if args.dataset_split != "test":  # xhard0 即官方 test 原局
+        print(f"[eval] MANIFEST_CONFIG_ERROR 清单模式只用 --dataset_split test（当前 {args.dataset_split}）", flush=True)
+        return 2
+    if int(args.group_size) != 1:
+        print(f"[eval] 清单模式组大小恒为 1（忽略 --group_size {args.group_size}）", flush=True)
+    # 开跑前逐行核种子：官方 test builder 解析出的 seed 必须等于清单 seed
+    _setup_robomme_path()
+    from robomme.env_record_wrapper import BenchmarkEnvBuilder
+
+    builders = {}
+    for row in rows:
+        if row["task"] not in builders:
+            builders[row["task"]] = BenchmarkEnvBuilder(env_id=row["task"], dataset=args.dataset_split,
+                                                        action_space="joint_angle", max_steps=args.max_steps)
+        seed, _difficulty = builders[row["task"]].resolve_episode(int(row["source_episode"]))
+        if seed != row["seed"]:
+            print(f"[eval] MANIFEST_CONFIG_ERROR 种子不符 {row['task']}/{row['source_episode']}："
+                  f"清单 {row['seed']}，builder {seed}", flush=True)
+            return 2
+    log_path = os.path.abspath(args.episode_log)
+    if os.path.exists(log_path) and not args.resume:
+        print(f"[eval] MANIFEST_CONFIG_ERROR {log_path} 已存在，只能显式 --resume 续评", flush=True)
+        return 2
+    os.makedirs(os.path.dirname(log_path), exist_ok=True)
+    video_dir = os.path.abspath(args.video_dir) if args.video_dir else None
+    if video_dir:
+        os.makedirs(video_dir, exist_ok=True)
+    done = finished_in_log(log_path)
+    pending = [r for r in rows if (r["task"], r["source_episode"]) not in done]
+    print(f"[eval] MANIFEST_START shard={args.shard} rows={len(rows)} done={len(rows) - len(pending)} "
+          f"pending={len(pending)} split={args.dataset_split} max_steps={args.max_steps} "
+          f"log={log_path} video_dir={video_dir or '<关闭>'}", flush=True)
+
+    batched, buffer_factory, normalize_state = build_policy(args)
+
+    def new_pool():
+        p = InProcSimPool(num_envs=1, dataset_split=args.dataset_split, max_steps=args.max_steps,
+                          step_timeout=args.step_timeout, reset_timeout=args.reset_timeout)
+        p.start()
+        return p
+
+    pool = new_pool()
+    for row in pending:
+        started = time.time()
+        rec = dict(task=row["task"], source_episode=row["source_episode"], seed=row["seed"], shard=row["shard"],
+                   status="error", task_success=False, steps=0, error=None, video=None, video_error=None,
+                   max_steps=int(args.max_steps), checkpoint=os.path.abspath(args.pretrained_checkpoint))
+        details: list = []
+        # 每局重置随机种子，使结果与片内顺序、续评断点无关
+        torch.manual_seed(0)
+        np.random.seed(0)
+        vfn = None
+        if video_dir:
+            vfn = lambda spec, row=row: os.path.join(video_dir, xhard0_video_name(row["task"], row["source_episode"], row["seed"]))
+        try:
+            run_group(args, pool, batched, buffer_factory, normalize_state, row["task"],
+                      [{"task": row["task"], "episode": int(row["source_episode"])}],
+                      details=details, video_path_fn=vfn)
+            d = details[0]
+            rec.update(status=d["status"] or "error", steps=d["steps"], error=d["error"],
+                       video=d["video"], video_error=d["video_error"] if video_dir else None)
+        except Exception:
+            rec["error"] = traceback.format_exc()[-2000:]
+            if details:
+                rec.update(steps=details[0]["steps"])
+            print(rec["error"], flush=True)
+            if isinstance(sys.exc_info()[1], torch.cuda.OutOfMemoryError):
+                torch.cuda.empty_cache()
+                gc.collect()
+        if rec["status"] not in FINAL_STATUSES + ("error",):
+            rec.update(status="error", error=f"未知终态 {rec['status']}；{rec['error']}")
+        rec["task_success"] = rec["status"] == "success"
+        rec["elapsed_s"] = round(time.time() - started, 1)
+        with open(log_path, "a", encoding="utf-8") as fh:
+            fh.write(json.dumps(rec, ensure_ascii=False, sort_keys=True) + "\n")
+        print(f"[eval] EPISODE_END {row['task']}/{row['source_episode']} seed={row['seed']} status={rec['status']} "
+              f"steps={rec['steps']} video={rec['video'] or rec['video_error']} elapsed={rec['elapsed_s']}s", flush=True)
+        if rec["status"] == "error":  # error 后重建环境池，避免残留状态
+            try:
+                pool.close()
+            except Exception:
+                pass
+            pool = new_pool()
+    pool.close()
+
+    done = finished_in_log(log_path)
+    mine = [(r["task"], r["source_episode"]) for r in rows]
+    final = {}
+    for line in open(log_path, encoding="utf-8"):
+        if line.strip():
+            r = json.loads(line)
+            k = (r["task"], int(r["source_episode"]))
+            if k in set(mine) and (k not in final or final[k]["status"] not in FINAL_STATUSES):
+                final[k] = r
+    unresolved = [k for k in mine if k not in done]
+    per_task, n_map = {}, {}
+    for task in sorted({t for t, _ in mine}):
+        vals = [final[k]["status"] == "success" for k in mine if k[0] == task and k in done]
+        per_task[task] = float(np.mean(vals)) if vals else None
+        n_map[task] = len(vals)
+    tasks = sorted(per_task)
+    _print_summary({"per_task": per_task, "n": n_map, "oom": {}}, tasks)
+    print(f"[eval] MANIFEST_DONE shard={args.shard} rows={len(mine)} final={len(mine) - len(unresolved)} "
+          f"success={sum(final[k]['status'] == 'success' for k in mine if k in done)} unresolved={len(unresolved)}",
+          flush=True)
+    return 0 if not unresolved else 3
+
+
 def _partition(items, n):
     buckets: list[list] = [[] for _ in range(n)]
     for i, item in enumerate(items):
@@ -483,6 +709,14 @@ def main():
     args = parse_args()
     tasks = args.tasks if args.tasks else DEFAULT_TASKS
     _validate_pipelined_horizon(args)
+    if args.episode_manifest:  # xhard0 清单模式：单 GPU、组大小 1、逐局日志与录像
+        if int(args.num_gpus) != 1:
+            print("[eval] MANIFEST_CONFIG_ERROR 清单模式只支持 --num_gpus 1", flush=True)
+            sys.stdout.flush()
+            os._exit(2)
+        code = evaluate_manifest(args)
+        sys.stdout.flush()
+        os._exit(code)
     print(f"[eval] split={args.dataset_split}, episodes_per_task<={args.episodes_per_task} "
           f"(official frozen benchmark episodes; no seed search).", flush=True)
 
